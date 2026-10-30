@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant theme-dark (&:where(.theme-dark, .theme-dark *));
+
+@theme {
+    --color-dark-background: #202124;
+}
 
 @layer base {
     h1 {
@@ -19,7 +23,7 @@
     h4 {
         @apply text-lg font-semibold;
     }
- 
+
     h5 {
         @apply text-base font-semibold;
     }
@@ -27,8 +31,4 @@
     h6 {
         @apply text-sm font-semibold;
     }
-}
-
-@theme {
-    --color-dark-background: #202124;
 }

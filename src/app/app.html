@@ -1,7 +1,8 @@
 <nav class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1.5">
-        <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <span class="self-center text-xl text-heading font-semibold whitespace-nowrap"
+        <a routerLink="/" class="flexitems-center space-x-3 rtl:space-x-reverse">
+            <span
+                class="self-center theme-dark:text-white text-xl text-heading font-semibold whitespace-nowrap"
                 >NG TW CSS V4</span
             >
         </a>
@@ -40,29 +41,35 @@
             <ul
                 class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-default rounded-base bg-neutral-secondary-soft md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-neutral-primary"
             >
-                <li>
+                <li class="flex items-center">
                     <a
                         routerLink="/button"
-                        class="block py-2 px-3 bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0"
+                        class="theme-dark:text-white block py-2 px-3 bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0"
                         aria-current="page"
                         >Buttons</a
                     >
                 </li>
-                <li>
+                <li class="flex items-center">
                     <a
                         routerLink="/flex"
-                        class="block py-2 px-3 bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0"
+                        class="theme-dark:text-white block py-2 px-3 bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0"
                         aria-current="page"
                         >Flex</a
                     >
                 </li>
-                <li>
+                <li class="flex items-center">
                     <a
                         routerLink="/theme"
-                        class="block py-2 px-3 bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0"
+                        class="theme-dark:text-white block py-2 px-3 bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0"
                         aria-current="page"
                         >Theme</a
                     >
+                </li>
+                <li class="flex items-center">
+                    <select [formControl]="themeControl" class="bg-amber-300 rounded-md px-3 py-1">
+                        <option value="theme-light">Light</option>
+                        <option value="theme-dark">Dark</option>
+                    </select>
                 </li>
             </ul>
         </div>
