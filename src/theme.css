@@ -1,11 +1,11 @@
 .partner-a {
-    --partner-primary: var(text-red-600);
-    --partner-secondary: var(text-red-500);
-    --partner-background: var(text-red-950);
+    --partner-primary: var(--color-red-600);
+    --partner-secondary: var(--color-red-400);
+    --partner-background: var(--color-red-950);
 }
 
 .partner-b {
-    --partner-primary: var(text-blue-600);
-    --partner-secondary: var(text-blue-500);
-    --partner-background: var(text-blue-950);
+    --partner-primary: var(--color-blue-600);
+    --partner-secondary: var(--color-blue-500);
+    --partner-background: var(--color-blue-950);
 }

@@ -3,13 +3,19 @@
 
 @custom-variant theme-dark (&:where(.theme-dark, .theme-dark *));
 
-@theme {
+
+@theme inline {
     --color-dark-background: #202124;
+
+    --color-primary: var(--partner-primary);
+    --color-secondary: var(--partner-secondary);
+    --color-background: var(--partner-background);
 }
+
 
 @layer base {
     h1 {
-        font-size:40px;
+        font-size: 40px;
         /* @apply text-3xl font-bold text-red-600; */
     }
 
