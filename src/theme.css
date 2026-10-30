@@ -1,14 +1,11 @@
-@import "tailwindcss";
-
-
 .partner-a {
-    --partner-primary: @apply text-red-600;
-    --partner-secondary: @apply text-red-500;
-    --partner-background: @apply text-red-950
+    --partner-primary: var(text-red-600);
+    --partner-secondary: var(text-red-500);
+    --partner-background: var(text-red-950);
 }
 
 .partner-b {
-    --partner-primary: @apply text-blue-600;
-    --partner-secondary: @apply text-blue-500;
-    --partner-background: @apply text-blue-950;
+    --partner-primary: var(text-blue-600);
+    --partner-secondary: var(text-blue-500);
+    --partner-background: var(text-blue-950);
 }

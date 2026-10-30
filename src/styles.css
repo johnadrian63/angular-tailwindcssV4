@@ -9,7 +9,8 @@
 
 @layer base {
     h1 {
-        @apply text-3xl font-bold;
+        font-size:40px;
+        /* @apply text-3xl font-bold text-red-600; */
     }
 
     h2 {
