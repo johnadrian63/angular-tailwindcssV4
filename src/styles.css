@@ -1,7 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 
-@custom-variant theme-dark (&:where(.theme-dark, .theme-dark *));
+:root {
+    color-scheme: light;
+    --surface: #ffffff;
+    --foreground: #202124;
+}
+
+/* Dark mode */
+:root.dark {
+    color-scheme: dark;
+    --surface: #202124;
+    --foreground: #ffffff;
+}
+
+/* System preference */
+@media (prefers-color-scheme: dark) {
+    :root:not(.dark):not(.light) {
+        color-scheme: dark;
+        --surface: #202124;
+        --foreground: #ffffff;
+    }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 
 @theme inline {
@@ -16,7 +38,7 @@
 @layer base {
     h1 {
         font-size: 40px;
-        /* @apply text-3xl font-bold text-red-600; */
+        @apply text-3xl font-bold;
     }
 
     h2 {

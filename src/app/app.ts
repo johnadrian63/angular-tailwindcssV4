@@ -11,15 +11,15 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class App implements OnInit {
     private readonly document: Document = inject<Document>(DOCUMENT);
 
-    public readonly themeControl = new FormControl("theme-light");
+    public readonly themeControl = new FormControl("light");
 
     public ngOnInit(): void {
-        this.document.documentElement.classList.add("theme-light");
+        this.document.documentElement.classList.add("light");
 
         this.themeControl
             .valueChanges
             .subscribe((value) => {
-                this.document.documentElement.classList.remove("theme-light", "theme-dark");
+                this.document.documentElement.classList.remove("light", "dark");
 
                 if (value) {
                     this.document.documentElement.classList.add(value);
