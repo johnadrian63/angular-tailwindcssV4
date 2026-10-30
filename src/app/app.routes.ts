@@ -1,12 +1,19 @@
 import { Routes } from '@angular/router';
 
-import { dashboardRoutes } from "./features/dashboard/dashboard.routes";
+import { buttonRoutes } from "./features/button/button.routes";
+import { themeRoutes } from "./features/theme/theme.routes";
 
 export const routes: Routes = [
     {
-        path: "dashboard",
+        path: "button",
         children: [
-            ...dashboardRoutes
+            ...buttonRoutes
+        ]
+    },
+    {
+        path: "theme",
+        children: [
+            ...themeRoutes
         ]
     }
 ];
