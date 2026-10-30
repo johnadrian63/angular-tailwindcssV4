@@ -1,3 +1,12 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { dashboardRoutes } from "./features/dashboard/dashboard.routes";
+
+export const routes: Routes = [
+    {
+        path: "dashboard",
+        children: [
+            ...dashboardRoutes
+        ]
+    }
+];
