@@ -14,15 +14,29 @@ export class App implements OnInit {
     public readonly themeControl = new FormControl("light");
 
     public ngOnInit(): void {
-        this.document.documentElement.classList.add("light");
+        const themeKey = "theme";
+        const defaultTheme = "system";
+        let theme = localStorage.getItem(themeKey);
+
+        if (theme === null) {
+            theme = defaultTheme;
+
+            localStorage.setItem(themeKey, defaultTheme);
+        }
+
+        this.document.documentElement.classList.add(theme);
+
+        this.themeControl.setValue(theme);
 
         this.themeControl
             .valueChanges
-            .subscribe((value) => {
+            .subscribe((value: string | null) => {
                 this.document.documentElement.classList.remove("light", "dark");
 
                 if (value) {
                     this.document.documentElement.classList.add(value);
+
+                    localStorage.setItem(themeKey, value);
                 }
             });
     }
