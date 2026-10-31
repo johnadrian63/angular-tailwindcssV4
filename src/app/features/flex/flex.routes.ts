@@ -13,6 +13,18 @@ export const flexRoutes: Routes = [
             {
                 path: "basic",
                 loadComponent: () => import("./basic/flex.basic").then((c) => c.FlexBasic),
+            },
+            {
+                path: "justify",
+                loadComponent: () => import("./justify/flex.justify").then((c) => c.FlexJustify),
+            },
+            {
+                path: "align",
+                loadComponent: () => import("./align/flex.align").then((c) => c.FlexAlign),
+            },
+            {
+                path: "gap",
+                loadComponent: () => import("./gap/flex.gap").then((c) => c.FlexGap),
             }
         ]
     }

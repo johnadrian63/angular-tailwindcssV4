@@ -1,0 +1,92 @@
+<h2 class="text-center my-3">
+    <span class="font-bold mr-1.5">Justify</span>
+    <small>(Parent Properties)</small>
+</h2>
+<h2>Justify Content Center</h2>
+<pre class="p-2 border my-1">
+flex justify-center
+</pre>
+<div class="flex justify-center border-4 border-red-500 mb-4">
+    @for (item of getRange(5); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+<h2>Justify Content Center (If Have More Items)</h2>
+<pre class="p-2 border my-1">
+flex justify-center
+</pre>
+<div class="flex justify-center border-4 border-red-500 mb-4">
+    @for (item of getRange(33); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Center Safe (If Have More Items)</h2>
+<pre class="p-2 border my-1">
+flex justify-center-safe
+</pre>
+<div class="flex justify-center-safe border-4 border-red-500 mb-4">
+    @for (item of getRange(22); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Start</h2>
+<pre class="p-2 border my-1">
+flex justify-start
+</pre>
+<div class="flex justify-start border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content End</h2>
+<pre class="p-2 border my-1">
+flex justify-end
+</pre>
+<div class="flex justify-end border-4 border-red-500 mb-4">
+    @for (item of getRange(10); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content End Safe</h2>
+<pre class="p-2 border my-1">
+flex justify-end-safe
+</pre>
+<div class="flex justify-end-safe border-4 border-red-500 mb-4">
+    @for (item of getRange(22); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Between</h2>
+<pre class="p-2 border my-1">
+flex justify-between
+</pre>
+<div class="flex justify-between border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Around</h2>
+<pre class="p-2 border my-1">
+flex justify-around
+</pre>
+<div class="flex justify-around border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Even</h2>
+<pre class="p-2 border my-1">
+flex justify-even
+</pre>
+<div class="flex justify-evenly border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>

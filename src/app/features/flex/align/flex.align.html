@@ -1,0 +1,72 @@
+<h2 class="text-center my-3">
+    <span class="font-bold mr-1.5">Align</span>
+    <small>(Parent Properties)</small>
+</h2>
+<h2>Align Content Start</h2>
+<pre class="p-2 border my-1">
+flex flex-wrap content-start h-30
+</pre>
+<div class="flex flex-wrap content-start h-30 border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+<h2>Align Content Center</h2>
+<pre class="p-2 border my-1">
+flex flex-wrap content-center h-30
+</pre>
+<div class="flex flex-wrap content-center h-30 border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Align Content End</h2>
+<pre class="p-2 border my-1">
+flex flex-wrap content-end h-30
+</pre>
+<div class="flex flex-wrap content-end h-30 border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Align Content Stretch</h2>
+<pre class="p-2 border my-1">
+flex flex-wrap content-stretch h-50
+</pre>
+<div class="flex flex-wrap content-stretch h-50 border-4 border-red-500 mb-4">
+    @for (item of getRange(30); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Align Content Between</h2>
+<pre class="p-2 border my-1">
+flex flex-wrap content-between h-60
+</pre>
+<div class="flex flex-wrap content-between h-60 border-4 border-red-500 mb-4">
+    @for (item of getRange(33); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Align Content Evenly</h2>
+<pre class="p-2 border my-1">
+flex flex-wrap content-evenly h-70
+</pre>
+<div class="flex flex-wrap content-evenly h-70 border-4 border-red-500 mb-4">
+    @for (item of getRange(33); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Align Content Around</h2>
+<pre class="p-2 border my-1">
+flex flex-wrap content-around h-70
+</pre>
+<div class="flex flex-wrap content-around h-70 border-4 border-red-500 mb-4">
+    @for (item of getRange(33); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
