@@ -1,0 +1,51 @@
+<h2 class="mb-2">Basic Flex</h2>
+<h2>Flex Row</h2>
+<div class="flex flex-row border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+    <!-- <div class="border p-4">Card B</div> -->
+</div>
+
+<h2>Flex Row Reverse</h2>
+<div class="flex flex-row-reverse border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Flex Column</h2>
+<div class="flex flex-col border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Flex Column Reverse</h2>
+<div class="flex flex-col-reverse border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Flex Wrap</h2>
+<div class="flex flex-wrap border-4 border-red-500 mb-4">
+    @for (item of getRange(20); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Flex Wrap Reverse</h2>
+<div class="flex flex-wrap-reverse border-4 border-red-500 mb-4">
+    @for (item of getRange(20); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Flex No Wrap</h2>
+<div class="flex flex-nowrap border-4 border-red-500 mb-4">
+    @for (item of getRange(20); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
