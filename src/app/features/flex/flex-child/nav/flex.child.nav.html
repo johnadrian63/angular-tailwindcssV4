@@ -7,10 +7,24 @@
         >Self Align</a
     >
     <a
+        routerLink="align-items"
+        [relativeTo]="activatedRoute.parent"
+        routerLinkActive="underline"
+        class="font-semibold hover:underline"
+        >Align Items</a
+    >
+    <a
         routerLink="grow"
         [relativeTo]="activatedRoute.parent"
         routerLinkActive="underline"
         class="font-semibold hover:underline"
         >Grow</a
+    >
+    <a
+        routerLink="shrink"
+        [relativeTo]="activatedRoute.parent"
+        routerLinkActive="underline"
+        class="font-semibold hover:underline"
+        >Shrink</a
     >
 </div>

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FlexChildSidebar } from "./flex.child.sidebar";
+import { FlexChildNav } from "./flex.child.nav";
 
-describe("FlexChildSidebar", () => {
-    let component: FlexChildSidebar;
-    let fixture: ComponentFixture<FlexChildSidebar>;
+describe("FlexChildNav", () => {
+    let component: FlexChildNav;
+    let fixture: ComponentFixture<FlexChildNav>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [FlexChildSidebar],
+            imports: [FlexChildNav],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(FlexChildSidebar);
+        fixture = TestBed.createComponent(FlexChildNav);
         component = fixture.componentInstance;
         await fixture.whenStable();
     });

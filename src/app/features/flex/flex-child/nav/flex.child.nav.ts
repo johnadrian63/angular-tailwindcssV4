@@ -3,10 +3,10 @@ import { ActivatedRoute, RouterModule } from "@angular/router";
 
 @Component({
     imports: [RouterModule],
-    selector: "app-flex.parent.sidebar",
-    styleUrl: "./flex.parent.sidebar.css",
-    templateUrl: "./flex.parent.sidebar.html",
+    selector: "app-flex-child-nav",
+    styleUrl: "./flex.child.nav.css",
+    templateUrl: "./flex.child.nav.html",
 })
-export class FlexParentSidebar {
+export class FlexChildNav {
     public readonly activatedRoute: ActivatedRoute = inject<ActivatedRoute>(ActivatedRoute);
 }

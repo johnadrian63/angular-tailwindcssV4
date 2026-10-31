@@ -12,6 +12,7 @@ export const flexRoutes: Routes = [
             },
             {
                 path: "parent",
+                loadComponent: () => import("./flex-parent/flex.parent").then((c) => c.FlexParent),
                 children: [
                     {
                         path: "",
@@ -41,12 +42,13 @@ export const flexRoutes: Routes = [
                     {
                         path: "",
                         outlet: "flex-nav",
-                        loadComponent: () => import("./flex-parent-sidebar/flex.parent.sidebar").then((c) => c.FlexParentSidebar),
+                        loadComponent: () => import("./flex-parent/nav/flex.parent.nav").then((c) => c.FlexParentNav),
                     }
                 ]
             },
             {
                 path: "child",
+                loadComponent: () => import("./flex-child/flex.child").then((c) => c.FlexChild),
                 children: [
                     {
                         path: "",
@@ -58,13 +60,21 @@ export const flexRoutes: Routes = [
                         loadComponent: () => import("./self-align/flex.self.align").then((c) => c.FlexSelfAlign),
                     },
                     {
+                        path: "align-items",
+                        loadComponent: () => import("./align-items/flex.align.items").then((c) => c.FlexAlignItems),
+                    },
+                    {
                         path: "grow",
                         loadComponent: () => import("./grow/flex.grow").then((c) => c.FlexGrow),
                     },
                     {
+                        path: "shrink",
+                        loadComponent: () => import("./shrink/flex.shrink").then((c) => c.FlexShrink),
+                    },
+                    {
                         path: "",
                         outlet: "flex-nav",
-                        loadComponent: () => import("./flex-child-sidebar/flex.child.sidebar").then((c) => c.FlexChildSidebar),
+                        loadComponent: () => import("./flex-child/nav/flex.child.nav").then((c) => c.FlexChildNav),
                     }
                 ]
             }
