@@ -58,6 +58,10 @@ export const flexRoutes: Routes = [
                         loadComponent: () => import("./self-align/flex.self.align").then((c) => c.FlexSelfAlign),
                     },
                     {
+                        path: "grow",
+                        loadComponent: () => import("./grow/flex.grow").then((c) => c.FlexGrow),
+                    },
+                    {
                         path: "",
                         outlet: "flex-nav",
                         loadComponent: () => import("./flex-child-sidebar/flex.child.sidebar").then((c) => c.FlexChildSidebar),
