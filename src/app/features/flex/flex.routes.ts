@@ -25,6 +25,10 @@ export const flexRoutes: Routes = [
             {
                 path: "gap",
                 loadComponent: () => import("./gap/flex.gap").then((c) => c.FlexGap),
+            },
+            {
+                path: "basis",
+                loadComponent: () => import("./basis/flex.basis").then((c) => c.FlexBasis),
             }
         ]
     }
