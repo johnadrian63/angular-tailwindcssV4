@@ -49,3 +49,79 @@
     }
 </div>
 
+<h2>Flex Row + Flex Wrap</h2>
+<div class="flex flex-row flex-wrap h-64 border-4 border-red-500 mb-4">
+    @for (item of getRange(20); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Flex Col + Flex Wrap</h2>
+<div class="flex flex-col flex-wrap h-64 border-4 border-red-500 mb-4">
+    @for (item of getRange(30); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Center</h2>
+<div class="flex justify-center border-4 border-red-500 mb-4">
+    @for (item of getRange(22); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Center Safe</h2>
+<div class="flex justify-center-safe border-4 border-red-500 mb-4">
+    @for (item of getRange(22); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Start</h2>
+<div class="flex justify-start border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Center</h2>
+<div class="flex justify-center border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content End</h2>
+<div class="flex justify-end border-4 border-red-500 mb-4">
+    @for (item of getRange(10); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content End Safe</h2>
+<div class="flex justify-end-safe border-4 border-red-500 mb-4">
+    @for (item of getRange(22); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content Between</h2>
+<div class="flex justify-between border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content  Around</h2>
+<div class="flex justify-around border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
+
+<h2>Justify Content  Even</h2>
+<div class="flex justify-evenly border-4 border-red-500 mb-4">
+    @for (item of getRange(3); track $index) {
+        <div class="border-4 border-blue-600 p-4">Card {{ $index }}</div>
+    }
+</div>
