@@ -99,6 +99,23 @@
         </div>
     </div>
 </nav>
-<div class="mt-16">
+<div class="mt-16 relative">
+    @if (loading()) {
+        <div
+            class="flex gap-2 absolute w-full justify-center -top-4"
+            role="status"
+            aria-label="Loading"
+        >
+            <span class="size-3 animate-pulse rounded-full bg-indigo-600" aria-hidden="true"></span>
+            <span
+                class="size-3 animate-pulse rounded-full bg-indigo-600 [animation-delay:0.2s]"
+                aria-hidden="true"
+            ></span>
+            <span
+                class="size-3 animate-pulse rounded-full bg-indigo-600 [animation-delay:0.4s]"
+                aria-hidden="true"
+            ></span>
+        </div>
+    }
     <router-outlet></router-outlet>
 </div>
