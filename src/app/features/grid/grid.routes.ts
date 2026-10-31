@@ -13,6 +13,10 @@ export const gridRoutes: Routes = [
             {
                 path: "basic",
                 loadComponent: () => import("./basic/grid.basic").then((c) => c.GridBasic),
+            },
+            {
+                path: "grid-column",
+                loadComponent: () => import("./grid-column/grid.column").then((c) => c.GridColumn),
             }
         ]
     }

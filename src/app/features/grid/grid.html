@@ -1,1 +1,23 @@
-<p>grid works!</p>
+<div class="flex gap-x-3 justify-center items-center">
+    <a
+        routerLink="basic"
+        [relativeTo]="activatedRoute.parent"
+        routerLinkActive="underline"
+        class="font-semibold hover:underline"
+        >Grid</a
+    >
+    <a
+        routerLink="grid-column"
+        [relativeTo]="activatedRoute.parent"
+        routerLinkActive="underline"
+        class="font-semibold hover:underline"
+        >Grid Column</a
+    >
+</div>
+
+<div class="p-4">
+    <h1>
+        <span class="font-bold mr-2">Grid</span>
+    </h1>
+    <router-outlet></router-outlet>
+</div>
