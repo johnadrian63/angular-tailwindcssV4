@@ -1,8 +1,62 @@
-<div class="grid grid-ro1ws-3 border">
-    <div class="border">header</div>
-    <div class="grid grid-cols-[250px_1fr] border">
-        <div class="border">Sidebar</div>
+<div class="grid min-h-screen grid-rows-[auto_1fr_auto] border">
+    <header class="sticky flex items-center top-0 bg-white z-10 border py-2">
         <div class="border">
+            <a routerLink="template1" [relativeTo]="activatedRoute.parent">Template 1</a>
+        </div>
+        <nav class="border border-red-500">
+            <ul class="flex flex-row gap-x-3 border-blue-500 border-2">
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+                <li>
+                    <a routerLink="template1" [relativeTo]="activatedRoute.parent">Link</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="border ml-auto px-2">P</div>
+    </header>
+    <div class="grid grid-cols-[250px_1fr] border">
+        <aside class="border">Sidebar</aside>
+        <main class="border">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id erat turpis. Quisque
             vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec dictum luctus
             maximus. Nunc bibendum quam dignissim egestas porta. Nullam porta, ex ac interdum
@@ -18,29 +72,49 @@
             ex turpis quis tortor. Curabitur rhoncus diam vitae gravida ullamcorper. Quisque non
             nunc urna. Morbi quis massa in purus porttitor ultricies eget sit amet ligula. Aenean
             varius enim in ante vestibulum viverra in eget orci. Fusce lacinia porttitor leo id
-            mattis. Aenean convallis ligula in lorem sollicitudin fermentum. Vestibulum fringilla
-            dolor dolor, at gravida risus congue congue. Pellentesque lobortis bibendum efficitur.
-            Sed in imperdiet metus, in vulputate augue. Etiam vestibulum vulputate erat, rhoncus
-            varius purus. Vivamus rutrum velit in felis placerat, in consectetur nisi vulputate.
-            Proin sed nulla at erat blandit ornare. Aenean mattis cursus quam, et consectetur orci
-            porta luctus. Duis sed consequat turpis. Nullam in vehicula lorem. Mauris rhoncus
-            consequat nisi, id commodo purus pulvinar vel. Cras nec neque nec risus porta
-            consectetur. Nullam rutrum imperdiet molestie. Integer id varius lectus. Aliquam
-            tincidunt a nibh at vestibulum. Curabitur purus magna, placerat ut urna vel, cursus
-            tristique turpis. In tortor elit, ultricies id tincidunt vitae, finibus sed justo. Duis
-            auctor sollicitudin dolor, vel volutpat enim. Sed volutpat gravida fringilla. Nunc elit
-            dolor, consequat nec sodales at, auctor ac mauris. Aenean tempus erat velit, ac euismod
-            mi mollis ut. Vivamus ac elit pulvinar dui ultrices laoreet. Sed non lectus
-            sollicitudin, vestibulum nunc quis, fringilla sem. Integer feugiat rhoncus metus quis
-            dictum. Quisque sed sapien et arcu feugiat dictum et eu ex. Ut sit amet gravida lectus.
-            Aliquam suscipit posuere cursus. Mauris quis commodo orci. Phasellus vel tortor
-            lobortis, pretium ligula vitae, varius est. Ut luctus vel massa eu tincidunt. Sed
-            volutpat dignissim sollicitudin. Sed sit amet dolor mi. Proin euismod tincidunt
-            porttitor. Suspendisse non sollicitudin nulla. Quisque rhoncus tristique velit. Vivamus
-            ac est sit amet ligula blandit hendrerit in et magna. Sed blandit quam aliquam eros
-            faucibus lobortis. Pellentesque ut erat nec mauris pulvinar malesuada id consequat nisl.
-            Nullam efficitur faucibus justo, vel feugiat sem condimentum congue.
-        </div>
+            vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec dictum luctus
+            maximus. Nunc bibendum quam dignissim egestas porta. Nullam porta, ex ac interdum
+            suscipit, massa ligula imperdiet diam, id luctus erat diam in nunc. Vivamus faucibus est
+            eros, sit amet congue tellus dapibus eget. Maecenas ornare massa faucibus nisi aliquet,
+            id sodales diam aliquam. Pellentesque ullamcorper non turpis et tincidunt. Ut ultricies
+            turpis in risus mollis, sed maximus augue condimentum. Ut vulputate risus ut nisl
+            fermentum lobortis. Donec sagittis ipsum vitae ipsum porttitor, ac viverra massa
+            interdum. Ut ut purus metus. Donec consequat eu sem sollicitudin imperdiet. Integer
+            rhoncus posuere nisl venenatis tristique. Nunc eget quam nec ex pretium convallis a
+            vitae orci. Pellentesque dictum ipsum non porttitor porttitor. Mauris nec imperdiet
+            purus. Mauris consequat, ipsum id consequat tristique, justo erat cursus ex, ac feugiat
+            ex turpis quis tortor. Curabitur rhoncus diam vitae gravida ullamcorper. Quisque non
+            nunc urna. Morbi quis massa in purus porttitor ultricies eget sit amet ligula. Aenean
+            varius enim in ante vestibulum viverra in eget orci. Fusce lacinia porttitor leo id
+            vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec dictum luctus
+            maximus. Nunc bibendum quam dignissim egestas porta. Nullam porta, ex ac interdum
+            suscipit, massa ligula imperdiet diam, id luctus erat diam in nunc. Vivamus faucibus est
+            eros, sit amet congue tellus dapibus eget. Maecenas ornare massa faucibus nisi aliquet,
+            id sodales diam aliquam. Pellentesque ullamcorper non turpis et tincidunt. Ut ultricies
+            turpis in risus mollis, sed maximus augue condimentum. Ut vulputate risus ut nisl
+            fermentum lobortis. Donec sagittis ipsum vitae ipsum porttitor, ac viverra massa
+            interdum. Ut ut purus metus. Donec consequat eu sem sollicitudin imperdiet. Integer
+            rhoncus posuere nisl venenatis tristique. Nunc eget quam nec ex pretium convallis a
+            vitae orci. Pellentesque dictum ipsum non porttitor porttitor. Mauris nec imperdiet
+            purus. Mauris consequat, ipsum id consequat tristique, justo erat cursus ex, ac feugiat
+            ex turpis quis tortor. Curabitur rhoncus diam vitae gravida ullamcorper. Quisque non
+            nunc urna. Morbi quis massa in purus porttitor ultricies eget sit amet ligula. Aenean
+            varius enim in ante vestibulum viverra in eget orci. Fusce lacinia porttitor leo id
+            vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec dictum luctus
+            maximus. Nunc bibendum quam dignissim egestas porta. Nullam porta, ex ac interdum
+            suscipit, massa ligula imperdiet diam, id luctus erat diam in nunc. Vivamus faucibus est
+            eros, sit amet congue tellus dapibus eget. Maecenas ornare massa faucibus nisi aliquet,
+            id sodales diam aliquam. Pellentesque ullamcorper non turpis et tincidunt. Ut ultricies
+            turpis in risus mollis, sed maximus augue condimentum. Ut vulputate risus ut nisl
+            fermentum lobortis. Donec sagittis ipsum vitae ipsum porttitor, ac viverra massa
+            interdum. Ut ut purus metus. Donec consequat eu sem sollicitudin imperdiet. Integer
+            rhoncus posuere nisl venenatis tristique. Nunc eget quam nec ex pretium convallis a
+            vitae orci. Pellentesque dictum ipsum non porttitor porttitor. Mauris nec imperdiet
+            purus. Mauris consequat, ipsum id consequat tristique, justo erat cursus ex, ac feugiat
+            ex turpis quis tortor. Curabitur rhoncus diam vitae gravida ullamcorper. Quisque non
+            nunc urna. Morbi quis massa in purus porttitor ultricies eget sit amet ligula. Aenean
+            varius enim in ante vestibulum viverra in eget orci. Fusce lacinia porttitor leo id
+        </main>
     </div>
     <div class="border">footer</div>
 </div>
