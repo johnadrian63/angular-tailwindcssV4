@@ -6,8 +6,4 @@ import { Component } from "@angular/core";
     styleUrl: "./flex.basis.css",
     templateUrl: "./flex.basis.html",
 })
-export class FlexBasis {
-    public getRange(range: number): any[] {
-        return [...Array(range).keys()];
-    }
-}
+export class FlexBasis { }

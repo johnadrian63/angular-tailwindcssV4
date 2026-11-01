@@ -17,6 +17,14 @@ export const gridRoutes: Routes = [
             {
                 path: "grid-column",
                 loadComponent: () => import("./grid-column/grid.column").then((c) => c.GridColumn),
+            },
+            {
+                path: "grid-row",
+                loadComponent: () => import("./grid-row/grid.row").then((c) => c.GridRow),
+            },
+            {
+                path: "grid-flow",
+                loadComponent: () => import("./grid-flow/grid.flow").then((c) => c.GridFlow),
             }
         ]
     }
