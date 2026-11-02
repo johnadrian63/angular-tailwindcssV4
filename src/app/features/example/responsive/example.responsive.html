@@ -1,0 +1,120 @@
+<div class="grid h-screen grid-rows-[auto_minmax(0,1fr)] border">
+    <header class="flex sticky items-center top-0 bg-white z-10 border p-2">
+        <div class="border mr-2">
+            <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Logo</a>
+        </div>
+        <nav class="border border-red-500">
+            <ul class="flex flex-row gap-x-3 border-blue-500 border-2">
+                <li>
+                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Dashboard</a>
+                </li>
+                <li>
+                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Accounts</a>
+                </li>
+                <li>
+                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Products</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="border ml-auto px-2">P</div>
+    </header>
+    <div class="grid grid-cols-[250px_1fr_auto] border">
+        <aside class="border min-h-0 overflow-y-auto">
+            <ul class="flex flex-col border-blue-500 border-2">
+                @for (item of getRange(34); track $index) {
+                    <li>
+                        <a routerLink="responsive" [relativeTo]="activatedRoute.parent"
+                            >Link {{ $index + 1 }}</a
+                        >
+                    </li>
+                }
+            </ul>
+        </aside>
+        <main class="border flex flex-col min-w-0 min-h-0 overflow-y-auto px-3">
+            <div class="mb-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id erat turpis.
+                Quisque vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec
+                dictum luctus maximus. Nunc bibendum quam dignissim egestas porta. Nullam porta, ex
+                ac interdum suscipit, massa ligula imperdiet diam, id luctus erat diam in nunc.
+                Vivamus faucibus est eros, sit amet congue tellus dapibus eget. Maecenas ornare
+                massa faucibus nisi aliquet, id sodales diam aliquam. Pellentesque ullamcorper non
+                turpis et tincidunt. Ut ultricies turpis in risus mollis, sed maximus augue
+                condimentum. Ut vulputate risus ut nisl fermentum lobortis. Donec sagittis ipsum
+                vitae ipsum porttitor, ac viverra massa interdum. Ut ut purus metus. Donec consequat
+                eu sem sollicitudin imperdiet. Integer rhoncus posuere nisl venenatis tristique.
+                Nunc eget quam nec ex pretium convallis a vitae orci. Pellentesque dictum ipsum non
+                porttitor porttitor. Mauris nec imperdiet Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Aliquam id erat turpis. Quisque vitae mattis eros. Curabitur at est
+                magna. Nulla sed mollis lacus. Donec dictum luctus maximus. Nunc bibendum quam
+                dignissim egestas porta. Nullam porta, ex ac interdum suscipit, massa ligula
+                imperdiet diam, id luctus erat diam in nunc. Vivamus faucibus est eros, sit amet
+                congue tellus dapibus eget. Maecenas ornare massa faucibus nisi aliquet, id sodales
+                diam aliquam. Pellentesque ullamcorper non turpis et tincidunt. Ut ultricies turpis
+                in risus mollis, sed maximus augue condimentum. Ut vulputate risus ut nisl fermentum
+                lobortis. Donec sagittis ipsum vitae ipsum porttitor, ac viverra massa interdum. Ut
+                ut purus metus. Donec consequat eu sem sollicitudin imperdiet. Integer rhoncus
+                posuere nisl venenatis tristique. Nunc eget quam nec ex pretium convallis a vitae
+                orci. Pellentesque dictum ipsum non porttitor porttitor. Mauris nec imperdiet Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id erat turpis. Quisque
+                vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec dictum
+                luctus maximus. Nunc bibendum quam dignissim egestas porta. Nullam porta, ex ac
+                interdum suscipit, massa ligula imperdiet diam, id luctus erat diam in nunc. Vivamus
+                faucibus est eros, sit amet congue tellus dapibus eget. Maecenas ornare massa
+                faucibus nisi aliquet, id sodales diam aliquam. Pellentesque ullamcorper non turpis
+                et tincidunt. Ut ultricies turpis in risus mollis, sed maximus augue condimentum. Ut
+                vulputate risus ut nisl fermentum lobortis. Donec sagittis ipsum vitae ipsum
+                porttitor, ac viverra massa interdum. Ut ut purus metus. Donec consequat eu sem
+                sollicitudin imperdiet. Integer rhoncus posuere nisl venenatis tristique. Nunc eget
+                quam nec ex pretium convallis a vitae orci. Pellentesque dictum ipsum non porttitor
+                porttitor. Mauris nec imperdiet Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Aliquam id erat turpis. Quisque vitae mattis eros. Curabitur at est magna.
+                Nulla sed mollis lacus. Donec dictum luctus maximus. Nunc bibendum quam dignissim
+                egestas porta. Nullam porta, ex ac interdum suscipit, massa ligula imperdiet diam,
+                id luctus erat diam in nunc. Vivamus faucibus est eros, sit amet congue tellus
+                dapibus eget. Maecenas ornare massa faucibus nisi aliquet, id sodales diam aliquam.
+                Pellentesque ullamcorper non turpis et tincidunt. Ut ultricies turpis in risus
+                mollis, sed maximus augue condimentum. Ut vulputate risus ut nisl fermentum
+                lobortis. Donec sagittis ipsum vitae ipsum porttitor, ac viverra massa interdum. Ut
+                ut purus metus. Donec consequat eu sem sollicitudin imperdiet. Integer rhoncus
+                posuere nisl venenatis tristique. Nunc eget quam nec ex pretium convallis a vitae
+                orci. Pellentesque dictum ipsum non porttitor porttitor. Mauris nec imperdiet Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id erat turpis. Quisque
+                vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec dictum
+                luctus maximus. Nunc bibendum quam dignissim egestas porta. Nullam porta, ex ac
+                interdum suscipit, massa ligula imperdiet diam, id luctus erat diam in nunc. Vivamus
+                faucibus est eros, sit amet congue tellus dapibus eget. Maecenas ornare massa
+                faucibus nisi aliquet, id sodales diam aliquam. Pellentesque ullamcorper non turpis
+                et tincidunt. Ut ultricies turpis in risus mollis, sed maximus augue condimentum. Ut
+                vulputate risus ut nisl fermentum lobortis. Donec sagittis ipsum vitae ipsum
+                porttitor, ac viverra massa interdum. Ut ut purus metus. Donec consequat eu sem
+                sollicitudin imperdiet. Integer rhoncus posuere nisl venenatis tristique. Nunc eget
+                quam nec ex pretium convallis a vitae orci. Pellentesque dictum ipsum non porttitor
+                porttitor. Mauris nec imperdiet Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Aliquam id erat turpis. Quisque vitae mattis eros. Curabitur at est magna.
+                Nulla sed mollis lacus. Donec dictum luctus maximus. Nunc bibendum quam dignissim
+                egestas porta. Nullam porta, ex ac interdum suscipit, massa ligula imperdiet diam,
+                id luctus erat diam in nunc. Vivamus faucibus est eros, sit amet congue tellus
+                dapibus eget. Maecenas ornare massa faucibus nisi aliquet, id sodales diam aliquam.
+                Pellentesque ullamcorper non turpis et tincidunt. Ut ultricies turpis in risus
+                mollis, sed maximus augue condimentum. Ut vulputate risus ut nisl fermentum
+                lobortis. Donec sagittis ipsum vitae ipsum porttitor, ac viverra massa interdum. Ut
+                ut purus metus. Donec consequat eu sem sollicitudin imperdiet. Integer rhoncus
+                posuere nisl venenatis tristique. Nunc eget quam nec ex pretium convallis a vitae
+                orci. Pellentesque dictum ipsum non porttitor porttitor. Mauris nec imperdiet Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id erat turpis. Quisque
+                vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec dictum
+                luctus maximus. Nunc bibendum quam dignissim egestas porta. Nullam porta, ex ac
+                interdum suscipit, massa ligula imperdiet diam, id luctus erat diam in nunc. Vivamus
+                faucibus est eros, sit amet congue tellus dapibus eget. Maecenas ornare massa
+                faucibus nisi aliquet, id sodales diam aliquam. Pellentesque ullamcorper non turpis
+                et tincidunt. Ut ultricies turpis in risus mollis, sed maximus augue condimentum. Ut
+                vulputate risus ut nisl fermentum lobortis. Donec sagittis ipsum vitae ipsum
+                porttitor, ac viverra massa interdum. Ut ut purus metus. Donec consequat eu sem
+                sollicitudin imperdiet. Integer rhoncus posuere nisl venenatis tristique. Nunc eget
+                quam nec ex pretium convallis a vitae orci. Pellentesque dictum ipsum non porttitor
+                porttitor. Mauris nec imperdiet
+            </div>
+            <footer class="border mt-auto">Test</footer>
+        </main>
+    </div>
+</div>
