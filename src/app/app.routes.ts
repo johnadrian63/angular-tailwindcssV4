@@ -40,6 +40,10 @@ export const routes: Routes = [
                     ...buttonRoutes
                 ]
             },
+            {
+                path: "not-found",
+                loadComponent: () => import("./features/error/404/error.404").then((c) => c.Error404)
+            }
         ]
     },
     {
@@ -58,6 +62,10 @@ export const routes: Routes = [
                 ]
             }
         ]
-        
+
+    },
+    {
+        path: "**",
+        redirectTo: "not-found"
     }
 ];
