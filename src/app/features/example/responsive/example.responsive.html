@@ -18,8 +18,10 @@
         </nav>
         <div class="border ml-auto px-2">P</div>
     </header>
-    <div class="grid grid-cols-[250px_1fr_auto] border">
-        <aside class="border min-h-0 overflow-y-auto">
+    <div class="grid grid-cols-1 md:grid-cols-[250px_minmax(0,1fr)_auto] border">
+        <aside
+            class="top-11 fixed md:static inset-y-0 left-0 z-30 min-h-0 overflow-y-auto w-62.5 -translate-x-full md:translate-x-0 transition-transform bg-neutral-50 border"
+        >
             <ul class="flex flex-col border-blue-500 border-2">
                 @for (item of getRange(34); track $index) {
                     <li>
@@ -114,7 +116,7 @@
                 quam nec ex pretium convallis a vitae orci. Pellentesque dictum ipsum non porttitor
                 porttitor. Mauris nec imperdiet
             </div>
-            <footer class="border mt-auto">Test</footer>
+            <footer class="border mt-auto px-3">Footer</footer>
         </main>
     </div>
 </div>
