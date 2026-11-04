@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, signal } from "@angular/core";
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
@@ -13,10 +13,34 @@ export class ExampleResponsive {
     // public readonly faSearchIcon = faSearch;
     public readonly faBarsIcon = faBars;
     public readonly faTableColumnsIcon = faTableColumns;
+    public readonly menuOpen = signal<boolean>(false);
+    public readonly navigationOpen = signal<boolean>(false);
+    public readonly profileOpen = signal<boolean>(false);
 
     public readonly activatedRoute: ActivatedRoute = inject<ActivatedRoute>(ActivatedRoute);
 
     public getRange(range: number): any[] {
         return [...Array(range).keys()];
+    }
+
+    public toggleMenu(): void {
+        this.navigationOpen.set(false);
+        this.profileOpen.set(false);
+
+        this.menuOpen.update((value: boolean) => !value);
+    }
+
+    public toggleNavigation(): void {
+        this.menuOpen.set(false);
+        this.profileOpen.set(false);
+
+        this.navigationOpen.update((value: boolean) => !value);
+    }
+
+    public toggleProfile(): void {
+        this.navigationOpen.set(false);
+        this.menuOpen.set(false);
+
+        this.profileOpen.update((value: boolean) => !value);
     }
 }
