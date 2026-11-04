@@ -1,0 +1,17 @@
+@reference "tailwindcss";
+
+header {
+    @apply fixed bottom-0 bg-amber-400 w-full;
+
+    nav {
+        @apply border-1 fixed right-0 bottom-11 w-64 shadow-xl transition-transform duration-300;
+
+        ul {
+            @apply flex flex-col p-0 overflow-y-auto bg-neutral-100 max-h-[calc(100vh-6.5rem)];
+        }
+    }
+
+    .settings {
+        @apply fixed border-3 border-red-700 bottom-11 right-0 bg-neutral-50;
+    }
+}
