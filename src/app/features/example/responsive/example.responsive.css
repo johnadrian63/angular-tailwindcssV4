@@ -69,5 +69,5 @@ header {
 }
 
 .sidebar {
-    @apply bottom-10 fixed md:static z-10 inset-y-0 left-0 min-h-0 overflow-y-auto w-62.5 transition-transform bg-neutral-50 border border-cyan-600;
+    @apply bottom-10 fixed md:static z-10 inset-y-0 left-0 min-h-0 overflow-y-auto w-62.5 transition-transform bg-neutral-50 border border-neutral-200 shadow-lg;
 }

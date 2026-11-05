@@ -90,7 +90,7 @@
             <ul class="flex flex-col">
                 @for (item of getRange(34); track $index) {
                     <li>
-                        <a routerLink="responsive" [relativeTo]="activatedRoute.parent"
+                        <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="py-1 px-2 block"
                             >Link {{ $index + 1 }}</a
                         >
                     </li>
