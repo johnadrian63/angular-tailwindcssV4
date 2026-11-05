@@ -1,104 +1,93 @@
-<div class="grid h-screen grid-rows-[auto_minmax(0,1fr)] border border-green-500">
-    <header class="flex items-center p-2 fixed bottom-0 border-blue-500 bg-a1mber-400 w-full">
-        <div class="bg-amber-600 w-full h-full left-0 z-30 absolute border-blue-500 bottom-0"></div>
-        <div class="border mr-2 z-30">
+<div class="grid h-screen grid-rows-[auto_minmax(0,1fr)]">
+    <header class="flex items-center p-2 fixed bottom-0 w-full">
+        <div class="bg-amber-600 w-full h-full left-0 z-30 absolute bottom-0"></div>
+        <div class="mr-2 z-30">
             <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="mr-2">Logo</a>
             <fa-icon
-                (click)="toggleMenu()"
+                (click)="toggleSidebar()"
                 [icon]="faTableColumnsIcon"
-                class="sidebar-toggle"
+                class="sidebar-toggle cursor-pointer"
             ></fa-icon>
         </div>
         <nav
             [class.translate-y-full]="!navigationOpen()"
             [class.translate-y-0]="navigationOpen()"
-            class="fixed border-blue-500 border right-0 bottom-10 w-64 shadow-xl transition-transform"
+            class="fixed right-1 bottom-10 w-50 transition-transform"
         >
             <ul
-                class="flex gap-x-3 border flex-col p-0 right-1 overflow-y-auto bg-neutral-100 max-h-[calc(100vh-6.5rem)]"
+                class="flex flex-col p-0 right-1 bg-neutral-50 overflow-y-auto max-h-[calc(100vh-6.5rem)]"
             >
-                <li class="border border-cyan-400">
+                <li>
                     <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Dashboard</a>
                 </li>
-                <li class="border border-cyan-400">
+                <li>
                     <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Accounts</a>
                 </li>
-                <li class="border border-cyan-400">
+                <li>
                     <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Products</a>
                 </li>
-                <li class="border border-cyan-400">
+                <li>
                     <a routerLink="responsive" [relativeTo]="activatedRoute.parent">CRM</a>
                 </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Upload</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
-                <li class="border border-cyan-400">
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration 1</a>
-                </li>
+                @for (item of getRange(4); track $index) {
+                    <li>
+                        <a routerLink="responsive" [relativeTo]="activatedRoute.parent"
+                            >Migration</a
+                        >
+                    </li>
+                }
             </ul>
         </nav>
-        <div class="ml-auto relative z-40">
+        <div class="ml-auto flex relative z-40">
             <fa-icon
                 (click)="toggleNavigation()"
                 [icon]="faBarsIcon"
                 class="menu-toggle mr-2"
             ></fa-icon>
-            <a (click)="toggleProfile()">John</a>
+            <div (click)="toggleProfile()" class="cursor-pointer">John</div>
         </div>
         <div
-            [class.translate-y-full]="!profileOpen()"
-            [class.translate-y-0]="profileOpen()"
-            class="settings fixed border-3 transition-transform border-red-700 bottom-10 right-0 bg-neutral-50"
+            [class.settings-collapse]="!profileOpen()"
+            [class.settings-expand]="profileOpen()"
+            class="settings overflow-y-auto max-h-[calc(100vh-6.5rem)] w-30"
         >
-            <ul class="px-2">
-                <li>Profile</li>
-                <li>Logout</li>
+            <ul>
+                <li>
+                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="px-2"
+                        >Profile</a
+                    >
+                </li>
+                <li>
+                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="px-2"
+                        >Logout</a
+                    >
+                </li>
+                <li>
+                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="px-2"
+                        >Logout</a
+                    >
+                </li>
+                @for (item of getRange(14); track $index) {
+                    <li>
+                        <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="px-2"
+                            >Logout</a
+                        >
+                    </li>
+                }
             </ul>
         </div>
     </header>
-    <div class="grid grid-cols-1 overflow-y-auto md:grid-cols-[250px_minmax(0,1fr)_auto] border">
+    <div
+        [class.md:grid-cols-[0_minmax(0,1fr)_auto]]="!sidebarOpen()"
+        [class.md:grid-cols-[250px_minmax(0,1fr)_auto]]="sidebarOpen()"
+        class="grid grid-cols-1 overflow-y-auto transition-[grid-template-columns] duration-300"
+    >
         <aside
-            [class.-translate-x-full]="!menuOpen()"
-            [class.-translate-x-0]="menuOpen()"
-            class="bottom-10 fixed md:static z-10 inset-y-0 left-0 min-h-0 overflow-y-auto w-62.5 md:translate-x-0 transition-transform bg-neutral-50 border border-cyan-600"
+            [class.-translate-x-full]="!sidebarOpen()"
+            [class.-translate-x-0]="sidebarOpen()"
+            class="sidebar"
         >
-            <ul class="flex flex-col border-blue-500 border-2">
+            <ul class="flex flex-col">
                 @for (item of getRange(34); track $index) {
                     <li>
                         <a routerLink="responsive" [relativeTo]="activatedRoute.parent"
@@ -108,7 +97,7 @@
                 }
             </ul>
         </aside>
-        <main class="border border-red-600 flex flex-col min-w-0 min-h-0 overflow-y-auto px-3">
+        <main class="flex flex-col min-w-0 min-h-0 overflow-y-auto px-3">
             <div class="mb-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id erat turpis.
                 Quisque vitae mattis eros. Curabitur at est magna. Nulla sed mollis lacus. Donec

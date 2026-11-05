@@ -1,44 +1,63 @@
 @reference "tailwindcss";
 
 header {
-    /* @apply fixed bottom-0 z-10 bg-amber-400 w-full; */
-
     @media (width >=theme(--breakpoint-md)) {
         & {
-            @apply sticky top-0 z-10 border;
-        }
-
-        .sidebar-toggle {
-            @apply hidden;
+            @apply sticky top-0 z-10;
         }
     }
 
-
     nav {
-        /* @apply border fixed right-0 bottom-11 w-64 shadow-xl transition-transform duration-300; */
+        @apply border border-neutral-200 shadow-lg;
 
         @media (width >=theme(--breakpoint-md)) {
             & {
-                /* @apply border relative right-0 bottom-11 w-64 shadow-xl transition-transform duration-300; */
+                @apply translate-y-0 relative bottom-0 w-auto z-30;
             }
         }
 
-
         ul {
-
-            /* @apply flex flex-col p-0 overflow-y-auto bg-neutral-100 max-h-[calc(100vh-6.5rem)]; */
-            @media (width >=theme(--breakpoint-md)) {
-                & {
-                    /* @apply flex flex-col p-0 overflow-y-auto bg-neutral-100 max-h-[calc(100vh-6.5rem)]; */
+            li {
+                a {
+                    @apply py-1 px-2 block;
                 }
             }
 
+            @media (width >=theme(--breakpoint-md)) {
+                & {
+                    @apply flex-row overflow-visible;
+                }
+            }
         }
     }
 
     .settings {
+        @apply fixed right-1 transition-transform duration-300 bg-neutral-50 bottom-10 border border-neutral-200 shadow-lg;
+
+        &.settings-expand {
+            @apply translate-y-0;
+
+            @media (width >=theme(--breakpoint-md)) {
+                @apply -translate-y-0;
+            }
+        }
+
+        &.settings-collapse {
+            @apply translate-y-full;
+
+            @media (width >=theme(--breakpoint-md)) {
+                @apply -translate-y-full;
+            }
+        }
+
+        li {
+            a {
+                @apply py-1 px-2 block;
+            }
+        }
+
         @media (width >=theme(--breakpoint-md)) {
-            @apply hidden;
+            @apply top-10 bottom-auto;
         }
     }
 
@@ -47,4 +66,8 @@ header {
             @apply hidden;
         }
     }
+}
+
+.sidebar {
+    @apply bottom-10 fixed md:static z-10 inset-y-0 left-0 min-h-0 overflow-y-auto w-62.5 transition-transform bg-neutral-50 border border-cyan-600;
 }
