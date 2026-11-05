@@ -11,12 +11,16 @@ header {
         @apply border border-neutral-200 shadow-lg;
 
         @media (width >=theme(--breakpoint-md)) {
+            @apply border-0 shadow-none;
+
             & {
                 @apply translate-y-0 relative bottom-0 w-auto z-30;
             }
         }
 
         ul {
+            @apply bg-neutral-50;
+
             li {
                 a {
                     @apply py-1 px-2 block;
@@ -24,6 +28,8 @@ header {
             }
 
             @media (width >=theme(--breakpoint-md)) {
+                @apply bg-transparent;
+
                 & {
                     @apply flex-row overflow-visible;
                 }
@@ -57,7 +63,7 @@ header {
         }
 
         @media (width >=theme(--breakpoint-md)) {
-            @apply top-10 bottom-auto;
+            @apply top-12 bottom-auto;
         }
     }
 
