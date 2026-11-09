@@ -27,6 +27,16 @@ export class MaterialMenuDynamic {
                         {
                             label: "whale",
                             text: "Whale",
+                            children: [
+                                {
+                                    label: "orca",
+                                    text: "Orca",
+                                },
+                                {
+                                    label: "humpback",
+                                    text: "Humpback"
+                                }
+                            ]
                         },
                         {
                             label: "seal",
@@ -54,7 +64,23 @@ export class MaterialMenuDynamic {
                     children: [
                         {
                             label: "mosquito",
-                            text: "Mosquito"
+                            text: "Mosquito",
+                            children: [
+                                {
+                                    label: "blackMosquito",
+                                    text: "Black Mosquito"
+                                },
+                                {
+                                    label: "grayMosquito",
+                                    text: "Gray Mosquito",
+                                    children: [
+                                        {
+                                            label: "blackGrayMosquito",
+                                            text: "Black-gray Mosquito"
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             label: "dragonfly",
@@ -109,6 +135,16 @@ export class MaterialMenuDynamic {
                         {
                             label: "yamaha",
                             text: "Yamaha",
+                            children: [
+                                {
+                                    label: "aerox",
+                                    text: "Aerox"
+                                },
+                                {
+                                    label: "XSR900",
+                                    text: "XSR 900"
+                                }
+                            ]
                         },
                     ]
                 },
