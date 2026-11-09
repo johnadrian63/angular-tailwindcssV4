@@ -1,23 +1,22 @@
 <h2 class="text-center font-bold my-3">Dynamic Menu</h2>
-
-<button matButton [matMenuTriggerFor]="animals">Animals</button>
-<mat-menu #animals="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="sea">Sea</button>
-    <button mat-menu-item>Land</button>
-</mat-menu>
-<mat-menu #sea="matMenu">
-    <button mat-menu-item>Fish</button>
-    <button mat-menu-item>Whale</button>
-    <button mat-menu-item>Seal</button>
-</mat-menu>
-
-<button matButton [matMenuTriggerFor]="animals">Vehicles</button>
-<mat-menu #animals="matMenu">
-    <button mat-menu-item>Car</button>
-    <button mat-menu-item [matMenuTriggerFor]="motorcycle">Motorcycle</button>
-</mat-menu>
-<mat-menu #motorcycle="matMenu">
-    <button mat-menu-item>KTM</button>
-    <button mat-menu-item>Yamaha</button>
-    <button mat-menu-item>Honda</button>
-</mat-menu>
+@for (menu of menuList(); track menu.label) {
+    @if (menu.children?.length) {
+        <button matButton [matMenuTriggerFor]="items">{{ menu.text }}</button>
+        <mat-menu #items="matMenu">
+            @for (children of menu.children; track children.label) {
+                @if (children.children?.length) {
+                    <button mat-menu-item [matMenuTriggerFor]="items">{{children.text}}</button>
+                    <mat-menu #items="matMenu">
+                        @for (subChildren of children.children; track subChildren.label) {
+                            <button mat-menu-item>{{ subChildren.text }}</button>
+                        }
+                    </mat-menu>
+                } @else {
+                    <button mat-menu-item>{{ children.text }}</button>
+                }
+            }
+        </mat-menu>
+    } @else {
+        <button matButton>{{ menu.text }}as</button>
+    }
+}

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { MenuDynamic } from "./menu-dynamic";
+import { MaterialMenuDynamic } from "./material.menu.dynamic";
 
-describe("MenuDynamic", () => {
-    let component: MenuDynamic;
-    let fixture: ComponentFixture<MenuDynamic>;
+describe("MaterialMenuDynamic", () => {
+    let component: MaterialMenuDynamic;
+    let fixture: ComponentFixture<MaterialMenuDynamic>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [MenuDynamic],
+            imports: [MaterialMenuDynamic],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(MenuDynamic);
+        fixture = TestBed.createComponent(MaterialMenuDynamic);
         component = fixture.componentInstance;
         await fixture.whenStable();
     });
