@@ -13,7 +13,7 @@
         [class.translate-y-0]="navigationOpen()"
         class="fixed right-1 bottom-10 w-50 transition-transform"
     >
-        <ul class="flex flex-col p-0 right-1 overflow-y-auto max-h-[calc(100vh-6.5rem)]">
+        <!-- <ul class="flex flex-col p-0 right-1 overflow-y-auto max-h-[calc(100vh-6.5rem)]">
             <li>
                 <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Dashboard</a>
             </li>
@@ -31,7 +31,21 @@
                     <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
                 </li>
             }
-        </ul>
+        </ul> -->
+
+        <button matButton [matMenuTriggerFor]="animals">Animal index</button>
+        <mat-menu #animals="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
+            <button mat-menu-item>Invertebrates</button>
+        </mat-menu>
+
+        <mat-menu #vertebrates="matMenu">
+            <button mat-menu-item>Fishes</button>
+            <button mat-menu-item>Amphibians</button>
+            <button mat-menu-item>Reptiles</button>
+            <button mat-menu-item>Birds</button>
+            <button mat-menu-item>Mammals</button>
+        </mat-menu>
     </nav>
     <div class="ml-auto flex relative z-40">
         <fa-icon

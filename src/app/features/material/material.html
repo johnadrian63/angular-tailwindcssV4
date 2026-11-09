@@ -1,0 +1,23 @@
+<div class="flex gap-x-3 py-3 justify-center items-center">
+    <a
+        routerLink="menu-static"
+        [relativeTo]="activatedRoute.parent"
+        routerLinkActive="underline"
+        class="font-semibold hover:underline"
+        >Static Menu</a
+    >
+    <a
+        routerLink="menu-dynamic"
+        [relativeTo]="activatedRoute.parent"
+        routerLinkActive="underline"
+        class="font-semibold hover:underline"
+        >Dynamic Menu</a
+    >
+</div>
+
+<div class="p-4">
+    <h1>
+        <span class="font-bold mr-2">Material</span>
+    </h1>
+    <router-outlet></router-outlet>
+</div>

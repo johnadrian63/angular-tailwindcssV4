@@ -5,6 +5,7 @@ import { flexRoutes } from "./features/flex/flex.routes";
 import { themeRoutes } from "./features/theme/theme.routes";
 import { gridRoutes } from "./features/grid/grid.routes";
 import { exampleRoutes } from "./features/example/example.routes";
+import { materialRoutes } from "./features/material/material.routes";
 
 export const routes: Routes = [
     {
@@ -38,6 +39,12 @@ export const routes: Routes = [
                 path: "button",
                 children: [
                     ...buttonRoutes
+                ]
+            },
+            {
+                path: "material",
+                children: [
+                    ...materialRoutes
                 ]
             },
             {

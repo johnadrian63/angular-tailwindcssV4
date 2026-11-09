@@ -2,6 +2,8 @@ import { Component, ElementRef, inject, input, InputSignal, OnInit, Signal, sign
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { MatButtonModule } from "@angular/material/button";
+import { MatMenuModule } from "@angular/material/menu";
 
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +12,7 @@ import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
     selector: "app-example-responsive-header",
     templateUrl: "./example.responsive.header.html",
     styleUrl: "./example.responsive.header.css",
-    imports: [RouterModule, FaIconComponent],
+    imports: [RouterModule, FaIconComponent, MatButtonModule, MatMenuModule],
 
 })
 export class ExampleResponsiveHeader {
