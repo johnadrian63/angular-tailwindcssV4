@@ -1,18 +1,18 @@
-import { Component, inject, signal } from "@angular/core";
+import { Component, ElementRef, inject, OnInit, Signal, signal, viewChild } from "@angular/core";
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
+import { ExampleResponsiveHeader } from "./header/example.responsive.header";
 
 @Component({
-    imports: [RouterModule, FaIconComponent],
     selector: "app-example-responsive",
     styleUrl: "./example.responsive.css",
     templateUrl: "./example.responsive.html",
+    imports: [RouterModule, ExampleResponsiveHeader],
 })
-export class ExampleResponsive {
+export class ExampleResponsive implements OnInit {
     // public readonly faSearchIcon = faSearch;
     public readonly faBarsIcon = faBars;
     public readonly faTableColumnsIcon = faTableColumns;
@@ -23,6 +23,10 @@ export class ExampleResponsive {
     public readonly activatedRoute: ActivatedRoute = inject<ActivatedRoute>(ActivatedRoute);
 
     private readonly breakpointObserver: BreakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
+
+    public toggleProfileElem: Signal<ElementRef<any> | undefined> = viewChild("toggleProfileIcon", {
+        read: ElementRef
+    });
 
     constructor() {
         this.breakpointObserver.observe([
@@ -35,6 +39,10 @@ export class ExampleResponsive {
 
             this.sidebarOpen.set(!isMobile);
         });
+    }
+
+    public ngOnInit(): void {
+        // console.log(this.toggleProfileElem);
     }
 
     public getRange(range: number): any[] {
@@ -59,5 +67,10 @@ export class ExampleResponsive {
         this.navigationOpen.set(false);
 
         this.profileOpen.update((value: boolean) => !value);
+    }
+
+    public closeDropdown(): void {
+        this.profileOpen.set(false);
+        this.navigationOpen.set(false);
     }
 }
