@@ -1,22 +1,10 @@
 <h2 class="text-center font-bold my-3">Dynamic Menu</h2>
 @for (menu of menuList(); track menu.label) {
     @if (menu.children?.length) {
-        <button matButton [matMenuTriggerFor]="items">{{ menu.text }}</button>
-        <mat-menu #items="matMenu">
-            @for (children of menu.children; track children.label) {
-                @if (children.children?.length) {
-                    <button mat-menu-item [matMenuTriggerFor]="items">{{children.text}}</button>
-                    <mat-menu #items="matMenu">
-                        @for (subChildren of children.children; track subChildren.label) {
-                            <button mat-menu-item>{{ subChildren.text }}</button>
-                        }
-                    </mat-menu>
-                } @else {
-                    <button mat-menu-item>{{ children.text }}</button>
-                }
-            }
-        </mat-menu>
+        <button matButton [matMenuTriggerFor]="dropdown.items()!">{{ menu.text }}</button>
+
+        <app-dropdown-menu #dropdown [menus]="menu.children"></app-dropdown-menu>
     } @else {
-        <button matButton>{{ menu.text }}as</button>
+        <button matButton>{{ menu.text }}</button>
     }
 }

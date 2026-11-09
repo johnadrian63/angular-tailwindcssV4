@@ -2,19 +2,16 @@ import { Component, signal, WritableSignal } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 
-export interface IMenu {
-    label: string;
-    text: string;
-    children?: IMenu[];
-}
+import { IDropdownMenu, DropdownMenu } from "../../shared/dropdown-menu/dropdown.menu";
+
 @Component({
-    imports: [MatButtonModule, MatMenuModule],
     selector: "app-material-menu-dynamic",
     styleUrl: "./material.menu.dynamic.css",
     templateUrl: "./material.menu.dynamic.html",
+    imports: [MatButtonModule, MatMenuModule, DropdownMenu],
 })
 export class MaterialMenuDynamic {
-    public readonly menuList: WritableSignal<IMenu[]> = signal<IMenu[]>([
+    public readonly menuList: WritableSignal<IDropdownMenu[]> = signal<IDropdownMenu[]>([
         {
             label: "animals",
             text: "Animals",
@@ -51,6 +48,36 @@ export class MaterialMenuDynamic {
                         },
                     ]
                 },
+                {
+                    label: "insects",
+                    text: "Insects",
+                    children: [
+                        {
+                            label: "mosquito",
+                            text: "Mosquito"
+                        },
+                        {
+                            label: "dragonfly",
+                            text: "Dragonfly",
+                            children: [
+                                {
+                                    label: "blueDragonfly",
+                                    text: "Blue Dragonfly"
+                                },
+                                {
+                                    label: "redDragonfly",
+                                    text: "Red Dragonfly",
+                                    children: [
+                                        {
+                                            label: "redOrangeDragonFly",
+                                            text: "Red-orange Dragonfly"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         },
         {

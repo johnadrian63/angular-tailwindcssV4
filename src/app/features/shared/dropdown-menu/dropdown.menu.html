@@ -1,0 +1,14 @@
+<mat-menu #items="matMenu" [overlapTrigger]="false">
+    @for (menu of menus(); track menu.label) {
+        @if (menu.children?.length) {
+            <button mat-menu-item [matMenuTriggerFor]="dropdown.items()!">
+                {{ menu.text }}
+            </button>
+            <app-dropdown-menu #dropdown [menus]="menu.children"></app-dropdown-menu>
+        } @else {
+            <button mat-menu-item>
+                {{ menu.text }}
+            </button>
+        }
+    }
+</mat-menu>
