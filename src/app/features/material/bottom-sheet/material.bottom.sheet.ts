@@ -3,21 +3,21 @@ import { MatBottomSheetModule, MatBottomSheet } from '@angular/material/bottom-s
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
-import { BottomSheetPanel } from "./panel/bottom.sheet.panel";
+import { MaterialBottomSheetPanel } from "./panel/material.bottom.sheet.panel";
 import { getRange } from "../../shared/util/range.generator";
 import { VerticalMenu } from "../../shared/vertical-menu/vertical.menu";
 
 @Component({
-    selector: "app-bottom.sheet",
-    styleUrl: "./bottom.sheet.css",
-    templateUrl: "./bottom.sheet.html",
+    selector: "app-material-bottom-sheet",
+    styleUrl: "./material.bottom.sheet.css",
+    templateUrl: "./material.bottom.sheet.html",
     imports: [MatBottomSheetModule, MatButtonModule, MatListModule, VerticalMenu],
 })
-export class BottomSheet {
+export class MaterialBottomSheet {
     private readonly bottomSheet = inject<MatBottomSheet>(MatBottomSheet);
 
     public open(): void {
-        this.bottomSheet.open(BottomSheetPanel);
+        this.bottomSheet.open(MaterialBottomSheetPanel);
     }
 
     public getRange(range: number): number[] {

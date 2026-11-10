@@ -1,7 +1,7 @@
 @if (selectedMenus().length > 1) {
     <div class="back" (click)="back()">
         <fa-icon [icon]="faAngleLeftIcon"></fa-icon>
-        <span>Back</span>
+        <span>{{ currentMenu.parent?.text }}</span>
     </div>
 }
 <ul
@@ -9,10 +9,10 @@
     [class.opacity-0]="!isVisible()"
     [class.opacity-100]="isVisible()"
 >
-    @for (menu of currentMenu; track menu.label) {
+    @for (menu of currentMenu.children; track menu.label) {
         <li class="vertical-menu-item">
             @if (menu.children?.length) {
-                <span (click)="expand(menu.children)">
+                <span (click)="expand(menu, menu.children)">
                     {{ menu.text }}
                     <fa-icon class="ml-auto" [icon]="faAngleRightIcon"></fa-icon>
                 </span>

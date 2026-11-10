@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { BottomSheetPanel } from "./bottom.sheet.panel";
+import { MaterialBottomSheet } from "./material.bottom.sheet";
 
-describe("BottomSheetPanel", () => {
-    let component: BottomSheetPanel;
-    let fixture: ComponentFixture<BottomSheetPanel>;
+describe("MaterialBottomSheet", () => {
+    let component: MaterialBottomSheet;
+    let fixture: ComponentFixture<MaterialBottomSheet>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [BottomSheetPanel],
+            imports: [MaterialBottomSheet],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(BottomSheetPanel);
+        fixture = TestBed.createComponent(MaterialBottomSheet);
         component = fixture.componentInstance;
         await fixture.whenStable();
     });

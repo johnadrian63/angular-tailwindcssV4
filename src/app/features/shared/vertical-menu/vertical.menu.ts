@@ -7,6 +7,11 @@ import { menuData } from "../menu.data";
 import { getRange } from "../util/range.generator";
 import { IDropdownMenu } from "../dropdown-menu/dropdown.menu";
 
+export interface IVerticalMenu {
+    parent?: IDropdownMenu;
+    children: IDropdownMenu[];
+}
+
 @Component({
     selector: "app-vertical-menu",
     styleUrl: "./vertical.menu.css",
@@ -15,7 +20,7 @@ import { IDropdownMenu } from "../dropdown-menu/dropdown.menu";
 })
 export class VerticalMenu {
 
-    public get currentMenu(): IDropdownMenu[] {
+    public get currentMenu(): IVerticalMenu {
         const selectedMenus = this.selectedMenus();
 
         return selectedMenus[selectedMenus.length - 1];
@@ -27,23 +32,30 @@ export class VerticalMenu {
 
     public readonly menuList = signal<IDropdownMenu[]>(menuData);
     public previousMenu: IDropdownMenu[] = [];
-    public readonly selectedMenus = signal<IDropdownMenu[][]>([]);
+    public readonly selectedMenus = signal<IVerticalMenu[]>([]);
 
     constructor() {
         effect(() => {
             const menuList = this.menuList();
 
-            this.selectedMenus.set([menuList]);
+            this.selectedMenus.set([
+                {
+                    children: menuList
+                }
+            ]);
         });
     }
 
     public isVisible = signal<boolean>(true);
 
-    public expand(menuList: IDropdownMenu[]): void {
+    public expand(parent: IDropdownMenu, menuList: IDropdownMenu[]): void {
         this.animate();
 
         this.selectedMenus.update((menus) => {
-            menus.push(menuList);
+            menus.push({
+                parent,
+                children: menuList
+            });
 
             return menus;
         });
@@ -60,7 +72,7 @@ export class VerticalMenu {
     public back(): void {
         this.animate();
 
-        this.selectedMenus.update((menus: IDropdownMenu[][]) => {
+        this.selectedMenus.update((menus: IVerticalMenu[]) => {
             menus.pop();
 
             return menus;

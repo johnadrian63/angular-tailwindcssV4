@@ -20,7 +20,7 @@ export const materialRoutes: Routes = [
             },
             {
                 path: "bottom-sheet",
-                loadComponent: () => import("./bottom-sheet/bottom.sheet").then((c) => c.BottomSheet),
+                loadComponent: () => import("./bottom-sheet/material.bottom.sheet").then((c) => c.MaterialBottomSheet),
             },
         ]
     }
