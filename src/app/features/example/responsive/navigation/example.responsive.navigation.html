@@ -7,17 +7,20 @@
             class="sidebar-toggle cursor-pointer"
         ></fa-icon>
     </div>
-    <nav>
+    <!-- <nav>
         @for (menu of menuList(); track menu.label) {
             @if (menu.children?.length) {
                 <button matButton [matMenuTriggerFor]="dropdown.items()!">{{ menu.text }}</button>
 
-                <app-navigation-menu #dropdown [menus]="menu.children"></app-navigation-menu>
             } @else {
                 <button matButton>{{ menu.text }}</button>
             }
         }
+    </nav> -->
+    <nav>
+        <app-navigation-horizontal></app-navigation-horizontal>
     </nav>
+
     <div class="ml-auto flex relative z-40">
         <fa-icon (click)="openMenu()" [icon]="faBarsIcon" class="menu-toggle mr-2"></fa-icon>
         <fa-icon (click)="openProfile()" class="profile-icon mobile" [icon]="faUserIcon"></fa-icon>

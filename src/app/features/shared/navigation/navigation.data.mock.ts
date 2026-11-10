@@ -1,6 +1,6 @@
-import { IDropdownMenu } from "./navigation-menu/navigation.menu";
+import { IMenuItem } from "./navigation.model";
 
-export const menuData: IDropdownMenu[] = [
+export const navigationDataMock: IMenuItem[] = [
     {
         label: "animals",
         text: "Animals",

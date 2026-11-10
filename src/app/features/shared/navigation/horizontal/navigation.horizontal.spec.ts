@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { DropdownMenu } from "./dropdown.menu";
+import { NavigationHorizontal } from "./navigation.horizontal"
 
-describe("DropdownMenu", () => {
-    let component: DropdownMenu;
-    let fixture: ComponentFixture<DropdownMenu>;
+describe("NavigationHorizontal", () => {
+    let component: NavigationHorizontal;
+    let fixture: ComponentFixture<NavigationHorizontal>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [DropdownMenu],
+            imports: [NavigationHorizontal],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(DropdownMenu);
+        fixture = TestBed.createComponent(NavigationHorizontal);
         component = fixture.componentInstance;
         await fixture.whenStable();
     });

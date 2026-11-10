@@ -1,17 +1,16 @@
 import { Component, inject, input, OnInit, ViewContainerRef } from "@angular/core";
 
-import { IMenuItem } from "../navigation.menu.model";
-import { NavigationVerticalMenuService } from "./navigation.menu.vertical.service";
-
+import { IMenuItem } from "../navigation.model";
+import { NavigationVerticalService } from "./navigation.vertical.service";
 
 @Component({
     selector: "app-navigation-vertical-menu-resolver",
     template: ""
 })
-export class NavigationVerticalMenuResolver implements OnInit {
+export class NavigationVerticalResolver implements OnInit {
     public readonly menu = input.required<IMenuItem>();
     private readonly vcr = inject<ViewContainerRef>(ViewContainerRef);
-    private readonly verticalMenuService = inject<NavigationVerticalMenuService>(NavigationVerticalMenuService);
+    private readonly verticalMenuService = inject<NavigationVerticalService>(NavigationVerticalService);
 
     public ngOnInit(): void {
         this.verticalMenuService.handleData(this.vcr, this.menu());

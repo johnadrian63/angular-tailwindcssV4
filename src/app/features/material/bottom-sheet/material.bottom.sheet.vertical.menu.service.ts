@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { NavigationVerticalMenuService } from "../../shared/navigation-menu/vertical/navigation.menu.vertical.service";
+import { NavigationVerticalService } from "../../shared/navigation/vertical/navigation.vertical.service";
 
 @Injectable()
-export class MaterialBottomSheetVerticalMenuService extends NavigationVerticalMenuService { }
+export class MaterialBottomSheetNavigationVerticalService extends NavigationVerticalService { }

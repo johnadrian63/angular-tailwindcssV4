@@ -1,27 +1,27 @@
 import { Component, inject, OnInit } from "@angular/core";
 
-import { MaterialBottomSheetVerticalMenuService } from "../material.bottom.sheet.vertical.menu.service";
-import { NavigationVerticalMenu } from "../../../shared/navigation-menu/vertical/navigation.menu.vertical";
-import { navigationMenuDataMock } from "../../../shared/navigation-menu/vertical/navigation.menu.vertical.data.mock";
-import { NavigationVerticalMenuService } from "../../../shared/navigation-menu/vertical/navigation.menu.vertical.service";
+import { navigationDataMock } from "../../../shared/navigation/navigation.data.mock";
+import { NavigationVertical } from "../../../shared/navigation/vertical/navigation.vertical";
+import { MaterialBottomSheetNavigationVerticalService } from "../material.bottom.sheet.vertical.menu.service";
+import { NavigationVerticalService } from "../../../shared/navigation/vertical/navigation.vertical.service";
 
 @Component({
-    imports: [NavigationVerticalMenu],
+    imports: [NavigationVertical],
     selector: "app-material-bottom-sheet-panel",
     styleUrl: "./material.bottom.sheet.panel.css",
     templateUrl: "./material.bottom.sheet.panel.html",
     providers: [
-        MaterialBottomSheetVerticalMenuService,
+        MaterialBottomSheetNavigationVerticalService,
         {
-            provide: NavigationVerticalMenuService,
-            useExisting: MaterialBottomSheetVerticalMenuService,
+            provide: NavigationVerticalService,
+            useExisting: MaterialBottomSheetNavigationVerticalService,
         }
     ],
 })
 export class MaterialBottomSheetPanel implements OnInit {
-    private readonly verticalMenuService = inject<MaterialBottomSheetVerticalMenuService>(MaterialBottomSheetVerticalMenuService);
+    private readonly verticalMenuService = inject<MaterialBottomSheetNavigationVerticalService>(MaterialBottomSheetNavigationVerticalService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.data.set(navigationMenuDataMock);
+        this.verticalMenuService.data.set(navigationDataMock);
     }
 }

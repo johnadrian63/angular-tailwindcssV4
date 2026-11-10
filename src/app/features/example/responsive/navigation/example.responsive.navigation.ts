@@ -8,11 +8,14 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars, faUser, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-sheet";
 
-import { menuData } from "../../../shared/menu.data";
 import { getRange } from "../../../shared/util/range.generator";
-import { NavigationMenu, IDropdownMenu } from "../../../shared/navigation-menu/navigation.menu";
-import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example.responsive.navigation.vertical.menu";
+import { IMenuItem } from "../../../shared/navigation/navigation.model";
+import { navigationDataMock } from "../../../shared/navigation/navigation.data.mock";
+import { NavigationHorizontal } from "../../../shared/navigation/horizontal/navigation.horizontal";
+import { ExampleResponsiveNavigationMenuService } from "./example.responsive.navigation.menu.service";
+import { NavigationHorizontalService } from "../../../shared/navigation/horizontal/navigation.horizontal.service";
 import { ExampleResponsiveNavigationProfileMenu } from "./profile-menu/example.responsive.navigation.profile.menu";
+import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example.responsive.navigation.vertical.menu";
 
 @Component({
     selector: "app-example-responsive-navigation",
@@ -24,21 +27,28 @@ import { ExampleResponsiveNavigationProfileMenu } from "./profile-menu/example.r
         MatBottomSheetModule,
         FaIconComponent,
         RouterModule,
-        NavigationMenu
+        NavigationHorizontal
     ],
-
+    providers: [
+        ExampleResponsiveNavigationMenuService,
+        {
+            provide: NavigationHorizontalService,
+            useExisting: ExampleResponsiveNavigationMenuService,
+        }
+    ],
 })
-export class ExampleResponsiveNavigation {
+export class ExampleResponsiveNavigation implements OnInit {
     // public readonly faSearchIcon = faSearch;
     public readonly faBarsIcon = faBars;
     public readonly faUserIcon = faUser;
     public readonly faTableColumnsIcon = faTableColumns;
     public readonly sidebarOpen = signal<boolean>(false);
     public readonly toggleSidebar = model<boolean>();
-    public readonly menuList: WritableSignal<IDropdownMenu[]> = signal<IDropdownMenu[]>(menuData);
+    public readonly menuList: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>(navigationDataMock);
     public readonly activatedRoute: ActivatedRoute = inject<ActivatedRoute>(ActivatedRoute);
     private readonly bottomSheet = inject<MatBottomSheet>(MatBottomSheet);
     private readonly breakpointObserver: BreakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
+    private readonly navigationMenuService: ExampleResponsiveNavigationMenuService = inject<ExampleResponsiveNavigationMenuService>(ExampleResponsiveNavigationMenuService);
 
     constructor() {
         this.breakpointObserver.observe([
@@ -51,6 +61,10 @@ export class ExampleResponsiveNavigation {
 
             this.toggleSidebar.set(!isMobile);
         });
+    }
+
+    public ngOnInit(): void {
+        this.navigationMenuService.data.set(navigationDataMock);
     }
 
     public getRange(range: number): number[] {

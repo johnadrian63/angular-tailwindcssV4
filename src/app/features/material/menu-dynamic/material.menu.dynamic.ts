@@ -2,8 +2,8 @@ import { Component, signal, WritableSignal } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 
-import { menuData } from "../../shared/menu.data";
-import { IDropdownMenu, NavigationMenu } from "../../shared/navigation-menu/navigation.menu";
+import { IMenuItem } from "../../shared/navigation/navigation.model";
+import { navigationDataMock } from "../../shared/navigation/navigation.data.mock";
 
 @Component({
     selector: "app-material-menu-dynamic",
@@ -12,9 +12,9 @@ import { IDropdownMenu, NavigationMenu } from "../../shared/navigation-menu/navi
     imports: [
         MatButtonModule,
         MatMenuModule,
-        NavigationMenu
+        // NavigationMenu
     ],
 })
 export class MaterialMenuDynamic {
-    public readonly menuList: WritableSignal<IDropdownMenu[]> = signal<IDropdownMenu[]>(menuData);
+    public readonly menuList: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>(navigationDataMock);
 }

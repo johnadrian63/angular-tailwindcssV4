@@ -1,19 +1,19 @@
 import { Component, inject, OnInit } from "@angular/core";
 
-import { NavigationVerticalMenu } from "../../../../shared/navigation-menu/vertical/navigation.menu.vertical";
 import { ExampleResponsiveNavigationVerticalMenuService } from "./example.responsive.navigation.vertical.menu.service";
-import { NavigationVerticalMenuService } from "../../../../shared/navigation-menu/vertical/navigation.menu.vertical.service";
-import { navigationMenuDataMock } from "../../../../shared/navigation-menu/vertical/navigation.menu.vertical.data.mock";
+import { NavigationVerticalService } from "../../../../shared/navigation/vertical/navigation.vertical.service";
+import { navigationDataMock } from "../../../../shared/navigation/navigation.data.mock";
+import { NavigationVertical } from "../../../../shared/navigation/vertical/navigation.vertical";
 
 @Component({
     selector: "app-example-responsive-navigation-vertical-menu",
     styleUrl: "./example.responsive.navigation.vertical.menu.css",
     templateUrl: "./example.responsive.navigation.vertical.menu.html",
-    imports: [NavigationVerticalMenu],
+    imports: [NavigationVertical],
     providers: [
         ExampleResponsiveNavigationVerticalMenuService,
         {
-            provide: NavigationVerticalMenuService,
+            provide: NavigationVerticalService,
             useExisting: ExampleResponsiveNavigationVerticalMenuService,
         }
     ],
@@ -22,6 +22,6 @@ export class ExampleResponsiveNavigationVerticalMenu implements OnInit {
     private readonly verticalMenuService = inject<ExampleResponsiveNavigationVerticalMenuService>(ExampleResponsiveNavigationVerticalMenuService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.data.set(navigationMenuDataMock);
+        this.verticalMenuService.data.set(navigationDataMock);
     }
 }

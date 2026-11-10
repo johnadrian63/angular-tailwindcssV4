@@ -5,7 +5,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 
 import { getRange } from "../../shared/util/range.generator";
-import { ExampleResponsiveNavigation } from "./header/example.responsive.navigation";
+import { ExampleResponsiveNavigation } from "./navigation/example.responsive.navigation";
 
 @Component({
     selector: "app-example-responsive",

@@ -3,17 +3,17 @@ import { ActivatedRoute } from "@angular/router";
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
-import { IMenu } from "../navigation.menu.model";
-import { NavigationVerticalMenuService } from "./navigation.menu.vertical.service";
-import { NavigationVerticalMenuResolver } from "./navigation.menu.vertical.resolver";
+import { IMenu } from "../navigation.model";
+import { NavigationVerticalService } from "./navigation.vertical.service";
+import { NavigationVerticalResolver } from "./navigation.vertical.resolver";
 
 @Component({
-    selector: "app-vertical-menu",
-    styleUrl: "./navigation.menu.vertical.css",
-    templateUrl: "./navigation.menu.vertical.html",
-    imports: [FaIconComponent, NavigationVerticalMenuResolver],
+    selector: "app-navigation-vertical",
+    styleUrl: "./navigation.vertical.css",
+    templateUrl: "./navigation.vertical.html",
+    imports: [FaIconComponent, NavigationVerticalResolver],
 })
-export class NavigationVerticalMenu {
+export class NavigationVertical {
 
     public get currentMenu(): IMenu {
         return this.verticalMenuService.menu;
@@ -24,7 +24,7 @@ export class NavigationVerticalMenu {
     }
 
     public readonly faAngleLeftIcon = faAngleLeft;
-    public readonly verticalMenuService = inject<NavigationVerticalMenuService>(NavigationVerticalMenuService);
+    public readonly verticalMenuService = inject<NavigationVerticalService>(NavigationVerticalService);
     public readonly activatedRoute = inject<ActivatedRoute>(ActivatedRoute);
     public readonly isVisible: WritableSignal<boolean> = signal<boolean>(true);
 
@@ -32,8 +32,11 @@ export class NavigationVerticalMenu {
         effect(() => {
             const menuList = this.verticalMenuService.data();
 
-
-            this.verticalMenuService.setMenu(undefined, menuList);
+            this.verticalMenuService.setMenu({
+                label: "",
+                text: "",
+                children: menuList
+            });
         });
     }
 

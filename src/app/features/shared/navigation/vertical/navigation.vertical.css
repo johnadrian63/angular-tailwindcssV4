@@ -10,11 +10,6 @@
     .vertical-menu-item {
         @apply border-b border-b-gray-300 m-0;
 
-        a,
-        span {
-            @apply p-2 hover:bg-gray-100 flex cursor-pointer;
-        }
-
         &:last-child {
             @apply border-0;
         }

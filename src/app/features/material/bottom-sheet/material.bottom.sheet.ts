@@ -5,35 +5,35 @@ import { MatBottomSheetModule, MatBottomSheet } from '@angular/material/bottom-s
 
 
 import { MaterialBottomSheetPanel } from "./panel/material.bottom.sheet.panel";
-import { MaterialBottomSheetVerticalMenuService } from "./material.bottom.sheet.vertical.menu.service";
-import { NavigationVerticalMenu } from "../../shared/navigation-menu/vertical/navigation.menu.vertical";
-import { NavigationVerticalMenuService } from "../../shared/navigation-menu/vertical/navigation.menu.vertical.service";
-import { navigationMenuDataMock } from "../../shared/navigation-menu/vertical/navigation.menu.vertical.data.mock";
+import { MaterialBottomSheetNavigationVerticalService } from "./material.bottom.sheet.vertical.menu.service";
+import { navigationDataMock } from "../../shared/navigation/navigation.data.mock";
+import { NavigationVertical } from "../../shared/navigation/vertical/navigation.vertical";
+import { NavigationVerticalService } from "../../shared/navigation/vertical/navigation.vertical.service";
 
 @Component({
     selector: "app-material-bottom-sheet",
     styleUrl: "./material.bottom.sheet.css",
     templateUrl: "./material.bottom.sheet.html",
     providers: [
-        MaterialBottomSheetVerticalMenuService,
+        MaterialBottomSheetNavigationVerticalService,
         {
-            provide: NavigationVerticalMenuService,
-            useExisting: MaterialBottomSheetVerticalMenuService,
+            provide: NavigationVerticalService,
+            useExisting: MaterialBottomSheetNavigationVerticalService,
         }
     ],
     imports: [
         MatBottomSheetModule,
         MatButtonModule,
         MatListModule,
-        NavigationVerticalMenu
+        NavigationVertical
     ],
 })
 export class MaterialBottomSheet implements OnInit {
     private readonly bottomSheet = inject<MatBottomSheet>(MatBottomSheet);
-    private readonly verticalMenuService = inject<MaterialBottomSheetVerticalMenuService>(MaterialBottomSheetVerticalMenuService);
+    private readonly verticalMenuService = inject<MaterialBottomSheetNavigationVerticalService>(MaterialBottomSheetNavigationVerticalService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.data.set(navigationMenuDataMock);
+        this.verticalMenuService.data.set(navigationDataMock);
     }
 
     public open(): void {

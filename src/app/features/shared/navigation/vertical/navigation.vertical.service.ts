@@ -1,12 +1,12 @@
 import { Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
-import { IMenu, IMenuItem } from "../navigation.menu.model";
-import { NavigationVerticalMenuExpand } from "./expand/navigation.vertical.menu.expand";
-import { NavigationVerticalMenuLink } from "./link/vertical.menu.link";
-
+import { IMenu, IMenuItem } from "../navigation.model";
+import { NavigationLink } from "../link/navigation.link";
+import { NavigationExpand } from "../expand/navigation.expand";
 
 @Injectable()
-export abstract class NavigationVerticalMenuService {
+export abstract class NavigationVerticalService {
+
     public get menu(): IMenu {
         const selectedMenus = this.selectedMenus();
 
@@ -29,26 +29,34 @@ export abstract class NavigationVerticalMenuService {
     }
 
     public handleExpand(vcr: ViewContainerRef, data: IMenuItem): void {
-        const componentRef = vcr.createComponent(NavigationVerticalMenuExpand);
+        const componentRef = vcr.createComponent(NavigationExpand);
 
         componentRef.instance.menu.set(data);
+        componentRef.instance.classes = "p-2 hover:bg-gray-100 flex cursor-pointer";
+
+        componentRef.instance
+            .onExpand
+            .subscribe((data) => {
+                this.setMenu(data);
+            });
 
         componentRef.changeDetectorRef.detectChanges();
     }
 
     public handleLink(vcr: ViewContainerRef, data: IMenuItem): void {
-        const componentRef = vcr.createComponent(NavigationVerticalMenuLink);
+        const componentRef = vcr.createComponent(NavigationLink);
 
         componentRef.instance.menu.set(data);
+        componentRef.instance.classes = "p-2 hover:bg-gray-100 flex cursor-pointer";
 
         componentRef.changeDetectorRef.detectChanges();
     }
 
-    public setMenu(parent: IMenuItem | undefined, children: IMenuItem[]): void {
+    public setMenu(menu: IMenuItem | undefined): void {
         this.selectedMenus.update((menus) => {
             menus.push({
-                parent,
-                children: children
+                parent: menu,
+                children: menu?.children!
             });
 
             return menus;
