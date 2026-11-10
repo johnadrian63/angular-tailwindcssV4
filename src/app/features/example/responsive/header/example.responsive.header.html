@@ -1,77 +1,34 @@
 <header class="flex items-center p-2 fixed bottom-0 w-full border-neutral-200 shadow-lg">
-    <div class="bg-neutral-100 w-full h-full left-0 z-30 absolute bottom-0"></div>
-    <div class="mr-2 z-30">
+    <div class="mr-2">
         <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="mr-2">Logo</a>
         <fa-icon
-            (click)="toggleSidebar()"
+            (click)="toggle()"
             [icon]="faTableColumnsIcon"
             class="sidebar-toggle cursor-pointer"
         ></fa-icon>
     </div>
-    <nav
-        [class.translate-y-full]="!navigationOpen()"
-        [class.translate-y-0]="navigationOpen()"
-        class="fixed right-1 bottom-10 w-50 transition-transform"
-    >
-        <!-- <ul class="flex flex-col p-0 right-1 overflow-y-auto max-h-[calc(100vh-6.5rem)]">
-            <li>
-                <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Dashboard</a>
-            </li>
-            <li>
-                <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Accounts</a>
-            </li>
-            <li>
-                <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Products</a>
-            </li>
-            <li>
-                <a routerLink="responsive" [relativeTo]="activatedRoute.parent">CRM</a>
-            </li>
-            @for (item of getRange(4); track $index) {
-                <li>
-                    <a routerLink="responsive" [relativeTo]="activatedRoute.parent">Migration</a>
-                </li>
+    <nav>
+        @for (menu of menuList(); track menu.label) {
+            @if (menu.children?.length) {
+                <button matButton [matMenuTriggerFor]="dropdown.items()!">{{ menu.text }}</button>
+
+                <app-dropdown-menu #dropdown [menus]="menu.children"></app-dropdown-menu>
+            } @else {
+                <button matButton>{{ menu.text }}</button>
             }
-        </ul> -->
-
-        <button matButton [matMenuTriggerFor]="animals">Animal index</button>
-        <mat-menu #animals="matMenu">
-            <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
-            <button mat-menu-item>Invertebrates</button>
-        </mat-menu>
-
-        <mat-menu #vertebrates="matMenu">
-            <button mat-menu-item>Fishes</button>
-            <button mat-menu-item>Amphibians</button>
-            <button mat-menu-item>Reptiles</button>
-            <button mat-menu-item>Birds</button>
-            <button mat-menu-item>Mammals</button>
-        </mat-menu>
+        }
     </nav>
     <div class="ml-auto flex relative z-40">
-        <fa-icon
-            #toggleProfileIcon
-            (click)="toggleNavigation()"
-            [icon]="faBarsIcon"
-            class="menu-toggle mr-2"
-        ></fa-icon>
-        <div (click)="toggleProfile()" class="cursor-pointer">John</div>
-    </div>
-    <div
-        [class.settings-collapse]="!profileOpen()"
-        [class.settings-expand]="profileOpen()"
-        class="settings overflow-y-auto max-h-[calc(100vh-6.5rem)] w-30"
-    >
-        <ul>
-            <li>
-                <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="px-2"
-                    >Profile</a
-                >
-            </li>
-            <li>
-                <a routerLink="responsive" [relativeTo]="activatedRoute.parent" class="px-2"
-                    >Logout</a
-                >
-            </li>
-        </ul>
+        <fa-icon (click)="openMenu()" [icon]="faBarsIcon" class="menu-toggle mr-2"></fa-icon>
+        <fa-icon (click)="openProfile()" class="profile-icon mobile" [icon]="faUserIcon"></fa-icon>
+        <div [matMenuTriggerFor]="menu" class="profile-icon cursor-pointer">John</div>
     </div>
 </header>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <span>Profile</span>
+    </button>
+    <button mat-menu-item>
+        <span>Logout</span>
+    </button>
+</mat-menu>

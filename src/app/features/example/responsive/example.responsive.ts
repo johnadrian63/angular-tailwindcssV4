@@ -17,9 +17,8 @@ export class ExampleResponsive {
     // public readonly faSearchIcon = faSearch;
     public readonly faBarsIcon = faBars;
     public readonly faTableColumnsIcon = faTableColumns;
-    public readonly sidebarOpen = signal<boolean>(false);
+    public readonly sidebarOpen = signal<boolean | undefined>(false);
     public readonly navigationOpen = signal<boolean>(false);
-    public readonly profileOpen = signal<boolean>(false);
 
     public readonly activatedRoute: ActivatedRoute = inject<ActivatedRoute>(ActivatedRoute);
 
@@ -46,28 +45,17 @@ export class ExampleResponsive {
         return getRange(range);
     }
 
-    public toggleSidebar(): void {
-        this.navigationOpen.set(false);
-        this.profileOpen.set(false);
-
-        this.sidebarOpen.update((value: boolean) => !value);
+    public toggleSidebar(toggled: boolean | undefined): void {
+        this.sidebarOpen.set(toggled);
     }
 
     public toggleNavigation(): void {
-        this.profileOpen.set(false);
         this.sidebarOpen.set(false);
 
         this.navigationOpen.update((value: boolean) => !value);
     }
 
-    public toggleProfile(): void {
-        this.navigationOpen.set(false);
-
-        this.profileOpen.update((value: boolean) => !value);
-    }
-
     public closeDropdown(): void {
-        this.profileOpen.set(false);
         this.navigationOpen.set(false);
     }
 }

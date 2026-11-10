@@ -1,6 +1,8 @@
 @reference "tailwindcss";
 
 header {
+    @apply bg-neutral-100;
+
     @media (width >=theme(--breakpoint-md)) {
         & {
             @apply sticky top-0 z-10;
@@ -8,68 +10,32 @@ header {
     }
 
     nav {
-        @apply border border-neutral-200 shadow-lg;
+        @apply hidden;
 
         @media (width >=theme(--breakpoint-md)) {
-            @apply border-0 shadow-none;
-
-            & {
-                @apply translate-y-0 relative bottom-0 w-auto z-30;
-            }
-        }
-
-        ul {
-            @apply bg-neutral-50;
-
-            li {
-                a {
-                    @apply py-1 px-2 block;
-                }
-            }
-
-            @media (width >=theme(--breakpoint-md)) {
-                @apply bg-transparent;
-
-                & {
-                    @apply flex-row overflow-visible;
-                }
-            }
-        }
-    }
-
-    .settings {
-        @apply fixed right-1 transition-transform duration-300 bg-neutral-50 bottom-10 border border-neutral-200;
-
-        &.settings-expand {
-            @apply translate-y-0;
-
-            @media (width >=theme(--breakpoint-md)) {
-                @apply -translate-y-0 shadow-lg;
-            }
-        }
-
-        &.settings-collapse {
-            @apply translate-y-full;
-
-            @media (width >=theme(--breakpoint-md)) {
-                @apply -translate-y-full;
-            }
-        }
-
-        li {
-            a {
-                @apply py-1 px-2 block;
-            }
-        }
-
-        @media (width >=theme(--breakpoint-md)) {
-            @apply top-12 bottom-auto;
+            @apply block;
         }
     }
 
     .menu-toggle {
         @media (width >=theme(--breakpoint-md)) {
             @apply hidden;
+        }
+    }
+
+    .profile-icon {
+        @apply hidden;
+
+        &.mobile {
+            @apply block;
+        }
+
+        @media (width >=theme(--breakpoint-md)) {
+            @apply block;
+
+            &.mobile {
+                @apply hidden;
+            }
         }
     }
 }

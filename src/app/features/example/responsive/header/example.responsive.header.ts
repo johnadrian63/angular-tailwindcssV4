@@ -1,38 +1,44 @@
-import { Component, ElementRef, inject, input, InputSignal, OnInit, Signal, signal, viewChild, ViewChild } from "@angular/core";
+import { Component, ElementRef, inject, input, InputSignal, model, OnInit, output, Signal, signal, viewChild, ViewChild, WritableSignal } from "@angular/core";
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUser, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 
 import { getRange } from "../../../shared/util/range.generator";
+import { DropdownMenu, IDropdownMenu } from "../../../shared/dropdown-menu/dropdown.menu";
+import { menuData } from "../../../shared/menu.data";
+import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-sheet";
+import { ExampleResponsiveHeaderVerticalMenu } from "./vertical-menu/example.responsive.header.vertical.menu";
+import { ExampleResponsiveHeaderProfileMenu } from "./profile-menu/example.responsive.header.profile.menu";
 
 @Component({
     selector: "app-example-responsive-header",
     templateUrl: "./example.responsive.header.html",
     styleUrl: "./example.responsive.header.css",
-    imports: [RouterModule, FaIconComponent, MatButtonModule, MatMenuModule],
+    imports: [
+        MatButtonModule,
+        MatMenuModule,
+        MatBottomSheetModule,
+        FaIconComponent,
+        RouterModule,
+        DropdownMenu
+    ],
 
 })
 export class ExampleResponsiveHeader {
-    // @ViewChild("toggleProfileIcon", { read: ElementRef, static: false })
-    // public toggleProfileElem!: ElementRef<HTMLElement>;
     // public readonly faSearchIcon = faSearch;
     public readonly faBarsIcon = faBars;
+    public readonly faUserIcon = faUser;
     public readonly faTableColumnsIcon = faTableColumns;
     public readonly sidebarOpen = signal<boolean>(false);
-    public readonly navigationOpen = signal<boolean>(false);
-    public readonly profileOpen = signal<boolean>(false);
-
+    public readonly toggleSidebar = model<boolean>();
+    public readonly menuList: WritableSignal<IDropdownMenu[]> = signal<IDropdownMenu[]>(menuData);
     public readonly activatedRoute: ActivatedRoute = inject<ActivatedRoute>(ActivatedRoute);
-
+    private readonly bottomSheet = inject<MatBottomSheet>(MatBottomSheet);
     private readonly breakpointObserver: BreakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
-
-    public toggleProfileElem: Signal<ElementRef<any> | undefined> = viewChild("toggleProfileIcon", {
-        read: ElementRef
-    });
 
     constructor() {
         this.breakpointObserver.observe([
@@ -43,40 +49,27 @@ export class ExampleResponsiveHeader {
         ).subscribe((result) => {
             const isMobile = result.matches;
 
-            this.sidebarOpen.set(!isMobile);
+            this.toggleSidebar.set(!isMobile);
         });
-    }
-
-    public ngOnInit(): void {
-        // console.log(this.toggleProfileElem);
     }
 
     public getRange(range: number): number[] {
         return getRange(range);
     }
 
-    public toggleSidebar(): void {
-        this.navigationOpen.set(false);
-        this.profileOpen.set(false);
-
-        this.sidebarOpen.update((value: boolean) => !value);
+    public toggle(): void {
+        this.toggleSidebar.update((toggled) => !toggled);
     }
 
-    public toggleNavigation(): void {
-        this.profileOpen.set(false);
-        this.sidebarOpen.set(false);
+    public openMenu(): void {
+        this.bottomSheet.open(ExampleResponsiveHeaderVerticalMenu, {
 
-        this.navigationOpen.update((value: boolean) => !value);
+        });
     }
 
-    public toggleProfile(): void {
-        this.navigationOpen.set(false);
+    public openProfile(): void {
+        this.bottomSheet.open(ExampleResponsiveHeaderProfileMenu, {
 
-        this.profileOpen.update((value: boolean) => !value);
-    }
-
-    public closeDropdown(): void {
-        this.profileOpen.set(false);
-        this.navigationOpen.set(false);
+        });
     }
 }
