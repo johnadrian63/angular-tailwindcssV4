@@ -1,12 +1,14 @@
-<ul class="vertical-menu">
-    @if (selectedMenus().length > 1) {
-        <li class="vertical-menu-item">
-            <span (click)="back()">
-                <fa-icon [icon]="faAngleLeftIcon"></fa-icon>
-                Back
-            </span>
-        </li>
-    }
+@if (selectedMenus().length > 1) {
+    <div class="back" (click)="back()">
+        <fa-icon [icon]="faAngleLeftIcon"></fa-icon>
+        <span>Back</span>
+    </div>
+}
+<ul
+    class="vertical-menu transition-opacity duration-300 ease-in-out"
+    [class.opacity-0]="!isVisible()"
+    [class.opacity-100]="isVisible()"
+>
     @for (menu of currentMenu; track menu.label) {
         <li class="vertical-menu-item">
             @if (menu.children?.length) {

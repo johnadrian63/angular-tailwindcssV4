@@ -37,7 +37,11 @@ export class VerticalMenu {
         });
     }
 
+    public isVisible = signal<boolean>(true);
+
     public expand(menuList: IDropdownMenu[]): void {
+        this.animate();
+
         this.selectedMenus.update((menus) => {
             menus.push(menuList);
 
@@ -45,7 +49,17 @@ export class VerticalMenu {
         });
     }
 
+    private animate(): void {
+        this.isVisible.set(false);
+
+        setTimeout(() => {
+            this.isVisible.set(true);
+        }, 150);
+    }
+
     public back(): void {
+        this.animate();
+
         this.selectedMenus.update((menus: IDropdownMenu[][]) => {
             menus.pop();
 
