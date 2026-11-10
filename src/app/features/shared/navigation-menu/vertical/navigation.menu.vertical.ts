@@ -1,32 +1,32 @@
 import { Component, effect, inject, signal, WritableSignal } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
-import { IVerticalMenu } from "./vertical.menu.model";
-import { VerticalMenuService } from "./vertical.menu.service";
-import { VerticalMenuResolver } from "./vertical.menu.resolver";
+import { IMenu } from "../navigation.menu.model";
+import { NavigationVerticalMenuService } from "./navigation.menu.vertical.service";
+import { NavigationVerticalMenuResolver } from "./navigation.menu.vertical.resolver";
 
 @Component({
     selector: "app-vertical-menu",
-    styleUrl: "./vertical.menu.css",
-    templateUrl: "./vertical.menu.html",
-    imports: [FaIconComponent, VerticalMenuResolver],
+    styleUrl: "./navigation.menu.vertical.css",
+    templateUrl: "./navigation.menu.vertical.html",
+    imports: [FaIconComponent, NavigationVerticalMenuResolver],
 })
-export class VerticalMenu {
+export class NavigationVerticalMenu {
 
-    public get currentMenu(): IVerticalMenu {
+    public get currentMenu(): IMenu {
         return this.verticalMenuService.menu;
     }
 
-    public get menus(): IVerticalMenu[] {
+    public get menus(): IMenu[] {
         return this.verticalMenuService.menus;
     }
 
     public readonly faAngleLeftIcon = faAngleLeft;
-    public readonly verticalMenuService = inject<VerticalMenuService>(VerticalMenuService);
+    public readonly verticalMenuService = inject<NavigationVerticalMenuService>(NavigationVerticalMenuService);
     public readonly activatedRoute = inject<ActivatedRoute>(ActivatedRoute);
-    public isVisible: WritableSignal<boolean> = signal<boolean>(true);
+    public readonly isVisible: WritableSignal<boolean> = signal<boolean>(true);
 
     constructor() {
         effect(() => {

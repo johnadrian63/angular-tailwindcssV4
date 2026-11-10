@@ -11,7 +11,9 @@
 >
     @for (menu of currentMenu.children; track menu.label) {
         <li class="vertical-menu-item">
-            <app-vertical-menu-resolver [menu]="menu"></app-vertical-menu-resolver>
+            <app-navigation-vertical-menu-resolver
+                [menu]="menu"
+            ></app-navigation-vertical-menu-resolver>
         </li>
     }
 </ul>

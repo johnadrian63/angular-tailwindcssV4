@@ -1,14 +1,14 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { MatBottomSheetModule, MatBottomSheet } from '@angular/material/bottom-sheet';
-import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBottomSheetModule, MatBottomSheet } from '@angular/material/bottom-sheet';
 
-import { getRange } from "../../shared/util/range.generator";
-import { VerticalMenu } from "../../shared/vertical-menu/vertical.menu";
+
 import { MaterialBottomSheetPanel } from "./panel/material.bottom.sheet.panel";
-import { VerticalMenuService } from "../../shared/vertical-menu/vertical.menu.service";
 import { MaterialBottomSheetVerticalMenuService } from "./material.bottom.sheet.vertical.menu.service";
-import { verticalMenuDataMock } from "../../shared/vertical-menu/vertical.menu.data.mock";
+import { NavigationVerticalMenu } from "../../shared/navigation-menu/vertical/navigation.menu.vertical";
+import { NavigationVerticalMenuService } from "../../shared/navigation-menu/vertical/navigation.menu.vertical.service";
+import { navigationMenuDataMock } from "../../shared/navigation-menu/vertical/navigation.menu.vertical.data.mock";
 
 @Component({
     selector: "app-material-bottom-sheet",
@@ -17,7 +17,7 @@ import { verticalMenuDataMock } from "../../shared/vertical-menu/vertical.menu.d
     providers: [
         MaterialBottomSheetVerticalMenuService,
         {
-            provide: VerticalMenuService,
+            provide: NavigationVerticalMenuService,
             useExisting: MaterialBottomSheetVerticalMenuService,
         }
     ],
@@ -25,7 +25,7 @@ import { verticalMenuDataMock } from "../../shared/vertical-menu/vertical.menu.d
         MatBottomSheetModule,
         MatButtonModule,
         MatListModule,
-        VerticalMenu
+        NavigationVerticalMenu
     ],
 })
 export class MaterialBottomSheet implements OnInit {
@@ -33,14 +33,10 @@ export class MaterialBottomSheet implements OnInit {
     private readonly verticalMenuService = inject<MaterialBottomSheetVerticalMenuService>(MaterialBottomSheetVerticalMenuService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.data.set(verticalMenuDataMock);
+        this.verticalMenuService.data.set(navigationMenuDataMock);
     }
 
     public open(): void {
         this.bottomSheet.open(MaterialBottomSheetPanel);
-    }
-
-    public getRange(range: number): number[] {
-        return getRange(range);
     }
 }

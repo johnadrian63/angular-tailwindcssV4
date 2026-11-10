@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { VerticalMenuService } from "../../../../shared/vertical-menu/vertical.menu.service";
+import { NavigationVerticalMenuService } from "../../../../shared/navigation-menu/vertical/navigation.menu.vertical.service";
 
 @Injectable()
-export class ExampleResponsiveNavigationVerticalMenuService extends VerticalMenuService { }
+export class ExampleResponsiveNavigationVerticalMenuService extends NavigationVerticalMenuService { }

@@ -1,6 +1,6 @@
-import { IVerticalMenuItem } from "./vertical.menu.model";
+import { IMenuItem } from "../navigation.menu.model";
 
-export const verticalMenuDataMock: IVerticalMenuItem[] = [
+export const navigationMenuDataMock: IMenuItem[] = [
     {
         label: "animals",
         text: "Animals",

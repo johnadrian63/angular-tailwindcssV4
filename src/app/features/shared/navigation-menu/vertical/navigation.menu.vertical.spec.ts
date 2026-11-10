@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { VerticalMenu } from "./vertical.menu";
+import { NavigationVerticalMenu } from "./navigation.menu.vertical";
 
-describe("VerticalMenu", () => {
-    let component: VerticalMenu;
-    let fixture: ComponentFixture<VerticalMenu>;
+describe("NavigationVerticalMenu", () => {
+    let component: NavigationVerticalMenu;
+    let fixture: ComponentFixture<NavigationVerticalMenu>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [VerticalMenu],
+            imports: [NavigationVerticalMenu],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(VerticalMenu);
+        fixture = TestBed.createComponent(NavigationVerticalMenu);
         component = fixture.componentInstance;
         await fixture.whenStable();
     });
