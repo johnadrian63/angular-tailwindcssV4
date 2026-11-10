@@ -1,4 +1,4 @@
-@if (selectedMenus().length > 1) {
+@if (menus.length > 1) {
     <div class="back" (click)="back()">
         <fa-icon [icon]="faAngleLeftIcon"></fa-icon>
         <span>{{ currentMenu.parent?.text }}</span>
@@ -11,16 +11,7 @@
 >
     @for (menu of currentMenu.children; track menu.label) {
         <li class="vertical-menu-item">
-            @if (menu.children?.length) {
-                <span (click)="expand(menu, menu.children)">
-                    {{ menu.text }}
-                    <fa-icon class="ml-auto" [icon]="faAngleRightIcon"></fa-icon>
-                </span>
-            } @else {
-                <a routerLink="bottom-sheet" [relativeTo]="activatedRoute.parent">
-                    {{ menu.text }}
-                </a>
-            }
+            <app-vertical-menu-resolver [menu]="menu"></app-vertical-menu-resolver>
         </li>
     }
 </ul>

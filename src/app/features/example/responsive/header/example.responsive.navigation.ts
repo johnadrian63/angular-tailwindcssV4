@@ -6,18 +6,18 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars, faUser, faTableColumns } from '@fortawesome/free-solid-svg-icons';
+import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-sheet";
 
+import { menuData } from "../../../shared/menu.data";
 import { getRange } from "../../../shared/util/range.generator";
 import { DropdownMenu, IDropdownMenu } from "../../../shared/dropdown-menu/dropdown.menu";
-import { menuData } from "../../../shared/menu.data";
-import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-sheet";
-import { ExampleResponsiveHeaderVerticalMenu } from "./vertical-menu/example.responsive.header.vertical.menu";
-import { ExampleResponsiveHeaderProfileMenu } from "./profile-menu/example.responsive.header.profile.menu";
+import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example.responsive.navigation.vertical.menu";
+import { ExampleResponsiveNavigationProfileMenu } from "./profile-menu/example.responsive.navigation.profile.menu";
 
 @Component({
-    selector: "app-example-responsive-header",
-    templateUrl: "./example.responsive.header.html",
-    styleUrl: "./example.responsive.header.css",
+    selector: "app-example-responsive-navigation",
+    templateUrl: "./example.responsive.navigation.html",
+    styleUrl: "./example.responsive.navigation.css",
     imports: [
         MatButtonModule,
         MatMenuModule,
@@ -28,7 +28,7 @@ import { ExampleResponsiveHeaderProfileMenu } from "./profile-menu/example.respo
     ],
 
 })
-export class ExampleResponsiveHeader {
+export class ExampleResponsiveNavigation {
     // public readonly faSearchIcon = faSearch;
     public readonly faBarsIcon = faBars;
     public readonly faUserIcon = faUser;
@@ -62,14 +62,10 @@ export class ExampleResponsiveHeader {
     }
 
     public openMenu(): void {
-        this.bottomSheet.open(ExampleResponsiveHeaderVerticalMenu, {
-
-        });
+        this.bottomSheet.open(ExampleResponsiveNavigationVerticalMenu);
     }
 
     public openProfile(): void {
-        this.bottomSheet.open(ExampleResponsiveHeaderProfileMenu, {
-
-        });
+        this.bottomSheet.open(ExampleResponsiveNavigationProfileMenu);
     }
 }

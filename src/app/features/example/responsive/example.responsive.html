@@ -1,5 +1,7 @@
 <div class="grid h-screen grid-rows-[auto_minmax(0,1fr)]">
-    <app-example-responsive-header (toggleSidebarChange)="toggleSidebar($event)"></app-example-responsive-header>
+    <app-example-responsive-navigation
+        (toggleSidebarChange)="toggleSidebar($event)"
+    ></app-example-responsive-navigation>
     <div
         [class.md:grid-cols-[0_minmax(0,1fr)_auto]]="!sidebarOpen()"
         [class.md:grid-cols-[250px_minmax(0,1fr)_auto]]="sidebarOpen()"

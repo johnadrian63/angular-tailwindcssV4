@@ -5,13 +5,13 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
 
 import { getRange } from "../../shared/util/range.generator";
-import { ExampleResponsiveHeader } from "./header/example.responsive.header";
+import { ExampleResponsiveNavigation } from "./header/example.responsive.navigation";
 
 @Component({
     selector: "app-example-responsive",
     styleUrl: "./example.responsive.css",
     templateUrl: "./example.responsive.html",
-    imports: [RouterModule, ExampleResponsiveHeader],
+    imports: [RouterModule, ExampleResponsiveNavigation],
 })
 export class ExampleResponsive {
     // public readonly faSearchIcon = faSearch;

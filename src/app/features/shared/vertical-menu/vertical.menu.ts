@@ -1,63 +1,39 @@
-import { Component, effect, inject, signal } from "@angular/core";
-import { ActivatedRoute, RouterLink } from "@angular/router";
+import { Component, effect, inject, signal, WritableSignal } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-import { menuData } from "../menu.data";
-import { getRange } from "../util/range.generator";
-import { IDropdownMenu } from "../dropdown-menu/dropdown.menu";
-
-export interface IVerticalMenu {
-    parent?: IDropdownMenu;
-    children: IDropdownMenu[];
-}
+import { IVerticalMenu } from "./vertical.menu.model";
+import { VerticalMenuService } from "./vertical.menu.service";
+import { VerticalMenuResolver } from "./vertical.menu.resolver";
 
 @Component({
     selector: "app-vertical-menu",
     styleUrl: "./vertical.menu.css",
     templateUrl: "./vertical.menu.html",
-    imports: [RouterLink, FaIconComponent],
+    imports: [FaIconComponent, VerticalMenuResolver],
 })
 export class VerticalMenu {
 
     public get currentMenu(): IVerticalMenu {
-        const selectedMenus = this.selectedMenus();
-
-        return selectedMenus[selectedMenus.length - 1];
+        return this.verticalMenuService.menu;
     }
 
-    public readonly activatedRoute = inject<ActivatedRoute>(ActivatedRoute);
-    public readonly faAngleRightIcon = faAngleRight;
-    public readonly faAngleLeftIcon = faAngleLeft;
+    public get menus(): IVerticalMenu[] {
+        return this.verticalMenuService.menus;
+    }
 
-    public readonly menuList = signal<IDropdownMenu[]>(menuData);
-    public previousMenu: IDropdownMenu[] = [];
-    public readonly selectedMenus = signal<IVerticalMenu[]>([]);
+    public readonly faAngleLeftIcon = faAngleLeft;
+    public readonly verticalMenuService = inject<VerticalMenuService>(VerticalMenuService);
+    public readonly activatedRoute = inject<ActivatedRoute>(ActivatedRoute);
+    public isVisible: WritableSignal<boolean> = signal<boolean>(true);
 
     constructor() {
         effect(() => {
-            const menuList = this.menuList();
+            const menuList = this.verticalMenuService.data();
 
-            this.selectedMenus.set([
-                {
-                    children: menuList
-                }
-            ]);
-        });
-    }
 
-    public isVisible = signal<boolean>(true);
-
-    public expand(parent: IDropdownMenu, menuList: IDropdownMenu[]): void {
-        this.animate();
-
-        this.selectedMenus.update((menus) => {
-            menus.push({
-                parent,
-                children: menuList
-            });
-
-            return menus;
+            this.verticalMenuService.setMenu(undefined, menuList);
         });
     }
 
@@ -72,14 +48,6 @@ export class VerticalMenu {
     public back(): void {
         this.animate();
 
-        this.selectedMenus.update((menus: IVerticalMenu[]) => {
-            menus.pop();
-
-            return menus;
-        });
-    }
-
-    public getRange(range: number): number[] {
-        return getRange(range);
+        this.verticalMenuService.back();
     }
 }
