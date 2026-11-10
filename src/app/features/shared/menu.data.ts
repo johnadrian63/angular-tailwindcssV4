@@ -142,5 +142,23 @@ export const menuData: IDropdownMenu[] = [
     {
         label: "building",
         text: "Buildings",
-    }
+    },
+    {
+        label: "plants",
+        text: "Plants",
+        children: [
+            {
+                label: "trees",
+                text: "Trees"
+            },
+            {
+                label: "vines",
+                text: "Vines"
+            }
+        ]
+    },
+    {
+        label: "Food",
+        text: "Food",
+    },
 ];
