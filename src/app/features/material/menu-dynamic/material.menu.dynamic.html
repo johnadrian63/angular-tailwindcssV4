@@ -3,7 +3,7 @@
     @if (menu.children?.length) {
         <button matButton [matMenuTriggerFor]="dropdown.items()!">{{ menu.text }}</button>
 
-        <app-dropdown-menu #dropdown [menus]="menu.children"></app-dropdown-menu>
+        <app-navigation-menu #dropdown [menus]="menu.children"></app-navigation-menu>
     } @else {
         <button matButton>{{ menu.text }}</button>
     }

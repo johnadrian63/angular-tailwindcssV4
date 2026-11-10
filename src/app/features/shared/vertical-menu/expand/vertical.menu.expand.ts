@@ -1,6 +1,6 @@
-import { Component, inject, input, model } from "@angular/core";
+import { Component, inject, model } from "@angular/core";
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import { IVerticalMenuItem } from "../vertical.menu.model";
 import { VerticalMenuService } from "../vertical.menu.service";
@@ -18,15 +18,5 @@ export class VerticalMenuExpand {
 
     public expand(parent: IVerticalMenuItem, children: IVerticalMenuItem[]): void {
         this.verticalMenuService.setMenu(parent, children);
-        // this.animate();
-
-        // this.selectedMenus.update((menus) => {
-        //     menus.push({
-        //         parent,
-        //         children: menuList
-        //     });
-
-        //     return menus;
-        // });
     }
 }

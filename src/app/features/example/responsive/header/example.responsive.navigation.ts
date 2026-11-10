@@ -10,7 +10,7 @@ import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-s
 
 import { menuData } from "../../../shared/menu.data";
 import { getRange } from "../../../shared/util/range.generator";
-import { DropdownMenu, IDropdownMenu } from "../../../shared/dropdown-menu/dropdown.menu";
+import { NavigationMenu, IDropdownMenu } from "../../../shared/navigation-menu/navigation.menu";
 import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example.responsive.navigation.vertical.menu";
 import { ExampleResponsiveNavigationProfileMenu } from "./profile-menu/example.responsive.navigation.profile.menu";
 
@@ -24,7 +24,7 @@ import { ExampleResponsiveNavigationProfileMenu } from "./profile-menu/example.r
         MatBottomSheetModule,
         FaIconComponent,
         RouterModule,
-        DropdownMenu
+        NavigationMenu
     ],
 
 })

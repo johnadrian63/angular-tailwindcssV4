@@ -9,12 +9,15 @@ export interface IDropdownMenu {
 }
 
 @Component({
-    selector: "app-dropdown-menu",
-    styleUrl: "./dropdown.menu.css",
-    templateUrl: "./dropdown.menu.html",
-    imports: [MatButtonModule, MatMenuModule],
+    selector: "app-navigation-menu",
+    styleUrl: "./navigation.menu.css",
+    templateUrl: "./navigation.menu.html",
+    imports: [
+        MatButtonModule,
+        MatMenuModule
+    ],
 })
-export class DropdownMenu {
+export class NavigationMenu {
     public readonly menus: InputSignal<IDropdownMenu[]> = input<IDropdownMenu[]>([]);
 
     public items = viewChild<MatMenu>("items");

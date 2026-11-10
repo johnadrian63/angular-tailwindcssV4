@@ -1,4 +1,4 @@
-import { IDropdownMenu } from "./dropdown-menu/dropdown.menu";
+import { IDropdownMenu } from "./navigation-menu/navigation.menu";
 
 export const menuData: IDropdownMenu[] = [
     {
