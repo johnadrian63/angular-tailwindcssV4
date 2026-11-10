@@ -4,9 +4,10 @@ import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
-
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
+
+import { getRange } from "../../../shared/util/range.generator";
 
 @Component({
     selector: "app-example-responsive-header",
@@ -50,8 +51,8 @@ export class ExampleResponsiveHeader {
         // console.log(this.toggleProfileElem);
     }
 
-    public getRange(range: number): any[] {
-        return [...Array(range).keys()];
+    public getRange(range: number): number[] {
+        return getRange(range);
     }
 
     public toggleSidebar(): void {

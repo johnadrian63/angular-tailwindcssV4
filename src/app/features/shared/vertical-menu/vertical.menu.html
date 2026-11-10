@@ -1,0 +1,24 @@
+<ul class="vertical-menu">
+    @if (selectedMenus().length > 1) {
+        <li class="vertical-menu-item">
+            <span (click)="back()">
+                <fa-icon [icon]="faAngleLeftIcon"></fa-icon>
+                Back
+            </span>
+        </li>
+    }
+    @for (menu of currentMenu; track menu.label) {
+        <li class="vertical-menu-item">
+            @if (menu.children?.length) {
+                <span (click)="expand(menu.children)">
+                    {{ menu.text }}
+                    <fa-icon class="ml-auto" [icon]="faAngleRightIcon"></fa-icon>
+                </span>
+            } @else {
+                <a routerLink="bottom-sheet" [relativeTo]="activatedRoute.parent">
+                    {{ menu.text }}
+                </a>
+            }
+        </li>
+    }
+</ul>

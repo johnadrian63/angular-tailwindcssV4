@@ -1,9 +1,10 @@
-import { Component, ElementRef, inject, OnInit, Signal, signal, viewChild } from "@angular/core";
+import { Component, ElementRef, inject, Signal, signal, viewChild } from "@angular/core";
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-
 import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
+
+import { getRange } from "../../shared/util/range.generator";
 import { ExampleResponsiveHeader } from "./header/example.responsive.header";
 
 @Component({
@@ -12,7 +13,7 @@ import { ExampleResponsiveHeader } from "./header/example.responsive.header";
     templateUrl: "./example.responsive.html",
     imports: [RouterModule, ExampleResponsiveHeader],
 })
-export class ExampleResponsive implements OnInit {
+export class ExampleResponsive {
     // public readonly faSearchIcon = faSearch;
     public readonly faBarsIcon = faBars;
     public readonly faTableColumnsIcon = faTableColumns;
@@ -41,12 +42,8 @@ export class ExampleResponsive implements OnInit {
         });
     }
 
-    public ngOnInit(): void {
-        // console.log(this.toggleProfileElem);
-    }
-
-    public getRange(range: number): any[] {
-        return [...Array(range).keys()];
+    public getRange(range: number): number[] {
+        return getRange(range);
     }
 
     public toggleSidebar(): void {

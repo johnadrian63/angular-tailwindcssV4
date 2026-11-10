@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { getRange } from "../../shared/util/range.generator";
 
 @Component({
     imports: [],
@@ -7,7 +8,7 @@ import { Component } from "@angular/core";
     templateUrl: "./flex.gap.html",
 })
 export class FlexGap {
-    public getRange(range: number): any[] {
-        return [...Array(range).keys()];
+    public getRange(range: number): number[] {
+        return getRange(range);
     }
 }

@@ -18,6 +18,10 @@ export const materialRoutes: Routes = [
                 path: "menu-dynamic",
                 loadComponent: () => import("./menu-dynamic/material.menu.dynamic").then((c) => c.MaterialMenuDynamic),
             },
+            {
+                path: "bottom-sheet",
+                loadComponent: () => import("./bottom-sheet/bottom.sheet").then((c) => c.BottomSheet),
+            },
         ]
     }
 ];
