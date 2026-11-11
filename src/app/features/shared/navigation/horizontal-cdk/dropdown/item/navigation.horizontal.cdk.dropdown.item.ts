@@ -9,7 +9,11 @@ import { CdkMenuTrigger, CdkMenu, CdkMenuItem } from "@angular/cdk/menu";
     selector: "app-navigation-horizontal-cdk-dropdown-item",
     styleUrl: "./navigation.horizontal.cdk.dropdown.item.css",
     templateUrl: "./navigation.horizontal.cdk.dropdown.item.html",
-    imports: [CdkMenuTrigger, CdkMenu, CdkMenuItem],
+    imports: [
+        CdkMenuTrigger,
+        CdkMenu,
+        CdkMenuItem
+    ],
 })
 export class NavigationHorizontalCdkDropdownItem {
     @Input() public classes: string = "";
