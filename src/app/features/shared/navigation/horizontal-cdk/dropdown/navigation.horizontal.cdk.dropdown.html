@@ -1,0 +1,8 @@
+<span [ngClass]="classes" class="cursor-pointer" [cdkMenuTriggerFor]="dropdown.menuItem()!">
+    {{ menu().text }}<fa-icon class="text-xs" [icon]="expandIcon"></fa-icon>
+</span>
+
+<app-navigation-horizontal-cdk-dropdown-item
+    #dropdown
+    [menu]="menu()"
+></app-navigation-horizontal-cdk-dropdown-item>

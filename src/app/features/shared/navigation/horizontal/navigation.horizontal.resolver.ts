@@ -7,10 +7,11 @@ import { NavigationHorizontalService } from "./navigation.horizontal.service";
     selector: "app-navigation-horizontal-resolver",
     template: ""
 })
-export class NavigationMenuResolver implements OnInit {
+export class NavigationHorizontalResolver implements OnInit {
     public readonly menu = input.required<IMenuItem>();
-    private readonly vcr = inject<ViewContainerRef>(ViewContainerRef);
     public readonly navigationMenuService: NavigationHorizontalService = inject<NavigationHorizontalService>(NavigationHorizontalService);
+
+    private readonly vcr = inject<ViewContainerRef>(ViewContainerRef);
 
     public ngOnInit(): void {
         this.navigationMenuService.handleData(this.vcr, this.menu());

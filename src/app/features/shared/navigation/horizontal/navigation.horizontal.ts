@@ -3,7 +3,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatMenu, MatMenuModule } from "@angular/material/menu";
 
 import { IMenuItem } from "../navigation.model";
-import { NavigationMenuResolver } from "./navigation.horizontal.resolver";
+import { NavigationHorizontalResolver } from "./navigation.horizontal.resolver";
 import { NavigationHorizontalService } from "./navigation.horizontal.service";
 
 @Component({
@@ -13,16 +13,16 @@ import { NavigationHorizontalService } from "./navigation.horizontal.service";
     imports: [
         MatButtonModule,
         MatMenuModule,
-        NavigationMenuResolver
+        NavigationHorizontalResolver
     ],
 })
 export class NavigationHorizontal {
 
     public get menus(): IMenuItem[] {
-        return this.navigationMenuService.data();
+        return this.navigationHorizontalService.data();
     }
 
-    public readonly navigationMenuService: NavigationHorizontalService = inject<NavigationHorizontalService>(NavigationHorizontalService);
+    public readonly navigationHorizontalService: NavigationHorizontalService = inject<NavigationHorizontalService>(NavigationHorizontalService);
 
     public items = viewChild<MatMenu>("items");
 }
