@@ -7,7 +7,6 @@ import { navigationDataMock } from "../../shared/navigation/navigation.data.mock
 import { NavigationHorizontal } from "../../shared/navigation/horizontal/navigation.horizontal";
 import { NavigationHorizontalService } from "../../shared/navigation/horizontal/navigation.horizontal.service";
 import { MaterialMenuDynamicNavigationHorizontalService } from "./material.menu.dynamic.navigation.horizontal.service";
-
 @Component({
     selector: "app-material-menu-dynamic",
     styleUrl: "./material.menu.dynamic.css",
