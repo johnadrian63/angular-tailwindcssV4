@@ -5,7 +5,8 @@ export const designPattersVisitorData = [
     },
     {
         type: "input",
-        value: "An input"
+        value: "An input",
+        placeholder: "An Input"
     },
     {
         type: "textarea",

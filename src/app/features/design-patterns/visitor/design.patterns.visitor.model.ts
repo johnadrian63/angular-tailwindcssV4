@@ -1,3 +1,8 @@
+import { ViewContainerRef } from "@angular/core";
+
+import { DesignPatternsVisitorElementInput } from "./element/input/design.patterns.visitor.element.input";
+import { DesignPatternsVisitorElementButton } from "./element/button/design.patterns.visitor.element.button";
+import { DesignPatternsVisitorElementTextarea } from "./element/textarea/design.patterns.visitor.element.textarea";
 
 export interface IHtmlElement {
     type: string;
@@ -11,6 +16,7 @@ export interface IHtmlButton extends IHtmlElement {
 
 export interface IHtmlInput extends IHtmlElement {
     value: string;
+    placeholder: string;
 }
 
 export interface IHtmlTextArea extends IHtmlElement {
@@ -74,9 +80,11 @@ export class HtmlButton implements IHtmlButton {
 export class HtmlInput implements IHtmlInput {
     public type: string = "input";
     public value: string;
+    public placeholder: string;
 
     constructor(data: IHtmlInput) {
         this.value = data.value;
+        this.placeholder = data.placeholder;
     }
 
     public accept<T>(visit: IHtmlElementVisitor<T>): T {
@@ -100,15 +108,30 @@ export class HtmlTextarea implements IHtmlTextArea {
 }
 
 export class HtmlRenderer implements IHtmlElementVisitor<void> {
+    constructor(private readonly vcr: ViewContainerRef) { }
+
     public visitButton(data: HtmlButton): void {
-        console.log("visitButton", data);
+        const componentRef = this.vcr.createComponent(DesignPatternsVisitorElementButton);
+
+        componentRef.instance.text.set(data.text);
+
+        componentRef.changeDetectorRef.detectChanges();
     }
 
     public visitInput(data: HtmlInput): void {
-        console.log("visitInput", data);
+        const componentRef = this.vcr.createComponent(DesignPatternsVisitorElementInput);
+
+        componentRef.instance.placeholder.set(data.placeholder);
+
+        componentRef.changeDetectorRef.detectChanges();
     }
 
     public visitTextarea(data: HtmlTextarea): void {
-        console.log("visitTextarea", data);
+        const componentRef = this.vcr.createComponent(DesignPatternsVisitorElementTextarea);
+
+        componentRef.instance.value.set(data.value);
+        componentRef.instance.rows.set(data.rows);
+
+        componentRef.changeDetectorRef.detectChanges();
     }
 }
