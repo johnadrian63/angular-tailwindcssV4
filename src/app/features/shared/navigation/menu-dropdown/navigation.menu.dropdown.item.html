@@ -1,0 +1,18 @@
+<mat-menu #menuItem="matMenu">
+    @for (item of menu().children; track item.label) {
+        @if (item.children?.length) {
+            <button mat-menu-item [matMenuTriggerFor]="dropdown.menuItem()!">
+                {{ item.text }}
+            </button>
+            <app-navigation-menu-dropdown-item
+                #dropdown
+                [menu]="item"
+                [classes]="classes"
+            ></app-navigation-menu-dropdown-item>
+        } @else {
+            <a mat-menu-item>
+                {{ item.text }}
+            </a>
+        }
+    }
+</mat-menu>

@@ -7,16 +7,6 @@
             class="sidebar-toggle cursor-pointer"
         ></fa-icon>
     </div>
-    <!-- <nav>
-        @for (menu of menuList(); track menu.label) {
-            @if (menu.children?.length) {
-                <button matButton [matMenuTriggerFor]="dropdown.items()!">{{ menu.text }}</button>
-
-            } @else {
-                <button matButton>{{ menu.text }}</button>
-            }
-        }
-    </nav> -->
     <nav>
         <app-navigation-horizontal></app-navigation-horizontal>
     </nav>

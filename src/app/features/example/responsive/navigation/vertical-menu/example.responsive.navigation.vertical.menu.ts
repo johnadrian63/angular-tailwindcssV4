@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from "@angular/core";
 
-import { ExampleResponsiveNavigationVerticalMenuService } from "./example.responsive.navigation.vertical.menu.service";
-import { NavigationVerticalService } from "../../../../shared/navigation/vertical/navigation.vertical.service";
 import { navigationDataMock } from "../../../../shared/navigation/navigation.data.mock";
 import { NavigationVertical } from "../../../../shared/navigation/vertical/navigation.vertical";
+import { NavigationVerticalService } from "../../../../shared/navigation/vertical/navigation.vertical.service";
+import { ExampleResponsiveNavigationVerticalMenuService } from "./example.responsive.navigation.vertical.menu.service";
 
 @Component({
     selector: "app-example-responsive-navigation-vertical-menu",

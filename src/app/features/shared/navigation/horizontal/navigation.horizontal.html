@@ -16,12 +16,5 @@
 <div class="flex w-full gap-x-2">
     @for (menu of menus; track menu.label) {
         <app-navigation-horizontal-resolver [menu]="menu"></app-navigation-horizontal-resolver>
-        <!-- @if (menu.children?.length) {
-            <button matButton>{{ menu.text }}</button>
-
-            <app-navigation-menu #dropdown [menus]="menu.children"></app-navigation-menu>
-            } @else {
-                <button matButton>{{ menu.text }}</button>
-                } -->
     }
 </div>

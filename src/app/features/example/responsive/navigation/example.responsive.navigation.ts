@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, input, InputSignal, model, OnInit, output, Signal, signal, viewChild, ViewChild, WritableSignal } from "@angular/core";
+import { Component, inject, model, OnInit, signal, WritableSignal } from "@angular/core";
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -12,7 +12,7 @@ import { getRange } from "../../../shared/util/range.generator";
 import { IMenuItem } from "../../../shared/navigation/navigation.model";
 import { navigationDataMock } from "../../../shared/navigation/navigation.data.mock";
 import { NavigationHorizontal } from "../../../shared/navigation/horizontal/navigation.horizontal";
-import { ExampleResponsiveNavigationMenuService } from "./example.responsive.navigation.menu.service";
+import { ExampleResponsiveNavigationHorizontalService } from "./example.responsive.navigation.horizontal.service";
 import { NavigationHorizontalService } from "../../../shared/navigation/horizontal/navigation.horizontal.service";
 import { ExampleResponsiveNavigationProfileMenu } from "./profile-menu/example.responsive.navigation.profile.menu";
 import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example.responsive.navigation.vertical.menu";
@@ -30,15 +30,14 @@ import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example
         NavigationHorizontal
     ],
     providers: [
-        ExampleResponsiveNavigationMenuService,
+        ExampleResponsiveNavigationHorizontalService,
         {
             provide: NavigationHorizontalService,
-            useExisting: ExampleResponsiveNavigationMenuService,
+            useExisting: ExampleResponsiveNavigationHorizontalService,
         }
     ],
 })
 export class ExampleResponsiveNavigation implements OnInit {
-    // public readonly faSearchIcon = faSearch;
     public readonly faBarsIcon = faBars;
     public readonly faUserIcon = faUser;
     public readonly faTableColumnsIcon = faTableColumns;
@@ -48,7 +47,7 @@ export class ExampleResponsiveNavigation implements OnInit {
     public readonly activatedRoute: ActivatedRoute = inject<ActivatedRoute>(ActivatedRoute);
     private readonly bottomSheet = inject<MatBottomSheet>(MatBottomSheet);
     private readonly breakpointObserver: BreakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
-    private readonly navigationMenuService: ExampleResponsiveNavigationMenuService = inject<ExampleResponsiveNavigationMenuService>(ExampleResponsiveNavigationMenuService);
+    private readonly navigationMenuService: ExampleResponsiveNavigationHorizontalService = inject<ExampleResponsiveNavigationHorizontalService>(ExampleResponsiveNavigationHorizontalService);
 
     constructor() {
         this.breakpointObserver.observe([

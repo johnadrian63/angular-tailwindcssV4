@@ -1,11 +1,11 @@
 import { Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
-import { IMenu, IMenuItem } from "../navigation.model";
 import { NavigationLink } from "../link/navigation.link";
 import { NavigationExpand } from "../expand/navigation.expand";
+import { IMenu, IMenuItem, INavigationService } from "../navigation.model";
 
 @Injectable()
-export abstract class NavigationVerticalService {
+export abstract class NavigationVerticalService implements INavigationService {
 
     public get menu(): IMenu {
         const selectedMenus = this.selectedMenus();
