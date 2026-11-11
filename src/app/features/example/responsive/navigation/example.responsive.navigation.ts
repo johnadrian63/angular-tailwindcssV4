@@ -1,4 +1,4 @@
-import { Component, inject, model, OnInit, signal, WritableSignal } from "@angular/core";
+import { Component, inject, model, OnInit, signal } from "@angular/core";
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -9,13 +9,13 @@ import { faBars, faUser, faTableColumns } from '@fortawesome/free-solid-svg-icon
 import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-sheet";
 
 import { getRange } from "../../../shared/util/range.generator";
-import { IMenuItem } from "../../../shared/navigation/navigation.model";
 import { navigationDataMock } from "../../../shared/navigation/navigation.data.mock";
-import { NavigationHorizontal } from "../../../shared/navigation/horizontal/navigation.horizontal";
 import { ExampleResponsiveNavigationHorizontalService } from "./example.responsive.navigation.horizontal.service";
 import { NavigationHorizontalService } from "../../../shared/navigation/horizontal/navigation.horizontal.service";
-import { ExampleResponsiveNavigationProfileMenu } from "./profile-menu/example.responsive.navigation.profile.menu";
 import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example.responsive.navigation.vertical.menu";
+import { ExampleResponsiveNavigationHorizontalMenu } from "./horizontal-menu/example.responsive.navigation.horizontal.menu";
+import { ExampleResponsiveNavigationHorizontalProfile } from "./horizontal-profile/example.responsive.navigation.horizontal.profile";
+import { ExampleResponsiveNavigationVerticalProfileMenu } from "./vertical-profile/example.responsive.navigation.vertical.profile.menu";
 
 @Component({
     selector: "app-example-responsive-navigation",
@@ -27,14 +27,15 @@ import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example
         MatBottomSheetModule,
         FaIconComponent,
         RouterModule,
-        NavigationHorizontal
+        ExampleResponsiveNavigationHorizontalMenu,
+        ExampleResponsiveNavigationHorizontalProfile
     ],
     providers: [
         ExampleResponsiveNavigationHorizontalService,
         {
             provide: NavigationHorizontalService,
             useExisting: ExampleResponsiveNavigationHorizontalService,
-        }
+        },
     ],
 })
 export class ExampleResponsiveNavigation implements OnInit {
@@ -43,8 +44,8 @@ export class ExampleResponsiveNavigation implements OnInit {
     public readonly faTableColumnsIcon = faTableColumns;
     public readonly sidebarOpen = signal<boolean>(false);
     public readonly toggleSidebar = model<boolean>();
-    public readonly menuList: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>(navigationDataMock);
     public readonly activatedRoute: ActivatedRoute = inject<ActivatedRoute>(ActivatedRoute);
+
     private readonly bottomSheet = inject<MatBottomSheet>(MatBottomSheet);
     private readonly breakpointObserver: BreakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
     private readonly navigationMenuService: ExampleResponsiveNavigationHorizontalService = inject<ExampleResponsiveNavigationHorizontalService>(ExampleResponsiveNavigationHorizontalService);
@@ -79,6 +80,6 @@ export class ExampleResponsiveNavigation implements OnInit {
     }
 
     public openProfile(): void {
-        this.bottomSheet.open(ExampleResponsiveNavigationProfileMenu);
+        this.bottomSheet.open(ExampleResponsiveNavigationVerticalProfileMenu);
     }
 }

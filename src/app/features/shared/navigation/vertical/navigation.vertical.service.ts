@@ -18,6 +18,7 @@ export abstract class NavigationVerticalService implements INavigationService {
     }
 
     public readonly data: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
+
     private readonly selectedMenus = signal<IMenu[]>([]);
 
     public handleData(vcr: ViewContainerRef, data: IMenuItem): void {
@@ -36,7 +37,7 @@ export abstract class NavigationVerticalService implements INavigationService {
 
         componentRef.instance
             .onExpand
-            .subscribe((data) => {
+            .subscribe((data: IMenuItem) => {
                 this.setMenu(data);
             });
 

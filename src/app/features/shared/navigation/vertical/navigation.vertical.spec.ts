@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+
 import { NavigationVertical } from "./navigation.vertical";
 
 describe("NavigationVerticalMenu", () => {

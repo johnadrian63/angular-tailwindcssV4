@@ -8,20 +8,12 @@
         ></fa-icon>
     </div>
     <nav>
-        <app-navigation-horizontal></app-navigation-horizontal>
+        <app-example-responsive-navigation-horizontal-menu></app-example-responsive-navigation-horizontal-menu>
     </nav>
 
     <div class="ml-auto flex relative z-40">
         <fa-icon (click)="openMenu()" [icon]="faBarsIcon" class="menu-toggle mr-2"></fa-icon>
         <fa-icon (click)="openProfile()" class="profile-icon mobile" [icon]="faUserIcon"></fa-icon>
-        <div [matMenuTriggerFor]="menu" class="profile-icon cursor-pointer">John</div>
+        <app-example-responsive-navigation-horizontal-profile></app-example-responsive-navigation-horizontal-profile>
     </div>
 </header>
-<mat-menu #menu="matMenu" class="mt-2">
-    <button mat-menu-item>
-        <span>Profile</span>
-    </button>
-    <button mat-menu-item>
-        <span>Logout</span>
-    </button>
-</mat-menu>

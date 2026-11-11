@@ -1,4 +1,5 @@
 <span [ngClass]="classes" class="cursor-pointer" [matMenuTriggerFor]="dropdown.menuItem()!">
     {{ menu().text }}<fa-icon class="text-xs" [icon]="expandIcon"></fa-icon>
 </span>
+
 <app-navigation-menu-dropdown-item #dropdown [menu]="menu()"></app-navigation-menu-dropdown-item>

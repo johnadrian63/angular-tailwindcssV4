@@ -18,7 +18,8 @@ import { NavigationMenuDropdownItem } from "./item/navigation.menu.dropdown.item
     ]
 })
 export class NavigationMenuDropdown {
-    public readonly menu = model.required<IMenuItem>();
     @Input() public classes: string = "";
+
+    public readonly menu = model.required<IMenuItem>();
     public readonly expandIcon = faAngleDown;
 }
