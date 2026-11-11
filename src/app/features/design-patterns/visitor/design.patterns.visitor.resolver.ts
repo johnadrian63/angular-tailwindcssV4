@@ -1,5 +1,7 @@
 import { Component, inject, input, InputSignal, OnInit, ViewContainerRef } from "@angular/core";
-import { HtmlRenderer, IHtmlElement } from "./design.patterns.visitor.model";
+
+import { IHtmlElement } from "./design.patterns.visitor.model";
+import { DesignPatternsVisitorElement } from "./design.patterns.visitor.element";
 
 @Component({
     selector: "app-design-patterns-visitor-resolver",
@@ -11,6 +13,6 @@ export class DesignPatternsVisitorResolver implements OnInit {
     private readonly vcr: ViewContainerRef = inject<ViewContainerRef>(ViewContainerRef);
 
     public ngOnInit(): void {
-        this.element()?.accept(new HtmlRenderer(this.vcr));
+        this.element()?.accept(new DesignPatternsVisitorElement(this.vcr));
     }
 }

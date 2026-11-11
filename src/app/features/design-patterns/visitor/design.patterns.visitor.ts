@@ -1,8 +1,8 @@
 import { Component, OnInit, signal } from "@angular/core";
 
-import { HtmlFactory, HtmlRenderer, IHtmlElement } from "./design.patterns.visitor.model";
+import { HtmlFactory, IHtmlElement } from "./design.patterns.visitor.model";
 import { designPattersVisitorData } from "./design.patterns.visitor.data";
-import { DesignPatternsVisitorResolver } from "./design.patterns.vistor.resolver";
+import { DesignPatternsVisitorResolver } from "./design.patterns.visitor.resolver";
 
 @Component({
     imports: [DesignPatternsVisitorResolver],
