@@ -13,7 +13,6 @@ export interface IHtmlInput extends IHtmlElement {
     value: string;
 }
 
-
 export interface IHtmlTextArea extends IHtmlElement {
     value: string;
     rows: number;
