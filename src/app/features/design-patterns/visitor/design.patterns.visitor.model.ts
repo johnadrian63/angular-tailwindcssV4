@@ -24,16 +24,20 @@ export interface IHtmlElementVisitor<T> {
     visitTextarea(data: HtmlTextarea): T;
 }
 
+function hasValue(data: unknown): data is object & { type: string } {
+    return !!data && typeof data === "object" && "type" in data && typeof data.type === "string";
+}
+
 function isHtmlButton(data: unknown): data is IHtmlButton {
-    return !!data && typeof data === "object" && "type" in data && data.type === "button";
+    return hasValue(data) && data.type === "button";
 }
 
 function isInput(data: unknown): data is IHtmlInput {
-    return !!data && typeof data === "object" && "type" in data && data.type === "input";
+    return hasValue(data) && "type" in data && data.type === "input";
 }
 
 function isTextarea(data: unknown): data is IHtmlTextArea {
-    return !!data && typeof data === "object" && "type" in data && data.type === "textarea";
+    return hasValue(data) && "type" in data && data.type === "textarea";
 }
 
 export class HtmlFactory {
