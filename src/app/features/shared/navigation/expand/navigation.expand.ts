@@ -13,6 +13,6 @@ import { NgClass } from "@angular/common";
 export class NavigationExpand {
     public readonly menu = model.required<IMenuItem>();
     public classes: string = "";
+    public expandIcon = faAngleRight;
     public readonly onExpand = output<IMenuItem>();
-    public readonly faAngleRightIcon = faAngleRight;
 }

@@ -1,4 +1,4 @@
-<mat-menu #menuItem="matMenu">
+<mat-menu #menuItem="matMenu" class="mt-3">
     @for (item of menu().children; track item.label) {
         @if (item.children?.length) {
             <button mat-menu-item [matMenuTriggerFor]="dropdown.menuItem()!">
