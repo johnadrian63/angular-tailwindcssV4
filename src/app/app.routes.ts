@@ -6,6 +6,7 @@ import { themeRoutes } from "./features/theme/theme.routes";
 import { gridRoutes } from "./features/grid/grid.routes";
 import { exampleRoutes } from "./features/example/example.routes";
 import { materialRoutes } from "./features/material/material.routes";
+import { designPatternRoutes } from "./features/design-patterns/design.patterns.routes";
 
 export const routes: Routes = [
     {
@@ -45,6 +46,12 @@ export const routes: Routes = [
                 path: "material",
                 children: [
                     ...materialRoutes
+                ]
+            },
+            {
+                path: "design-patterns",
+                children: [
+                    ...designPatternRoutes
                 ]
             },
             {

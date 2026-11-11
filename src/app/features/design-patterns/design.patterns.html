@@ -1,0 +1,16 @@
+<div class="flex gap-x-3 py-3 justify-center items-center">
+    <a
+        routerLink="visitor"
+        [relativeTo]="activatedRoute.parent"
+        routerLinkActive="underline"
+        class="font-semibold hover:underline"
+        >Visitor</a
+    >
+</div>
+
+<div class="p-4">
+    <h1>
+        <span class="font-bold mr-2">Design Patterns</span>
+    </h1>
+    <router-outlet></router-outlet>
+</div>
