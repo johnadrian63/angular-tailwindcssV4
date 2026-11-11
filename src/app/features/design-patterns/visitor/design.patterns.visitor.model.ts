@@ -2,7 +2,7 @@
 export interface IHtmlElement {
     type: string;
 
-    accept<T>(visit: IHtmlElementVisitor<T>): T;
+    accept<T>(visitor: IHtmlElementVisitor<T>): T;
 }
 
 export interface IHtmlButton extends IHtmlElement {
