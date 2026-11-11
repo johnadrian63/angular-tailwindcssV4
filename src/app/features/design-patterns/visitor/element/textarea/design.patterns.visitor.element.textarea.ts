@@ -7,4 +7,5 @@ import { Component, model } from "@angular/core";
 export class DesignPatternsVisitorElementTextarea {
     public readonly value = model.required<string>();
     public readonly rows = model.required<number>();
+    public readonly cols = model.required<number>();
 }

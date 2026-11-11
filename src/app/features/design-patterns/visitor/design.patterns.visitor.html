@@ -1,7 +1,8 @@
 <h2 class="text-center font-bold my-3">Visitor</h2>
-
 @for (element of elements(); track $index) {
-    <app-design-patterns-visitor-resolver
-        [element]="element"
-    ></app-design-patterns-visitor-resolver>
+    <div class="mb-3">
+        <app-design-patterns-visitor-resolver
+            [element]="element"
+        ></app-design-patterns-visitor-resolver>
+    </div>
 }
