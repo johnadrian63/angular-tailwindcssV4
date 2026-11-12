@@ -1,9 +1,9 @@
-import { Component, inject, viewChild } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
-import { MatMenu, MatMenuModule } from "@angular/material/menu";
+import { MatMenuModule } from "@angular/material/menu";
 
 import { IMenuItem } from "../../navigation.model";
-import { NavigationMenuResolver } from "./navigation.horizontal.cdk.resolver";
+import { NavigationHorizontalCdkResolver } from "./navigation.horizontal.cdk.resolver";
 import { NavigationHorizontalCdkService } from "./navigation.horizontal.cdk.service";
 
 @Component({
@@ -13,7 +13,7 @@ import { NavigationHorizontalCdkService } from "./navigation.horizontal.cdk.serv
     imports: [
         MatButtonModule,
         MatMenuModule,
-        NavigationMenuResolver
+        NavigationHorizontalCdkResolver
     ],
 })
 export class NavigationHorizontalCdk {

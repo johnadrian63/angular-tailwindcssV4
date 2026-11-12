@@ -1,17 +1,20 @@
 import { NgClass } from "@angular/common";
-import { Component, model } from "@angular/core";
+import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import { IMenuItem } from "../../navigation.model";
+import { NavigationDisplay } from "../navigation.display";
+import { INavigationDisplayVisitor } from "../navigation.display.model";
 
 @Component({
     selector: "app-navigation-link",
     templateUrl: "./navigation.link.html",
     imports: [RouterLink, NgClass]
 })
-export class NavigationLink {
-    public readonly menu = model.required<IMenuItem>();
-    public classes: string = "";
+export class NavigationLink extends NavigationDisplay {
     public readonly faAngleRightIcon = faAngleRight;
+
+    public override accept<T>(visitor: INavigationDisplayVisitor<T>): T {
+        return visitor.visitLink(this);
+    }
 }

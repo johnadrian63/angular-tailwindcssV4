@@ -5,9 +5,9 @@ import { NavigationHorizontalCdkService } from "./navigation.horizontal.cdk.serv
 
 @Component({
     selector: "app-navigation-horizontal-cdk-resolver",
-    template: ""
+    template: "",
 })
-export class NavigationMenuResolver implements OnInit {
+export class NavigationHorizontalCdkResolver implements OnInit {
     public readonly menu = input.required<IMenuItem>();
     public readonly navigationHorizontalCdkService: NavigationHorizontalCdkService = inject<NavigationHorizontalCdkService>(NavigationHorizontalCdkService);
 

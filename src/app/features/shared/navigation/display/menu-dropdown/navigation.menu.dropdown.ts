@@ -4,8 +4,9 @@ import { Component, Input, model } from "@angular/core";
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
-import { IMenuItem } from "../../navigation.model";
 import { NavigationMenuDropdownItem } from "./item/navigation.menu.dropdown.item";
+import { NavigationDisplay } from "../navigation.display";
+import { INavigationDisplayVisitor } from "../navigation.display.model";
 
 @Component({
     selector: "app-navigation-menu-dropdown",
@@ -17,9 +18,12 @@ import { NavigationMenuDropdownItem } from "./item/navigation.menu.dropdown.item
         FaIconComponent
     ]
 })
-export class NavigationMenuDropdown {
-    @Input() public classes: string = "";
+export class NavigationMenuDropdown extends NavigationDisplay {
+    @Input() public override classes: string = "";
 
-    public readonly menu = model.required<IMenuItem>();
     public readonly expandIcon = faAngleDown;
+
+    public override accept<T>(visitor: INavigationDisplayVisitor<T>): T {
+        return visitor.visitDropdown(this);
+    }
 }

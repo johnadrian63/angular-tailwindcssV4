@@ -1,7 +1,7 @@
 @reference "tailwindcss";
 
 .dropdown-menu {
-    @apply inline-flex flex-col min-w-44 max-w-2xs shadow;
+    @apply inline-flex flex-col min-w-44 max-w-2xs shadow-lg border border-gray-100;
 }
 
 .dropdown-menu-item {

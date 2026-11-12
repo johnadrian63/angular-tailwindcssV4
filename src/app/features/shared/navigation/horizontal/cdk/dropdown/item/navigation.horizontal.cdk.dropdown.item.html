@@ -2,22 +2,26 @@
     <div class="dropdown-menu" cdkMenu>
         @for (item of menu().children; track item.label) {
             @if (item.children?.length) {
-                <button
+                <div
                     class="dropdown-menu-item"
                     [cdkMenuTriggerFor]="dropdown.menuItem()!"
                     cdkMenuItem
                 >
-                    {{ item.text }}
-                </button>
+                    <app-navigation-horizontal-cdk-dropdown-resolver
+                        [menu]="item"
+                    ></app-navigation-horizontal-cdk-dropdown-resolver>
+                </div>
                 <app-navigation-horizontal-cdk-dropdown-item
                     #dropdown
                     [menu]="item"
                     [classes]="classes"
                 ></app-navigation-horizontal-cdk-dropdown-item>
             } @else {
-                <a class="dropdown-menu-item" cdkMenuItem>
-                    {{ item.text }}
-                </a>
+                <div class="dropdown-menu-item" cdkMenuItem>
+                    <app-navigation-horizontal-cdk-dropdown-resolver
+                        [menu]="item"
+                    ></app-navigation-horizontal-cdk-dropdown-resolver>
+                </div>
             }
         }
     </div>

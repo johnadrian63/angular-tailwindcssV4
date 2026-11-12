@@ -1,9 +1,8 @@
-import { Component, Input, model, output, viewChild } from "@angular/core";
-import { NgClass } from "@angular/common";
-import { FaIconComponent } from "@fortawesome/angular-fontawesome";
+import { Component, Input, model, viewChild } from "@angular/core";
 
 import { IMenuItem } from "../../../../navigation.model";
 import { CdkMenuTrigger, CdkMenu, CdkMenuItem } from "@angular/cdk/menu";
+import { NavigationHorizontalCdkDropdownResolver } from "../navigation.horizontal.cdk.dropdown.resolver";
 
 @Component({
     selector: "app-navigation-horizontal-cdk-dropdown-item",
@@ -12,7 +11,8 @@ import { CdkMenuTrigger, CdkMenu, CdkMenuItem } from "@angular/cdk/menu";
     imports: [
         CdkMenuTrigger,
         CdkMenu,
-        CdkMenuItem
+        CdkMenuItem,
+        NavigationHorizontalCdkDropdownResolver
     ],
 })
 export class NavigationHorizontalCdkDropdownItem {
