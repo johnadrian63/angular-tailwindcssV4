@@ -1,7 +1,7 @@
 import { Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
-import { NavigationLink } from "../link/navigation.link";
-import { NavigationExpand } from "../expand/navigation.expand";
+import { NavigationLink } from "../display/link/navigation.link";
+import { NavigationExpand } from "../display/expand/navigation.expand";
 import { IMenu, IMenuItem, INavigationService } from "../navigation.model";
 
 @Injectable()
@@ -21,15 +21,15 @@ export abstract class NavigationVerticalService implements INavigationService {
 
     private readonly selectedMenus = signal<IMenu[]>([]);
 
-    public handleData(vcr: ViewContainerRef, data: IMenuItem): void {
+    public handle(vcr: ViewContainerRef, data: IMenuItem): void {
         if (data.children?.length) {
-            this.handleExpand(vcr, data);
+            this.handleNested(vcr, data);
         } else {
-            this.handleLink(vcr, data);
+            this.handleSingle(vcr, data);
         }
     }
 
-    public handleExpand(vcr: ViewContainerRef, data: IMenuItem): void {
+    public handleNested(vcr: ViewContainerRef, data: IMenuItem): void {
         const componentRef = vcr.createComponent(NavigationExpand);
 
         componentRef.instance.menu.set(data);
@@ -44,7 +44,7 @@ export abstract class NavigationVerticalService implements INavigationService {
         componentRef.changeDetectorRef.detectChanges();
     }
 
-    public handleLink(vcr: ViewContainerRef, data: IMenuItem): void {
+    public handleSingle(vcr: ViewContainerRef, data: IMenuItem): void {
         const componentRef = vcr.createComponent(NavigationLink);
 
         componentRef.instance.menu.set(data);

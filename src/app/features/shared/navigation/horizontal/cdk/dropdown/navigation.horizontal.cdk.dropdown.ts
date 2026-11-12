@@ -4,7 +4,7 @@ import { CdkMenuTrigger } from "@angular/cdk/menu";
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
-import { IMenuItem } from "../../navigation.model";
+import { IMenuItem } from "../../../navigation.model";
 import { NavigationHorizontalCdkDropdownItem } from "./item/navigation.horizontal.cdk.dropdown.item";
 
 @Component({

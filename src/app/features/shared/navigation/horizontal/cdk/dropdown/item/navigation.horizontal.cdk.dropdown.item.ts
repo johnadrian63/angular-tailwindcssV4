@@ -2,7 +2,7 @@ import { Component, Input, model, output, viewChild } from "@angular/core";
 import { NgClass } from "@angular/common";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
-import { IMenuItem } from "../../../navigation.model";
+import { IMenuItem } from "../../../../navigation.model";
 import { CdkMenuTrigger, CdkMenu, CdkMenuItem } from "@angular/cdk/menu";
 
 @Component({

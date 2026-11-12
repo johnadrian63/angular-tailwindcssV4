@@ -14,6 +14,6 @@ export class NavigationHorizontalResolver implements OnInit {
     private readonly vcr = inject<ViewContainerRef>(ViewContainerRef);
 
     public ngOnInit(): void {
-        this.navigationMenuService.handleData(this.vcr, this.menu());
+        this.navigationMenuService.handle(this.vcr, this.menu());
     }
 }

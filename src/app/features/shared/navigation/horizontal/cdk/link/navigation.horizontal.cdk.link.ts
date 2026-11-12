@@ -1,8 +1,7 @@
 import { Component, model, output } from "@angular/core";
 import { NgClass } from "@angular/common";
-import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
-import { IMenuItem } from "../../navigation.model";
+import { IMenuItem } from "../../../navigation.model";
 
 @Component({
     selector: "app-navigation-horizontal-cdk-link",

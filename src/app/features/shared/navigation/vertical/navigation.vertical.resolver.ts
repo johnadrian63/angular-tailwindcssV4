@@ -13,6 +13,6 @@ export class NavigationVerticalResolver implements OnInit {
     private readonly verticalMenuService = inject<NavigationVerticalService>(NavigationVerticalService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.handleData(this.vcr, this.menu());
+        this.verticalMenuService.handle(this.vcr, this.menu());
     }
 }

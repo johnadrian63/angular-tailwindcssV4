@@ -3,7 +3,7 @@ import { Component, model } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import { IMenuItem } from "../navigation.model";
+import { IMenuItem } from "../../navigation.model";
 
 @Component({
     selector: "app-navigation-link",

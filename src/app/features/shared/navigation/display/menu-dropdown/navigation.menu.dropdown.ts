@@ -4,7 +4,7 @@ import { Component, Input, model } from "@angular/core";
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
-import { IMenuItem } from "../navigation.model";
+import { IMenuItem } from "../../navigation.model";
 import { NavigationMenuDropdownItem } from "./item/navigation.menu.dropdown.item";
 
 @Component({

@@ -1,7 +1,7 @@
 import { MatMenu, MatMenuModule } from "@angular/material/menu";
 import { Component, Input, model, viewChild } from "@angular/core";
 
-import { IMenuItem } from "../../navigation.model";
+import { IMenuItem } from "../../../navigation.model";
 
 @Component({
     selector: "app-navigation-menu-dropdown-item",
