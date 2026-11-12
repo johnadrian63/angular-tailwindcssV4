@@ -1,6 +1,6 @@
 import { Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
-import { NavigationLink } from "../display/link/navigation.link";
+import { NavigationDisplayLink } from "../display/link/navigation.display.link";
 import { IMenuItem, INavigationService } from "../navigation.model";
 import { NavigationMenuDropdown } from "../display/menu-dropdown/navigation.menu.dropdown";
 
@@ -17,16 +17,16 @@ export abstract class NavigationHorizontalService implements INavigationService 
         }
     }
 
-    public handleNested(vcr: ViewContainerRef, data: IMenuItem): void {
-        const componentRef = vcr.createComponent(NavigationMenuDropdown);
+    public handleSingle(vcr: ViewContainerRef, data: IMenuItem): void {
+        const componentRef = vcr.createComponent(NavigationDisplayLink);
 
         componentRef.instance.menu.set(data);
 
         componentRef.changeDetectorRef.detectChanges();
     }
 
-    public handleSingle(vcr: ViewContainerRef, data: IMenuItem): void {
-        const componentRef = vcr.createComponent(NavigationLink);
+    public handleNested(vcr: ViewContainerRef, data: IMenuItem): void {
+        const componentRef = vcr.createComponent(NavigationMenuDropdown);
 
         componentRef.instance.menu.set(data);
 

@@ -5,19 +5,13 @@ import { NgClass } from "@angular/common";
 
 import { IMenuItem } from "../../navigation.model";
 import { NavigationDisplay } from "../navigation.display";
-import { INavigationDisplayVisitor } from "../navigation.display.model";
-
 @Component({
-    selector: "app-navigation-expand",
-    templateUrl: "./navigation.expand.html",
+    selector: "app-navigation-display-expand",
+    templateUrl: "./navigation.display.expand.html",
     imports: [NgClass, FaIconComponent]
 })
-export class NavigationExpand extends NavigationDisplay {
+export class NavigationDisplayExpand extends NavigationDisplay {
     public readonly onExpand = output<IMenuItem>();
 
     public expandIcon = faAngleRight;
-
-    public override accept<T>(visitor: INavigationDisplayVisitor<T>): T {
-        return visitor.visitExpand(this);
-    }
 }

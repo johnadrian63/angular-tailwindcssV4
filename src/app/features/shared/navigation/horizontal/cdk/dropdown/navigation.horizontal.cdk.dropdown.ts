@@ -5,7 +5,6 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 import { NavigationDisplay } from "../../../display/navigation.display";
-import { INavigationHorizontalDisplayVisitor } from "../navigation.horizontal.model";
 import { NavigationHorizontalCdkDropdownItem } from "./item/navigation.horizontal.cdk.dropdown.item";
 
 @Component({
@@ -23,8 +22,4 @@ export class NavigationHorizontalCdkDropdown extends NavigationDisplay {
     public expandIcon = faAngleDown;
 
     public menuClass: string = "";
-
-    public override accept<T>(visitor: INavigationHorizontalDisplayVisitor<T>): T {
-        return visitor.visitDropdownCdk(this);
-    }
 }

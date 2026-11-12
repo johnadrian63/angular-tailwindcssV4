@@ -1,0 +1,13 @@
+<span
+    [ngClass]="classes"
+    class="cursor-pointer flex items-center"
+    [cdkMenuTriggerFor]="dropdown.menuItem()!"
+>
+    <fa-icon class="text-xs mr-1" [icon]="expandIcon"></fa-icon> {{ menu().text }}
+</span>
+
+<app-navigation-horizontal-cdk-dropdown-item
+    #dropdown
+    [menu]="menu()"
+    [menuClass]="menuClass"
+></app-navigation-horizontal-cdk-dropdown-item>

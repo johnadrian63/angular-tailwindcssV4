@@ -1,9 +1,9 @@
 import { ComponentRef, Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
 import { NavigationDisplay } from "../../display/navigation.display";
-import { NavigationLink } from "../../display/link/navigation.link";
+import { NavigationDisplayLink } from "../../display/link/navigation.display.link";
 import { IMenuItem, INavigationService } from "../../navigation.model";
-import { NavigationExpand } from "../../display/expand/navigation.expand";
+import { NavigationDisplayExpand } from "../../display/expand/navigation.display.expand";
 import { NavigationHorizontalCdkDropdown } from "./dropdown/navigation.horizontal.cdk.dropdown";
 
 @Injectable()
@@ -24,7 +24,7 @@ export abstract class NavigationHorizontalCdkService implements INavigationServi
         if (data.renderer) {
             componentRef = vcr.createComponent(data.renderer);
         } else {
-            componentRef = vcr.createComponent(NavigationLink);
+            componentRef = vcr.createComponent(NavigationDisplayLink);
         }
 
         this.renderComponent(componentRef, data);
@@ -56,7 +56,7 @@ export abstract class NavigationHorizontalCdkService implements INavigationServi
         if (data.renderer) {
             componentRef = vcr.createComponent(data.renderer);
         } else {
-            componentRef = vcr.createComponent(NavigationLink);
+            componentRef = vcr.createComponent(NavigationDisplayLink);
         }
 
         componentRef.instance.classes = "px-3 py-1 flex";
@@ -72,7 +72,7 @@ export abstract class NavigationHorizontalCdkService implements INavigationServi
         if (data.renderer) {
             componentRef = vcr.createComponent(data.renderer);
         } else {
-            componentRef = vcr.createComponent(NavigationExpand);
+            componentRef = vcr.createComponent(NavigationDisplayExpand);
         }
 
         componentRef.instance.classes = "px-3 py-1 flex";

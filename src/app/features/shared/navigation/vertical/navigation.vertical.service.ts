@@ -1,7 +1,7 @@
 import { Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
-import { NavigationLink } from "../display/link/navigation.link";
-import { NavigationExpand } from "../display/expand/navigation.expand";
+import { NavigationDisplayLink } from "../display/link/navigation.display.link";
+import { NavigationDisplayExpand } from "../display/expand/navigation.display.expand";
 import { IMenu, IMenuItem, INavigationService } from "../navigation.model";
 
 @Injectable()
@@ -30,7 +30,7 @@ export abstract class NavigationVerticalService implements INavigationService {
     }
 
     public handleNested(vcr: ViewContainerRef, data: IMenuItem): void {
-        const componentRef = vcr.createComponent(NavigationExpand);
+        const componentRef = vcr.createComponent(NavigationDisplayExpand);
 
         componentRef.instance.menu.set(data);
         componentRef.instance.classes = "p-2 hover:bg-gray-100 flex cursor-pointer";
@@ -45,7 +45,7 @@ export abstract class NavigationVerticalService implements INavigationService {
     }
 
     public handleSingle(vcr: ViewContainerRef, data: IMenuItem): void {
-        const componentRef = vcr.createComponent(NavigationLink);
+        const componentRef = vcr.createComponent(NavigationDisplayLink);
 
         componentRef.instance.menu.set(data);
         componentRef.instance.classes = "p-2 hover:bg-gray-100 flex cursor-pointer";
