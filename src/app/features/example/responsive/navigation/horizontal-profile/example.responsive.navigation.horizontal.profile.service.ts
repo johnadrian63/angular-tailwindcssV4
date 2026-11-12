@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { NavigationHorizontalService } from "../../../../shared/navigation/horizontal/navigation.horizontal.service";
+import { NavigationHorizontalCdkService } from "../../../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk.service";
 
 @Injectable()
-export class ExampleResponsiveNavigationHorizontalProfileService extends NavigationHorizontalService { }
+export class ExampleResponsiveNavigationHorizontalProfileCdkService extends NavigationHorizontalCdkService { }

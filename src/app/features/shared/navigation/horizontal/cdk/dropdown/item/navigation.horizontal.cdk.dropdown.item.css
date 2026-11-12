@@ -5,5 +5,5 @@
 }
 
 .dropdown-menu-item {
-    @apply flex items-center flex-1 flex-row bg-transparent cursor-pointer border-none outline-none select-none min-w-16 leading-9 hover:bg-gray-100;
+    @apply flex items-center flex-1 flex-row bg-transparent cursor-pointer border-none outline-none select-none min-w-16 leading-9 hover:bg-gray-200;
 }
