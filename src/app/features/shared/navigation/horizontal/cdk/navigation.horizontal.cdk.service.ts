@@ -82,7 +82,7 @@ export abstract class NavigationHorizontalCdkService implements INavigationServi
         this.renderComponent(componentRef, data);
     }
 
-    private renderComponent(componentRef: ComponentRef<NavigationDisplay>, data: IMenuItem): void {
+    protected renderComponent(componentRef: ComponentRef<NavigationDisplay>, data: IMenuItem): void {
         componentRef.instance.menu.set(data);
 
         componentRef.changeDetectorRef.detectChanges();

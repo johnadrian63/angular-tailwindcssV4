@@ -3,8 +3,8 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatMenu, MatMenuModule } from "@angular/material/menu";
 
 import { IMenuItem } from "../navigation.model";
-import { NavigationHorizontalResolver } from "./navigation.horizontal.resolver";
 import { NavigationHorizontalService } from "./navigation.horizontal.service";
+import { NavigationHorizontalResolver } from "./navigation.horizontal.resolver";
 
 @Component({
     selector: "app-navigation-horizontal",

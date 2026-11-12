@@ -1,5 +1,5 @@
 <ng-template #menuItem>
-    <div class="dropdown-menu" cdkMenu>
+    <div class="dropdown-menu" [ngClass]="menuClass" cdkMenu>
         @for (item of menu().children; track item.label) {
             @if (item.children?.length) {
                 <div

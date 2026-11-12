@@ -1,25 +1,25 @@
 import { Component, inject, OnInit } from "@angular/core";
 
 import { navigationDataMock } from "../../../../shared/navigation/navigation.data.mock";
-import { NavigationHorizontal } from "../../../../shared/navigation/horizontal/navigation.horizontal";
-import { ExampleResponsiveNavigationHorizontalMenuService } from "./example.responsive.navigation.horizontal.menu.service";
-import { NavigationHorizontalService } from "../../../../shared/navigation/horizontal/navigation.horizontal.service";
+import { NavigationHorizontalCdk } from "../../../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk";
+import { NavigationHorizontalCdkService } from "../../../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk.service";
+import { ExampleResponsiveNavigationHorizontalMenuCdkService } from "./example.responsive.navigation.horizontal.menu.cdk.service";
 
 @Component({
     selector: "app-example-responsive-navigation-horizontal-menu",
     styleUrl: "./example.responsive.navigation.horizontal.menu.css",
     templateUrl: "./example.responsive.navigation.horizontal.menu.html",
-    imports: [NavigationHorizontal],
+    imports: [NavigationHorizontalCdk],
     providers: [
-        ExampleResponsiveNavigationHorizontalMenuService,
+        ExampleResponsiveNavigationHorizontalMenuCdkService,
         {
-            provide: NavigationHorizontalService,
-            useExisting: ExampleResponsiveNavigationHorizontalMenuService,
+            provide: NavigationHorizontalCdkService,
+            useExisting: ExampleResponsiveNavigationHorizontalMenuCdkService,
         }
     ],
 })
 export class ExampleResponsiveNavigationHorizontalMenu implements OnInit {
-    private readonly verticalMenuService = inject<ExampleResponsiveNavigationHorizontalMenuService>(ExampleResponsiveNavigationHorizontalMenuService);
+    private readonly verticalMenuService = inject<ExampleResponsiveNavigationHorizontalMenuCdkService>(ExampleResponsiveNavigationHorizontalMenuCdkService);
 
     public ngOnInit(): void {
         this.verticalMenuService.data.set(navigationDataMock);

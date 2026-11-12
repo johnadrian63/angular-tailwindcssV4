@@ -20,8 +20,9 @@ import { NavigationHorizontalCdkDropdownItem } from "./item/navigation.horizonta
     ],
 })
 export class NavigationHorizontalCdkDropdown extends NavigationDisplay {
-    public readonly expandIcon = faAngleDown;
+    public expandIcon = faAngleDown;
 
+    public menuClass: string = "";
 
     public override accept<T>(visitor: INavigationHorizontalDisplayVisitor<T>): T {
         return visitor.visitDropdownCdk(this);
