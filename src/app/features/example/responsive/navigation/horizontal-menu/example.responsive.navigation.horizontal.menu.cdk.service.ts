@@ -10,7 +10,7 @@ export class ExampleResponsiveNavigationHorizontalMenuCdkService extends Navigat
     public override handleNested(vcr: ViewContainerRef, data: IMenuItem): void {
         const componentRef = vcr.createComponent(NavigationHorizontalCdkDropdown);
 
-        componentRef.instance.menuClass = "mt-3";
+        componentRef.instance.menuClass = "mt-2.5";
 
         this.renderComponent(componentRef, data);
     }
