@@ -1,18 +1,9 @@
-<!-- <ng-template #menuItem>
-    <div class="example-menu" cdkMenu>
-        <button class="example-menu-item" cdkMenuItem>Refresh</button>
-        <button class="example-menu-item" cdkMenuItem>Settings</button>
-        <button class="example-menu-item" cdkMenuItem>Help</button>
-        <button class="example-menu-item" cdkMenuItem>Sign out</button>
-    </div>
-</ng-template>
- -->
 <ng-template #menuItem>
-    <div class="example-menu" cdkMenu>
+    <div class="dropdown-menu" cdkMenu>
         @for (item of menu().children; track item.label) {
             @if (item.children?.length) {
                 <button
-                    class="example-menu-item"
+                    class="dropdown-menu-item"
                     [cdkMenuTriggerFor]="dropdown.menuItem()!"
                     cdkMenuItem
                 >
@@ -24,7 +15,7 @@
                     [classes]="classes"
                 ></app-navigation-horizontal-cdk-dropdown-item>
             } @else {
-                <a cdkMenuItem>
+                <a class="dropdown-menu-item" cdkMenuItem>
                     {{ item.text }}
                 </a>
             }
