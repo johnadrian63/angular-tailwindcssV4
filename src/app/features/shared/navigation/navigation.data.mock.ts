@@ -12,6 +12,7 @@ export const navigationDataMock: IMenuItem[] = [
                     {
                         label: "fish",
                         text: "Fish",
+                        path: "/grid"
                     },
                     {
                         label: "whale",

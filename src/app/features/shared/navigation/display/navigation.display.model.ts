@@ -10,4 +10,3 @@ export interface INavigationDisplayVisitor<T> {
     visitText(component: NavigationText): T;
     visitExpand(component: NavigationExpand): T;
 }
-
