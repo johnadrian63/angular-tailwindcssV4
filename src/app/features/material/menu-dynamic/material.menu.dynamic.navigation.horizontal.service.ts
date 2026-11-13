@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { NavigationHorizontalService } from "../../shared/navigation/horizontal/navigation.horizontal.service";
+import { NavigationHorizontalMenuService } from "../../shared/navigation/horizontal/menu/navigation.horizontal.menu.service";
 
 @Injectable()
-export class MaterialMenuDynamicNavigationHorizontalService extends NavigationHorizontalService { }
+export class MaterialMenuDynamicNavigationHorizontalService extends NavigationHorizontalMenuService { }

@@ -3,10 +3,10 @@ import { ComponentRef, Injectable } from "@angular/core";
 import { NavigationHorizontalCdkService } from "../../../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk.service";
 import { NavigationHorizontalCdkDropdown } from "../../../../shared/navigation/horizontal/cdk/dropdown/navigation.horizontal.cdk.dropdown";
 import { NavigationHorizontalCdkResolverVisitor } from "../../../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk.resolver.visitor";
-import { NavigationNested, NavigationResolver } from "../../../../shared/navigation/horizontal/cdk/resolver/navigation.horizontal.cdk.resolver.model";
+import { NavigationMenuNested, NavigationMenuResolver } from "../../../../shared/navigation/navigation.model";
 
 class HorizontalNavigationResolverMenuVisitor extends NavigationHorizontalCdkResolverVisitor {
-    public override visitNested(renderer: NavigationNested): void {
+    public override visitNested(renderer: NavigationMenuNested): void {
         let componentRef: ComponentRef<NavigationHorizontalCdkDropdown> = renderer.vcr.createComponent(NavigationHorizontalCdkDropdown, {
             injector: renderer.vcr.injector
         });
@@ -19,8 +19,7 @@ class HorizontalNavigationResolverMenuVisitor extends NavigationHorizontalCdkRes
 
 @Injectable()
 export class ExampleResponsiveNavigationHorizontalMenuCdkService extends NavigationHorizontalCdkService {
-
-    public override handle(resolver: NavigationResolver): void {
+    public override handle(resolver: NavigationMenuResolver): void {
         resolver.accept(new HorizontalNavigationResolverMenuVisitor());
     }
 }

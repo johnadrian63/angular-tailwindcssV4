@@ -1,11 +1,10 @@
-import { Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
+import { Injectable, signal, WritableSignal } from "@angular/core";
 
-import { NavigationDisplayLink } from "../display/link/navigation.display.link";
-import { NavigationDisplayExpand } from "../display/expand/navigation.display.expand";
-import { IMenu, IMenuItem, INavigationService } from "../navigation.model";
+import { IMenu, IMenuItem, NavigationMenuResolver } from "../navigation.model";
+import { NavigationVerticalResolverVisitor } from "./navigation.vertical.resolver.visitor";
 
 @Injectable()
-export abstract class NavigationVerticalService implements INavigationService {
+export abstract class NavigationVerticalService {
 
     public get menu(): IMenu {
         const selectedMenus = this.selectedMenus();
@@ -21,36 +20,8 @@ export abstract class NavigationVerticalService implements INavigationService {
 
     private readonly selectedMenus = signal<IMenu[]>([]);
 
-    public handle(vcr: ViewContainerRef, data: IMenuItem): void {
-        if (data.children?.length) {
-            this.handleNested(vcr, data);
-        } else {
-            this.handleSingle(vcr, data);
-        }
-    }
-
-    public handleNested(vcr: ViewContainerRef, data: IMenuItem): void {
-        const componentRef = vcr.createComponent(NavigationDisplayExpand);
-
-        componentRef.instance.menu.set(data);
-        componentRef.instance.classes = "p-2 hover:bg-gray-100 flex cursor-pointer";
-
-        componentRef.instance
-            .onExpand
-            .subscribe((data: IMenuItem) => {
-                this.setMenu(data);
-            });
-
-        componentRef.changeDetectorRef.detectChanges();
-    }
-
-    public handleSingle(vcr: ViewContainerRef, data: IMenuItem): void {
-        const componentRef = vcr.createComponent(NavigationDisplayLink);
-
-        componentRef.instance.menu.set(data);
-        componentRef.instance.classes = "p-2 hover:bg-gray-100 flex cursor-pointer";
-
-        componentRef.changeDetectorRef.detectChanges();
+    public handle(resolver: NavigationMenuResolver): void {
+        resolver.accept(new NavigationVerticalResolverVisitor(this));
     }
 
     public setMenu(menu: IMenuItem | undefined): void {

@@ -19,9 +19,9 @@ import { ExampleResponsiveNavigationVerticalMenuService } from "./example.respon
     ],
 })
 export class ExampleResponsiveNavigationVerticalMenu implements OnInit {
-    private readonly verticalMenuService = inject<ExampleResponsiveNavigationVerticalMenuService>(ExampleResponsiveNavigationVerticalMenuService);
+    private readonly navigationVerticalMenuService = inject<ExampleResponsiveNavigationVerticalMenuService>(ExampleResponsiveNavigationVerticalMenuService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.data.set(navigationDataMock);
+        this.navigationVerticalMenuService.data.set(navigationDataMock);
     }
 }

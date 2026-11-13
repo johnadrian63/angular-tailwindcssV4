@@ -1,8 +1,7 @@
 import { inject, Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
-import { IMenuItem } from "../../../navigation.model";
 import { NavigationHorizontalCdkService } from "../navigation.horizontal.cdk.service";
-import { NavigationResolver, NavigationNested, NavigationSingle, NavigationCustom } from "./navigation.horizontal.cdk.resolver.model";
+import { IMenuItem, NavigationMenuCustom, NavigationMenuNested, NavigationMenuResolver, NavigationMenuSingle } from "../../../navigation.model";
 
 @Injectable()
 export abstract class NavigationHorizontalCdkBaseResolverService {
@@ -11,18 +10,18 @@ export abstract class NavigationHorizontalCdkBaseResolverService {
     protected readonly navigationHorizontalCdkService: NavigationHorizontalCdkService = inject<NavigationHorizontalCdkService>(NavigationHorizontalCdkService);
 
     public handle(vcr: ViewContainerRef, item: IMenuItem): void {
-        let resolver: NavigationResolver;
+        let resolver: NavigationMenuResolver;
 
         if (item.renderer) {
-            resolver = new NavigationCustom(vcr, item);
+            resolver = new NavigationMenuCustom(vcr, item);
         } else {
 
             if (item.children?.length) {
-                resolver = new NavigationNested(vcr, item);
+                resolver = new NavigationMenuNested(vcr, item);
 
 
             } else {
-                resolver = new NavigationSingle(vcr, item);
+                resolver = new NavigationMenuSingle(vcr, item);
             }
 
         }

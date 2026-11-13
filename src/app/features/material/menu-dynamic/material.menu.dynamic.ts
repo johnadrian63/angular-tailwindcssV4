@@ -4,8 +4,8 @@ import { MatMenuModule } from "@angular/material/menu";
 
 import { IMenuItem } from "../../shared/navigation/navigation.model";
 import { navigationDataMock } from "../../shared/navigation/navigation.data.mock";
-import { NavigationHorizontal } from "../../shared/navigation/horizontal/navigation.horizontal";
-import { NavigationHorizontalService } from "../../shared/navigation/horizontal/navigation.horizontal.service";
+import { NavigationHorizontalMenu } from "../../shared/navigation/horizontal/menu/navigation.horizontal.menu";
+import { NavigationHorizontalMenuService } from "../../shared/navigation/horizontal/menu/navigation.horizontal.menu.service";
 import { MaterialMenuDynamicNavigationHorizontalService } from "./material.menu.dynamic.navigation.horizontal.service";
 
 @Component({
@@ -15,12 +15,12 @@ import { MaterialMenuDynamicNavigationHorizontalService } from "./material.menu.
     imports: [
         MatButtonModule,
         MatMenuModule,
-        NavigationHorizontal
+        NavigationHorizontalMenu
     ],
     providers: [
         MaterialMenuDynamicNavigationHorizontalService,
         {
-            provide: NavigationHorizontalService,
+            provide: NavigationHorizontalMenuService,
             useExisting: MaterialMenuDynamicNavigationHorizontalService
         }
     ],
@@ -28,9 +28,9 @@ import { MaterialMenuDynamicNavigationHorizontalService } from "./material.menu.
 export class MaterialMenuDynamic implements OnInit {
     public readonly menuList: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>(navigationDataMock);
 
-    private readonly navigationHorizontalService: MaterialMenuDynamicNavigationHorizontalService = inject<MaterialMenuDynamicNavigationHorizontalService>(MaterialMenuDynamicNavigationHorizontalService);
+    private readonly navigationHorizontalMenuService: MaterialMenuDynamicNavigationHorizontalService = inject<MaterialMenuDynamicNavigationHorizontalService>(MaterialMenuDynamicNavigationHorizontalService);
 
     public ngOnInit(): void {
-        this.navigationHorizontalService.data.set(navigationDataMock);
+        this.navigationHorizontalMenuService.data.set(navigationDataMock);
     }
 }

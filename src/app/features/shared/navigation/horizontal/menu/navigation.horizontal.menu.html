@@ -1,0 +1,7 @@
+<div class="flex w-full gap-x-1">
+    @for (menu of menus; track menu.label) {
+        <app-navigation-horizontal-menu-resolver
+            [menu]="menu"
+        ></app-navigation-horizontal-menu-resolver>
+    }
+</div>

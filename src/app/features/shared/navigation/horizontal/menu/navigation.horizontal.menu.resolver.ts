@@ -1,0 +1,31 @@
+import { Component, effect, inject, input, ViewContainerRef } from "@angular/core";
+
+import { NavigationHorizontalMenuService } from "./navigation.horizontal.menu.service";
+import { IMenuItem, NavigationMenuNested, NavigationMenuResolver, NavigationMenuSingle } from "../../navigation.model";
+
+@Component({
+    selector: "app-navigation-horizontal-menu-resolver",
+    template: ""
+})
+export class NavigationHorizontalMenuResolver {
+    public readonly menu = input.required<IMenuItem>();
+    public readonly navigationHorizontalMenuService: NavigationHorizontalMenuService = inject<NavigationHorizontalMenuService>(NavigationHorizontalMenuService);
+
+    private readonly vcr = inject<ViewContainerRef>(ViewContainerRef);
+
+    constructor() {
+        effect(() => {
+            const menu = this.menu();
+
+            let resolver: NavigationMenuResolver;
+
+            if (menu.children?.length) {
+                resolver = new NavigationMenuNested(this.vcr, menu);
+            } else {
+                resolver = new NavigationMenuSingle(this.vcr, menu);
+            }
+
+            this.navigationHorizontalMenuService.handle(resolver);
+        });
+    }
+}

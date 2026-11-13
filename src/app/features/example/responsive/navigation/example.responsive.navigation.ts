@@ -11,7 +11,7 @@ import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-s
 import { getRange } from "../../../shared/util/range.generator";
 import { navigationDataMock } from "../../../shared/navigation/navigation.data.mock";
 import { ExampleResponsiveNavigationHorizontalService } from "./example.responsive.navigation.horizontal.service";
-import { NavigationHorizontalService } from "../../../shared/navigation/horizontal/navigation.horizontal.service";
+import { NavigationHorizontalMenuService } from "../../../shared/navigation/horizontal/menu/navigation.horizontal.menu.service";
 import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example.responsive.navigation.vertical.menu";
 import { ExampleResponsiveNavigationHorizontalMenu } from "./horizontal-menu/example.responsive.navigation.horizontal.menu";
 import { ExampleResponsiveNavigationHorizontalProfile } from "./horizontal-profile/example.responsive.navigation.horizontal.profile";
@@ -33,7 +33,7 @@ import { ExampleResponsiveNavigationVerticalProfileMenu } from "./vertical-profi
     providers: [
         ExampleResponsiveNavigationHorizontalService,
         {
-            provide: NavigationHorizontalService,
+            provide: NavigationHorizontalMenuService,
             useExisting: ExampleResponsiveNavigationHorizontalService,
         },
     ],
@@ -48,7 +48,7 @@ export class ExampleResponsiveNavigation implements OnInit {
 
     private readonly bottomSheet = inject<MatBottomSheet>(MatBottomSheet);
     private readonly breakpointObserver: BreakpointObserver = inject<BreakpointObserver>(BreakpointObserver);
-    private readonly navigationMenuService: ExampleResponsiveNavigationHorizontalService = inject<ExampleResponsiveNavigationHorizontalService>(ExampleResponsiveNavigationHorizontalService);
+    private readonly navigationHorizontalMenuService: ExampleResponsiveNavigationHorizontalService = inject<ExampleResponsiveNavigationHorizontalService>(ExampleResponsiveNavigationHorizontalService);
 
     constructor() {
         this.breakpointObserver.observe([
@@ -64,7 +64,7 @@ export class ExampleResponsiveNavigation implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.navigationMenuService.data.set(navigationDataMock);
+        this.navigationHorizontalMenuService.data.set(navigationDataMock);
     }
 
     public getRange(range: number): number[] {

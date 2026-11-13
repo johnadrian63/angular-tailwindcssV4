@@ -3,16 +3,15 @@ import { ComponentRef, Injectable } from "@angular/core";
 import { NavigationHorizontalCdkService } from "../../../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk.service";
 import { ExampleResponsiveNavigationHorizontalProfileDropdown } from "./dropdown/example.responsive.navigation.horizontal.profile.dropdown";
 import { NavigationHorizontalCdkResolverVisitor } from "../../../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk.resolver.visitor";
-import { NavigationNested, NavigationResolver } from "../../../../shared/navigation/horizontal/cdk/resolver/navigation.horizontal.cdk.resolver.model";
+import { NavigationMenuNested, NavigationMenuResolver } from "../../../../shared/navigation/navigation.model";
 
 class HorizontalNavigationProfileResolverVisitor extends NavigationHorizontalCdkResolverVisitor {
-    public override visitNested(renderer: NavigationNested): void {
+    public override visitNested(renderer: NavigationMenuNested): void {
         let componentRef: ComponentRef<ExampleResponsiveNavigationHorizontalProfileDropdown> = renderer.vcr.createComponent(ExampleResponsiveNavigationHorizontalProfileDropdown, {
             injector: renderer.vcr.injector
         });
 
         componentRef.instance.menuClass = "mt-2.5";
-
         componentRef.instance.classes = "px-3 py-1 flex";
 
         componentRef.location.nativeElement.classList.add("w-full");
@@ -23,7 +22,7 @@ class HorizontalNavigationProfileResolverVisitor extends NavigationHorizontalCdk
 
 @Injectable()
 export class ExampleResponsiveNavigationHorizontalProfileCdkService extends NavigationHorizontalCdkService {
-    public override handle(resolver: NavigationResolver): void {
+    public override handle(resolver: NavigationMenuResolver): void {
         resolver.accept(new HorizontalNavigationProfileResolverVisitor());
     }
 }
