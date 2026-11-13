@@ -7,6 +7,7 @@ import { gridRoutes } from "./features/grid/grid.routes";
 import { exampleRoutes } from "./features/example/example.routes";
 import { materialRoutes } from "./features/material/material.routes";
 import { designPatternRoutes } from "./features/design-patterns/design.patterns.routes";
+import { ngRoutes } from "./features/ng/ng.routes";
 
 export const routes: Routes = [
     {
@@ -46,6 +47,12 @@ export const routes: Routes = [
                 path: "material",
                 children: [
                     ...materialRoutes
+                ]
+            },
+            {
+                path: "ng",
+                children: [
+                    ...ngRoutes
                 ]
             },
             {

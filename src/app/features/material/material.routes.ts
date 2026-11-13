@@ -30,6 +30,10 @@ export const materialRoutes: Routes = [
                 path: "bottom-sheet",
                 loadComponent: () => import("./bottom-sheet/material.bottom.sheet").then((c) => c.MaterialBottomSheet),
             },
+            {
+                path: "template-portal",
+                loadComponent: () => import("./template-portal/material.template.portal").then((c) => c.MaterialTemplatePortal),
+            },
         ]
     }
 ];

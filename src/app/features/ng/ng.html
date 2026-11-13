@@ -1,0 +1,16 @@
+<div class="flex gap-x-3 py-3 justify-center items-center">
+    <a
+        routerLink="vcr"
+        [relativeTo]="activatedRoute.parent"
+        routerLinkActive="underline"
+        class="font-semibold hover:underline"
+        >ViewContainerRef</a
+    >
+</div>
+
+<div class="p-4">
+    <h1>
+        <span class="font-bold mr-2">Angular Features</span>
+    </h1>
+    <router-outlet></router-outlet>
+</div>
