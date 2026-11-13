@@ -24,7 +24,6 @@ export class NavigationVerticalResolver {
                 resolver = new NavigationMenuSingle(this.vcr, menu);
             }
 
-            console.log(">>>", this.vcr);
             this.verticalMenuService.handle(resolver);
         });
     }

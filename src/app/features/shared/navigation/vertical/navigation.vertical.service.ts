@@ -17,6 +17,7 @@ export abstract class NavigationVerticalService {
     }
 
     public readonly data: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
+    public readonly isVisible: WritableSignal<boolean> = signal<boolean>(true);
 
     private readonly selectedMenus = signal<IMenu[]>([]);
 
@@ -25,6 +26,8 @@ export abstract class NavigationVerticalService {
     }
 
     public setMenu(menu: IMenuItem | undefined): void {
+        this.animate();
+
         this.selectedMenus.update((menus) => {
             menus.push({
                 parent: menu,
@@ -36,11 +39,21 @@ export abstract class NavigationVerticalService {
     }
 
     public back(): void {
+        this.animate();
+
         this.selectedMenus.update((menus: IMenu[]) => {
             menus.pop();
 
             return menus;
         });
+    }
+
+    public animate(): void {
+        this.isVisible.set(false);
+
+        setTimeout(() => {
+            this.isVisible.set(true);
+        }, 100);
     }
 
     public reset(): void {

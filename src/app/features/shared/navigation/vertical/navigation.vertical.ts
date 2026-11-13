@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal, WritableSignal } from "@angular/core";
+import { Component, computed, effect, inject } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
@@ -16,45 +16,35 @@ import { NavigationVerticalResolver } from "./navigation.vertical.resolver";
 export class NavigationVertical {
 
     public get currentMenu(): IMenu {
-        return this.verticalMenuService.menu;
+        return this.navigationVerticalService.menu;
     }
 
     public get menus(): IMenu[] {
-        return this.verticalMenuService.menus;
+        return this.navigationVerticalService.menus;
     }
 
     public readonly faAngleLeftIcon = faAngleLeft;
-    public readonly verticalMenuService = inject<NavigationVerticalService>(NavigationVerticalService);
+    public readonly navigationVerticalService = inject<NavigationVerticalService>(NavigationVerticalService);
     public readonly activatedRoute = inject<ActivatedRoute>(ActivatedRoute);
-    public readonly isVisible: WritableSignal<boolean> = signal<boolean>(true);
+    public readonly isVisible = computed(() => this.navigationVerticalService.isVisible());
 
     constructor() {
         effect((onCleanup) => {
-            const menuList = this.verticalMenuService.data();
+            const menuList = this.navigationVerticalService.data();
 
-            this.verticalMenuService.setMenu({
+            this.navigationVerticalService.setMenu({
                 label: "",
                 text: "",
                 children: menuList
             });
 
             onCleanup(() => {
-                this.verticalMenuService.reset();
+                this.navigationVerticalService.reset();
             });
         });
     }
 
-    private animate(): void {
-        this.isVisible.set(false);
-
-        setTimeout(() => {
-            this.isVisible.set(true);
-        }, 150);
-    }
-
     public back(): void {
-        this.animate();
-
-        this.verticalMenuService.back();
+        this.navigationVerticalService.back();
     }
 }
