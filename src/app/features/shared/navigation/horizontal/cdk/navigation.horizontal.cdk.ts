@@ -3,8 +3,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 
 import { IMenuItem } from "../../navigation.model";
-import { NavigationHorizontalCdkResolver } from "./navigation.horizontal.cdk.resolver";
 import { NavigationHorizontalCdkService } from "./navigation.horizontal.cdk.service";
+import { NavigationHorizontalCdkResolver } from "./resolver/navigation.horizontal.cdk.resolver";
+import { NavigationHorizontalCdkResolverService } from "./navigation.horizontal.cdk.resolver.service";
+import { NavigationHorizontalCdkBaseResolverService } from "./resolver/navigation.horizontal.cdk.base.resolver.service";
 
 @Component({
     selector: "app-navigation-horizontal-cdk",
@@ -13,7 +15,15 @@ import { NavigationHorizontalCdkService } from "./navigation.horizontal.cdk.serv
     imports: [
         MatButtonModule,
         MatMenuModule,
-        NavigationHorizontalCdkResolver
+        NavigationHorizontalCdkResolver,
+    ],
+    providers: [
+        NavigationHorizontalCdkResolverService,
+        {
+
+            provide: NavigationHorizontalCdkBaseResolverService,
+            useExisting: NavigationHorizontalCdkResolverService,
+        }
     ],
 })
 export class NavigationHorizontalCdk {

@@ -2,9 +2,48 @@
     <h2 class="mb-2">Dropdown Menu App</h2>
     <app-material-template-portal-cdk-menu-resolver></app-material-template-portal-cdk-menu-resolver>
 </div>
-<ng-template #menuItems>
+
+<ng-template #menuItems1>
     <div class="bg-neutral-100 border p-3" cdkMenu>
         <div class="border border-amber-500 p-2 mb-2">Dropdown Menu Here</div>
         <app-material-template-portal-cdk-menu-resolver></app-material-template-portal-cdk-menu-resolver>
     </div>
 </ng-template>
+
+<ng-template #menuItems2>
+    <div class="bg-neutral-100 border p-3" cdkMenu>
+        <ng-container
+            [ngTemplateOutlet]="menuContent"
+            [ngTemplateOutletInjector]="injector"
+        ></ng-container>
+    </div>
+</ng-template>
+
+<ng-template #menuContent>
+    <div class="border border-amber-500 p-2 mb-2">Dropdown Menu Here</div>
+    <app-material-template-portal-cdk-menu-resolver></app-material-template-portal-cdk-menu-resolver>
+</ng-template>
+
+<ng-template #menuItems3>
+    <div class="bg-neutral-100 border p-3" cdkMenu>
+        <ng-template [cdkPortalOutlet]="templatePortal"></ng-template>
+    </div>
+</ng-template>
+
+<ng-template #templatePortalContent>
+    <div class="border border-amber-500 p-2 mb-2">Dropdown Menu Here</div>
+    <app-material-template-portal-cdk-menu-resolver></app-material-template-portal-cdk-menu-resolver>
+</ng-template>
+
+<ng-template #template2>Template 2</ng-template>
+
+<ng-template #template1>
+    <ng-container
+        [ngTemplateOutlet]="template2"
+        [ngTemplateOutletInjector]="injector"
+    ></ng-container>
+</ng-template>
+
+<ng-container [ngTemplateOutlet]="template1"></ng-container>
+
+<ng-container> Hello world </ng-container>

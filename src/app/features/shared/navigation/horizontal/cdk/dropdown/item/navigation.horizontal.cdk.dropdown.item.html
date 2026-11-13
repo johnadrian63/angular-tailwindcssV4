@@ -1,3 +1,5 @@
+<ng-content />
+
 <ng-template #menuItem>
     <div class="dropdown-menu" [ngClass]="menuClass" cdkMenu>
         @for (item of menu().children; track item.label) {
@@ -7,9 +9,9 @@
                     [cdkMenuTriggerFor]="dropdown.menuItem()!"
                     cdkMenuItem
                 >
-                    <app-navigation-horizontal-cdk-dropdown-resolver
+                    <app-navigation-horizontal-cdk-resolver
                         [menu]="item"
-                    ></app-navigation-horizontal-cdk-dropdown-resolver>
+                    ></app-navigation-horizontal-cdk-resolver>
                 </div>
                 <app-navigation-horizontal-cdk-dropdown-item
                     #dropdown
@@ -18,9 +20,9 @@
                 ></app-navigation-horizontal-cdk-dropdown-item>
             } @else {
                 <div class="dropdown-menu-item" cdkMenuItem>
-                    <app-navigation-horizontal-cdk-dropdown-resolver
+                    <app-navigation-horizontal-cdk-resolver
                         [menu]="item"
-                    ></app-navigation-horizontal-cdk-dropdown-resolver>
+                    ></app-navigation-horizontal-cdk-resolver>
                 </div>
             }
         }

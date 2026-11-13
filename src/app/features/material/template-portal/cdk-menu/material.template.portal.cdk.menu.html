@@ -5,10 +5,24 @@
 </div>
 
 <button
-    [cdkMenuTriggerFor]="dropdown.menuItems()"
+    [cdkMenuTriggerFor]="dropdown.menuItems1()"
+    class="border border-gray-200 rounded-lg px-3 py-2 font-semibold text-gray-600 shadow cursor-pointer hover:bg-gray-100 mr-2"
+>
+    Dropdown 1
+</button>
+<button
+    [cdkMenuTriggerFor]="dropdown.menuItems2()"
+    class="border border-gray-200 rounded-lg px-3 py-2 font-semibold text-gray-600 shadow cursor-pointer hover:bg-gray-100 mr-2"
+>
+    Dropdown 2
+</button>
+<button
+    [cdkMenuTriggerFor]="dropdown.menuItems3()"
     class="border border-gray-200 rounded-lg px-3 py-2 font-semibold text-gray-600 shadow cursor-pointer hover:bg-gray-100"
 >
-    Click Me!
+    Show Using Template Portal
 </button>
 
-<app-material-template-portal-cdk-menu-dropdown #dropdown></app-material-template-portal-cdk-menu-dropdown>
+<app-material-template-portal-cdk-menu-dropdown
+    #dropdown
+></app-material-template-portal-cdk-menu-dropdown>

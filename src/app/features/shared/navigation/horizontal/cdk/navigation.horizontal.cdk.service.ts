@@ -1,90 +1,84 @@
-import { ComponentRef, Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
+import { ComponentRef, Injectable, signal, WritableSignal } from "@angular/core";
 
+import { IMenuItem } from "../../navigation.model";
 import { NavigationDisplay } from "../../display/navigation.display";
 import { NavigationDisplayLink } from "../../display/link/navigation.display.link";
-import { IMenuItem, INavigationService } from "../../navigation.model";
-import { NavigationDisplayExpand } from "../../display/expand/navigation.display.expand";
 import { NavigationHorizontalCdkDropdown } from "./dropdown/navigation.horizontal.cdk.dropdown";
+import {
+    INavigationResolverVisitor,
+    NavigationNested,
+    NavigationResolver,
+    NavigationSingle,
+    NavigationSubNested,
+    NavigationSubSingle
+} from "./resolver/navigation.horizontal.cdk.resolver.model";
 
-@Injectable()
-export abstract class NavigationHorizontalCdkService implements INavigationService {
-    public readonly data: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
+export class NavigationResolverVisitor implements INavigationResolverVisitor<void> {
 
-    public handle(vcr: ViewContainerRef, data: IMenuItem): void {
-        if (data.children?.length) {
-            this.handleNested(vcr, data);
-        } else {
-            this.handleSingle(vcr, data);
-        }
+    public visitNested(renderer: NavigationNested): void {
+        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(NavigationHorizontalCdkDropdown, {
+            injector: renderer.vcr.injector
+        });
+
+        this.renderComponent(componentRef, renderer.item);
     }
 
-    public handleSingle(vcr: ViewContainerRef, data: IMenuItem): void {
-        let componentRef: ComponentRef<NavigationDisplay>;
+    public visitSingle(renderer: NavigationSingle): void {
+        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(NavigationDisplayLink, {
+            injector: renderer.vcr.injector
+        });
 
-        if (data.renderer) {
-            componentRef = vcr.createComponent(data.renderer);
-        } else {
-            componentRef = vcr.createComponent(NavigationDisplayLink);
-        }
-
-        this.renderComponent(componentRef, data);
+        this.renderComponent(componentRef, renderer.item);
     }
 
-    public handleNested(vcr: ViewContainerRef, data: IMenuItem): void {
-        let componentRef: ComponentRef<NavigationDisplay>;
-
-        if (data.renderer) {
-            componentRef = vcr.createComponent(data.renderer);
-        } else {
-            componentRef = vcr.createComponent(NavigationHorizontalCdkDropdown);
-        }
-
-        this.renderComponent(componentRef, data);
-    }
-
-    public handleSub(vcr: ViewContainerRef, data: IMenuItem): void {
-        if (data.children?.length) {
-            this.handleSubNested(vcr, data);
-        } else {
-            this.handleSubSingle(vcr, data);
-        }
-    }
-
-    public handleSubSingle(vcr: ViewContainerRef, data: IMenuItem): void {
-        let componentRef: ComponentRef<NavigationDisplay>;
-
-        if (data.renderer) {
-            componentRef = vcr.createComponent(data.renderer);
-        } else {
-            componentRef = vcr.createComponent(NavigationDisplayLink);
-        }
+    public visitSubNested(renderer: NavigationSubNested): void {
+        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(NavigationHorizontalCdkDropdown, {
+            injector: renderer.vcr.injector
+        });
 
         componentRef.instance.classes = "px-3 py-1 flex";
 
         componentRef.location.nativeElement.classList.add("w-full");
 
-        this.renderComponent(componentRef, data);
+        this.renderComponent(componentRef, renderer.item);
     }
 
-    public handleSubNested(vcr: ViewContainerRef, data: IMenuItem): void {
-        let componentRef: ComponentRef<NavigationDisplay>;
-
-        if (data.renderer) {
-            componentRef = vcr.createComponent(data.renderer);
-        } else {
-            componentRef = vcr.createComponent(NavigationDisplayExpand);
-        }
+    public visitSubSingle(renderer: NavigationSubSingle): void {
+        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(NavigationDisplayLink, {
+            injector: renderer.vcr.injector
+        });
 
         componentRef.instance.classes = "px-3 py-1 flex";
 
         componentRef.location.nativeElement.classList.add("w-full");
 
-        this.renderComponent(componentRef, data);
+        this.renderComponent(componentRef, renderer.item);
     }
 
-    protected renderComponent(componentRef: ComponentRef<NavigationDisplay>, data: IMenuItem): void {
-        componentRef.instance.menu.set(data);
+    public visitCustom(renderer: NavigationSubNested): void {
+        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(renderer.item.renderer!, {
+            injector: renderer.vcr.injector
+        });
+
+        componentRef.instance.classes = "px-3 py-1 flex";
+
+        componentRef.location.nativeElement.classList.add("w-full");
+
+        this.renderComponent(componentRef, renderer.item);
+    }
+
+    protected renderComponent(componentRef: ComponentRef<NavigationDisplay>, item: IMenuItem): void {
+        componentRef.instance.menu.set(item);
 
         componentRef.changeDetectorRef.detectChanges();
+    }
+}
+
+@Injectable()
+export abstract class NavigationHorizontalCdkService {
+    public readonly data: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
+
+    public handle(resolver: NavigationResolver): void {
+        resolver.accept(new NavigationResolverVisitor());
     }
 }
