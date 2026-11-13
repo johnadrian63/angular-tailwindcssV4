@@ -1,5 +1,6 @@
 import { Component, effect, viewChild, ViewContainerRef } from "@angular/core";
-
+import { MaterialTemplatePortalExampleTemplate1 } from "./example-template1/material.template.portal.example.template1";
+import { MaterialTemplatePortalExampleTemplate2 } from "./example-template2/material.template.portal.example.template2";
 
 @Component({
     selector: "app-material-template-portal",
@@ -7,12 +8,19 @@ import { Component, effect, viewChild, ViewContainerRef } from "@angular/core";
     templateUrl: "./material.template.portal.html",
 })
 export class MaterialTemplatePortal {
-    public tmpl = viewChild("tmpl", { read: ViewContainerRef });
+    public template = viewChild("template", { read: ViewContainerRef });
 
+    public showTemplate1(): void {
+        const template = this.template();
 
-    constructor() {
-        effect(() => {
-            // this.tmpl()?.createComponent(AppTest);
-        });
+        template?.clear();
+        template?.createComponent(MaterialTemplatePortalExampleTemplate1);
+    }
+
+    public showTemplate2(): void {
+        const template = this.template();
+
+        template?.clear();
+        template?.createComponent(MaterialTemplatePortalExampleTemplate2);
     }
 }
