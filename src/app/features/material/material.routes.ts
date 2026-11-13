@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { materialTemplatePortalRoutes } from "./template-portal/material.template.portal.routes";
 
 export const materialRoutes: Routes = [
     {
@@ -33,6 +34,9 @@ export const materialRoutes: Routes = [
             {
                 path: "template-portal",
                 loadComponent: () => import("./template-portal/material.template.portal").then((c) => c.MaterialTemplatePortal),
+                children: [
+                    ...materialTemplatePortalRoutes
+                ]
             },
         ]
     }

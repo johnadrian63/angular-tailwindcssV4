@@ -1,20 +1,16 @@
-<h2 class="text-center font-bold my-3">ViewContainerRef Basic</h2>
+<hr />
+<h3 class="mt-2">
+    <span class="font-bold mr-2">ViewContainerRef</span>
+</h3>
+<div class="flex gap-x-3 py-3 justify-center items-center">
+    <a routerLink="basic" routerLinkActive="underline" class="font-semibold hover:underline"
+        >Basic</a
+    >
+    <a routerLink="advance" routerLinkActive="underline" class="font-semibold hover:underline"
+        >Advance</a
+    >
+</div>
 
-<button
-    (click)="showTemplate1()"
-    class="border border-gray-100 shadow px-3 py-2 cursor-pointer hover:bg-gray-300 rounded-lg mr-1"
->
-    Show Template 1
-</button>
-<button
-    (click)="showTemplate2()"
-    class="border border-gray-100 shadow px-3 py-2 cursor-pointer hover:bg-gray-300 rounded-lg"
->
-    Show Template 2
-</button>
-
-<h3 class="mt-2">Template will be shown here:</h3>
-
-<div class="border border-gray-300 p-2 mt-2">
-    <ng-template #template></ng-template>
+<div class="p-4">
+    <router-outlet></router-outlet>
 </div>
