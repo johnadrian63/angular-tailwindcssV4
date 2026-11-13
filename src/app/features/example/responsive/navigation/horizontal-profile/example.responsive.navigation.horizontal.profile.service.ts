@@ -13,6 +13,10 @@ class HorizontalNavigationProfileResolverVisitor extends NavigationHorizontalCdk
 
         componentRef.instance.menuClass = "mt-2.5";
 
+        componentRef.instance.classes = "px-3 py-1 flex";
+
+        componentRef.location.nativeElement.classList.add("w-full");
+
         this.renderComponent(componentRef, renderer.item);
     }
 }
