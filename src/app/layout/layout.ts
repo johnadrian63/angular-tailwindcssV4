@@ -1,5 +1,5 @@
-import { Component, inject, DOCUMENT, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject, DOCUMENT, OnInit } from "@angular/core";
+import { RouterModule } from "@angular/router";
 
 @Component({
     template: "",

@@ -1,6 +1,6 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from '@angular/router';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
+import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from "@angular/router";
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
 
 import { Layout } from "../layout";
 

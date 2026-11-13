@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
 
-import { CdkMenuItem, CdkMenuTrigger, CdkMenu } from '@angular/cdk/menu';
+import { CdkMenuItem, CdkMenuTrigger, CdkMenu } from "@angular/cdk/menu";
 
 @Component({
     selector: "app-material-cdk-menu-custom3",

@@ -1,12 +1,12 @@
-import { Component, inject, DOCUMENT, OnInit, WritableSignal, signal } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from '@angular/router';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, DOCUMENT, OnInit, WritableSignal, signal } from "@angular/core";
+import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from "@angular/router";
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
 
 @Component({
     imports: [RouterModule, RouterOutlet, ReactiveFormsModule],
-    selector: 'app-root',
-    styleUrl: './app.css',
-    templateUrl: './app.html',
+    selector: "app-root",
+    styleUrl: "./app.css",
+    templateUrl: "./app.html",
 })
 export class App implements OnInit {
     private readonly document: Document = inject<Document>(DOCUMENT);

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { NgClass } from "@angular/common";
 import { CdkMenuTrigger } from "@angular/cdk/menu";
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 import { NavigationDisplay } from "../../../display/navigation.display";

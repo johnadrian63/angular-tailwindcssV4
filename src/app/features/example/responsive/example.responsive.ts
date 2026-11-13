@@ -2,7 +2,7 @@ import { Component, ElementRef, inject, Signal, signal, viewChild } from "@angul
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { faBars, faTableColumns } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTableColumns } from "@fortawesome/free-solid-svg-icons";
 
 import { getRange } from "../../shared/util/range.generator";
 import { ExampleResponsiveNavigation } from "./navigation/example.responsive.navigation";

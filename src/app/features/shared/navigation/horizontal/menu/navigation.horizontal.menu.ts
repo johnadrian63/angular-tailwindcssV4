@@ -11,8 +11,8 @@ import { NavigationHorizontalMenuResolver } from "./navigation.horizontal.menu.r
     styleUrl: "./navigation.horizontal.menu.css",
     templateUrl: "./navigation.horizontal.menu.html",
     imports: [
-        MatButtonModule,
         MatMenuModule,
+        MatButtonModule,
         NavigationHorizontalMenuResolver
     ],
 })

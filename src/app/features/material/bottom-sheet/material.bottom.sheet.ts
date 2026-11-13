@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
-import { MatBottomSheetModule, MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatListModule } from "@angular/material/list";
+import { MatButtonModule } from "@angular/material/button";
+import { MatBottomSheetModule, MatBottomSheet } from "@angular/material/bottom-sheet";
 
 
 import { MaterialBottomSheetPanel } from "./panel/material.bottom.sheet.panel";

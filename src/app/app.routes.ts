@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
 import { buttonRoutes } from "./features/button/button.routes";
 import { flexRoutes } from "./features/flex/flex.routes";

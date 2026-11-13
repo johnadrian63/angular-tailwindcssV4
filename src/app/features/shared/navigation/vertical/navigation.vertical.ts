@@ -1,7 +1,7 @@
 import { Component, effect, inject, signal, WritableSignal } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 import { IMenu } from "../navigation.model";
 import { NavigationVerticalService } from "./navigation.vertical.service";
@@ -29,13 +29,17 @@ export class NavigationVertical {
     public readonly isVisible: WritableSignal<boolean> = signal<boolean>(true);
 
     constructor() {
-        effect(() => {
+        effect((onCleanup) => {
             const menuList = this.verticalMenuService.data();
 
             this.verticalMenuService.setMenu({
                 label: "",
                 text: "",
                 children: menuList
+            });
+
+            onCleanup(() => {
+                this.verticalMenuService.reset();
             });
         });
     }

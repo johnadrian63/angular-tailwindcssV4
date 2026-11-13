@@ -11,34 +11,10 @@ import { NavigationHorizontalCdkService } from "../../../../shared/navigation/ho
     templateUrl: "./example.responsive.navigation.horizontal.profile.html",
     imports: [NavigationHorizontalCdk],
     providers: [
-        ExampleResponsiveNavigationHorizontalProfileCdkService,
         {
             provide: NavigationHorizontalCdkService,
             useExisting: ExampleResponsiveNavigationHorizontalProfileCdkService,
         }
     ],
 })
-export class ExampleResponsiveNavigationHorizontalProfile implements OnInit {
-    private readonly navigationHorizontalCdkService = inject<ExampleResponsiveNavigationHorizontalProfileCdkService>(ExampleResponsiveNavigationHorizontalProfileCdkService);
-
-    public ngOnInit(): void {
-        const navigationData: IMenuItem[] = [
-            {
-                label: "john",
-                text: "John",
-                children: [
-                    {
-                        label: "profile",
-                        text: "Profile",
-                    },
-                    {
-                        label: "logout",
-                        text: "Logout",
-                    },
-                ]
-            },
-        ];
-
-        this.navigationHorizontalCdkService.data.set(navigationData);
-    }
-}
+export class ExampleResponsiveNavigationHorizontalProfile { }

@@ -1,8 +1,8 @@
 import { ComponentRef } from "@angular/core";
 
 import { NavigationDisplay } from "../../display/navigation.display";
-import { NavigationDisplayExpand } from "../../display/expand/navigation.display.expand"
 import { NavigationDisplayLink } from "../../display/link/navigation.display.link";
+import { NavigationDisplayExpand } from "../../display/expand/navigation.display.expand"
 import { NavigationHorizontalCdkDropdown } from "./dropdown/navigation.horizontal.cdk.dropdown";
 import { IMenuItem, INavigationMenuResolverVisitor, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle } from "../../navigation.model";
 

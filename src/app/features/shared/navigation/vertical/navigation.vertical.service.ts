@@ -42,4 +42,8 @@ export abstract class NavigationVerticalService {
             return menus;
         });
     }
+
+    public reset(): void {
+        this.selectedMenus.set([]);
+    }
 }

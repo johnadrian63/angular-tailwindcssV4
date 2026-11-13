@@ -20,7 +20,6 @@ import { NavigationHorizontalCdkBaseResolverService } from "./resolver/navigatio
     providers: [
         NavigationHorizontalCdkResolverService,
         {
-
             provide: NavigationHorizontalCdkBaseResolverService,
             useExisting: NavigationHorizontalCdkResolverService,
         }

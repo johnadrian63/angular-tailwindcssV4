@@ -1,7 +1,7 @@
 import { NgClass } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 import { NavigationDisplay } from "../navigation.display";
 

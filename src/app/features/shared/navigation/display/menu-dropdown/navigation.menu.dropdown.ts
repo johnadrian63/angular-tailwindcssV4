@@ -1,7 +1,7 @@
 import { NgClass } from "@angular/common";
 import { MatMenuModule } from "@angular/material/menu";
 import { Component, Input, model } from "@angular/core";
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 import { NavigationDisplay } from "../navigation.display";

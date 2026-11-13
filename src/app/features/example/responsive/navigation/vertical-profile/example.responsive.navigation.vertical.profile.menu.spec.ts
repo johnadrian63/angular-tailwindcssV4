@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+
 import { ExampleResponsiveNavigationVerticalProfileMenu } from "./example.responsive.navigation.vertical.profile.menu";
 
 describe("ExampleResponsiveNavigationVerticalProfileMenu", () => {
