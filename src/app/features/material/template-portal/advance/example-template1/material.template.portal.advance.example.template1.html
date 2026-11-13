@@ -1,1 +1,33 @@
-<p>An example template portal 1</p>
+<div class="m-3 p-3 border-2 border-blue-900 border-dashed">
+    <h2>Example template 1</h2>
+    <button
+        (click)="showTemplate()"
+        class="border border-gray-100 shadow px-3 py-2 cursor-pointer hover:bg-gray-300 rounded-lg mr-1"
+    >
+        View Template
+    </button>
+    <app-material-template-portal-advance-resolver></app-material-template-portal-advance-resolver>
+
+    <button
+        [cdkMenuTriggerFor]="tmpl1()"
+        class="border border-gray-100 shadow px-3 py-2 cursor-pointer hover:bg-gray-300 rounded-lg mr-1"
+    >
+        Show Menu
+    </button>
+
+    <ng-template #template1>
+        <div cdkMenu>
+            <app-material-template-portal-advance-resolver></app-material-template-portal-advance-resolver>
+        </div>
+    </ng-template>
+
+    <ng-template #template>
+        <app-material-template-portal-advance-resolver></app-material-template-portal-advance-resolver>
+    </ng-template>
+
+    <strong class="block mt-4 mb-2">Template Container:</strong>
+
+    <div class="border border-gray-300 border-dotted p-3">
+        <ng-container #container></ng-container>
+    </div>
+</div>

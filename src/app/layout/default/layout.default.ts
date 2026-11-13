@@ -35,7 +35,7 @@ export class LayoutDefault extends Layout implements OnInit {
         this.router
             .events
             .subscribe((event) => {
-                console.log("router events", event);
+                // console.log("router events", event);
                 if (event instanceof NavigationStart) {
                     this.loading.set(true);
                 }
