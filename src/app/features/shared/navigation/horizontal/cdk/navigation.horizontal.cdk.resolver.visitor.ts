@@ -1,69 +1,34 @@
-import { ComponentRef } from "@angular/core";
 
 import { IMenuItem } from "../../navigation.model";
-import { NavigationDisplay } from "../../display/navigation.display";
-import { NavigationDisplayLink } from "../../display/link/navigation.display.link";
-import { NavigationDisplayExpand } from "../../display/expand/navigation.display.expand"
-import { NavigationHorizontalCdkDropdown } from "./dropdown/navigation.horizontal.cdk.dropdown";
-import { INavigationMenuResolverVisitor, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle } from "../../navigation.menu.resolver.visitor";
+import { INavigationMenuResolverVisitor } from "../../navigation.menu.resolver.visitor";
+import { NavigationDisplayExpandHandler, NavigationDisplayLinkHandler } from "../../navigation.display.handler";
+import { NavigationHorizontalCdkDropdownDisplayHandler } from "./navigation.horizontal.cdk.display.handler";
 
+export class NavigationHorizontalCdkResolverVisitor implements INavigationMenuResolverVisitor<NavigationHorizontalCdkDropdownDisplayHandler> {
+    constructor(private readonly menu: IMenuItem) { }
 
-export class NavigationHorizontalCdkResolverVisitor implements INavigationMenuResolverVisitor<void> {
-    public visitNested(renderer: NavigationMenuNested): void {
-        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(NavigationHorizontalCdkDropdown, {
-            injector: renderer.vcr.injector
-        });
-
-        this.renderComponent(componentRef, renderer.item);
+    public visitNested(): NavigationHorizontalCdkDropdownDisplayHandler {
+        return new NavigationHorizontalCdkDropdownDisplayHandler(this.menu);
     }
 
-    public visitSingle(renderer: NavigationMenuSingle): void {
-        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(NavigationDisplayLink, {
-            injector: renderer.vcr.injector
-        });
-
-        this.renderComponent(componentRef, renderer.item);
+    public visitSingle(): NavigationHorizontalCdkDropdownDisplayHandler {
+        return new NavigationDisplayLinkHandler(this.menu);
     }
 
-    public visitSubNested(renderer: NavigationMenuSubNested): void {
-        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(NavigationDisplayExpand, {
-            injector: renderer.vcr.injector
-        });
-
-        componentRef.instance.classes = "px-3 py-1 flex";
-
-        componentRef.location.nativeElement.classList.add("w-full");
-
-        this.renderComponent(componentRef, renderer.item);
+    public visitSubNested(): NavigationHorizontalCdkDropdownDisplayHandler {
+        return new NavigationDisplayExpandHandler(this.menu);
     }
 
-    public visitSubSingle(renderer: NavigationMenuSubSingle): void {
-        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(NavigationDisplayLink, {
-            injector: renderer.vcr.injector
-        });
-
-        componentRef.instance.classes = "px-3 py-1 flex";
-
-        componentRef.location.nativeElement.classList.add("w-full");
-
-        this.renderComponent(componentRef, renderer.item);
+    public visitSubSingle(): NavigationHorizontalCdkDropdownDisplayHandler {
+        return new NavigationDisplayLinkHandler(this.menu);
     }
 
-    public visitCustom(renderer: NavigationMenuSubNested): void {
-        let componentRef: ComponentRef<NavigationDisplay> = renderer.vcr.createComponent(renderer.item.renderer!, {
-            injector: renderer.vcr.injector
-        });
+    public visitCustom(): NavigationHorizontalCdkDropdownDisplayHandler {
 
-        componentRef.instance.classes = "px-3 py-1 flex";
+        if (this.menu.handler) {
+            return new this.menu.handler(this.menu);
+        }
 
-        componentRef.location.nativeElement.classList.add("w-full");
-
-        this.renderComponent(componentRef, renderer.item);
-    }
-
-    protected renderComponent(componentRef: ComponentRef<NavigationDisplay>, item: IMenuItem): void {
-        componentRef.instance.menu.set(item);
-
-        componentRef.changeDetectorRef.detectChanges();
+        throw new Error("handler is not defined.");
     }
 }

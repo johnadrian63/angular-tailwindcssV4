@@ -19,7 +19,7 @@ import { NavigationHorizontalMenuResolver } from "./navigation.horizontal.menu.r
 export class NavigationHorizontalMenu {
 
     public get menus(): IMenuItem[] {
-        return this.navigationHorizontalMenuService.data();
+        return this.navigationHorizontalMenuService.menus();
     }
 
     public readonly navigationHorizontalMenuService: NavigationHorizontalMenuService = inject<NavigationHorizontalMenuService>(NavigationHorizontalMenuService);

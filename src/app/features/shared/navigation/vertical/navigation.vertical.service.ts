@@ -1,11 +1,11 @@
-import { Injectable, signal, WritableSignal } from "@angular/core";
+import { Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
-import { IMenu, IMenuItem } from "../navigation.model";
-import { NavigationMenuResolver } from "../navigation.menu.resolver.visitor";
-import { NavigationVerticalResolverVisitor } from "./navigation.vertical.resolver.visitor";
+import { NavigationDisplayHandler } from "../navigation.display.handler";
+import { IMenu, IMenuItem, INavigationHandlerService } from "../navigation.model";
+import { NavigationVerticalDisplayHandler } from "./navigation.vertical.display.handler";
 
 @Injectable()
-export abstract class NavigationVerticalService {
+export abstract class NavigationVerticalService implements INavigationHandlerService {
 
     public get menu(): IMenu {
         const selectedMenus = this._selectedMenus();
@@ -22,8 +22,8 @@ export abstract class NavigationVerticalService {
 
     private readonly _selectedMenus = signal<IMenu[]>([]);
 
-    public handle(resolver: NavigationMenuResolver): void {
-        resolver.accept(new NavigationVerticalResolverVisitor(this));
+    public handle(vcr: ViewContainerRef, handler: NavigationDisplayHandler): void {
+        handler.accept(new NavigationVerticalDisplayHandler(vcr));
     }
 
     public setMenu(menu: IMenuItem | undefined): void {

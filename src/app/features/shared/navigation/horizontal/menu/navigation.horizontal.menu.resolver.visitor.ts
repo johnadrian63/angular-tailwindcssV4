@@ -1,33 +1,32 @@
-import { NavigationDisplayLink } from "../../display/link/navigation.display.link";
-import { NavigationMenuDropdown } from "../../display/menu-dropdown/navigation.menu.dropdown";
-import { INavigationMenuResolverVisitor, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle, NavigationMenuCustom } from "../../navigation.menu.resolver.visitor";
+import { IMenuItem } from "../../navigation.model";
+import { INavigationMenuResolverVisitor } from "../../navigation.menu.resolver.visitor";
+import { NavigationDisplayHandler, NavigationDisplayLinkHandler, NavigationDisplayMenuDropdownHandler } from "../../navigation.display.handler";
 
-export class NavigationHorizontalResolverVisitor implements INavigationMenuResolverVisitor<void> {
-    public visitNested(renderer: NavigationMenuNested): void {
-        const componentRef = renderer.vcr.createComponent(NavigationMenuDropdown);
+export class NavigationHorizontalResolverVisitor implements INavigationMenuResolverVisitor<NavigationDisplayHandler> {
+    constructor(private readonly menu: IMenuItem) { }
 
-        componentRef.instance.menu.set(renderer.item);
-
-        componentRef.changeDetectorRef.detectChanges();
+    public visitNested(): NavigationDisplayHandler {
+        return new NavigationDisplayMenuDropdownHandler(this.menu);
     }
 
-    public visitSingle(renderer: NavigationMenuSingle): void {
-        const componentRef = renderer.vcr.createComponent(NavigationDisplayLink);
+    public visitSingle(): NavigationDisplayHandler {
+        // const componentRef = renderer.vcr.createComponent(NavigationDisplayLink);
 
-        componentRef.instance.menu.set(renderer.item);
+        // componentRef.instance.menu.set(renderer.item);
 
-        componentRef.changeDetectorRef.detectChanges();
+        // componentRef.changeDetectorRef.detectChanges();
+        return new NavigationDisplayLinkHandler(this.menu);
     }
 
-    public visitSubNested(renderer: NavigationMenuSubNested): void {
-        // do nothing
+    public visitSubNested(): NavigationDisplayHandler {
+        throw new Error("visitSubNested not implemented.");
     }
 
-    public visitSubSingle(renderer: NavigationMenuSubSingle): void {
-        // do nothing
+    public visitSubSingle(): NavigationDisplayHandler {
+        throw new Error("visitSubSingle not implemented.");
     }
 
-    public visitCustom(renderer: NavigationMenuCustom): void {
-        // do nothing
+    public visitCustom(): NavigationDisplayHandler {
+        throw new Error("visitCustom not implemented.");
     }
 }

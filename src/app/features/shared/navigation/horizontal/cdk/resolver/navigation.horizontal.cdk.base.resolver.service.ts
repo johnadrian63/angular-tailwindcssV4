@@ -3,6 +3,7 @@ import { inject, Injectable, signal, ViewContainerRef, WritableSignal } from "@a
 import { IMenuItem } from "../../../navigation.model";
 import { NavigationHorizontalCdkService } from "../navigation.horizontal.cdk.service";
 import { NavigationMenuResolver, NavigationMenuCustom, NavigationMenuNested, NavigationMenuSingle } from "../../../navigation.menu.resolver.visitor";
+import { NavigationHorizontalCdkResolverVisitor } from "../navigation.horizontal.cdk.resolver.visitor";
 
 @Injectable()
 export abstract class NavigationHorizontalCdkBaseResolverService {
@@ -13,17 +14,18 @@ export abstract class NavigationHorizontalCdkBaseResolverService {
     public handle(vcr: ViewContainerRef, item: IMenuItem): void {
         let resolver: NavigationMenuResolver;
 
-        if (item.renderer) {
-            resolver = new NavigationMenuCustom(vcr, item);
+        if (item.handler) {
+            resolver = new NavigationMenuCustom();
         } else {
-
             if (item.children?.length) {
-                resolver = new NavigationMenuNested(vcr, item);
+                resolver = new NavigationMenuNested();
             } else {
-                resolver = new NavigationMenuSingle(vcr, item);
+                resolver = new NavigationMenuSingle();
             }
-
         }
-        this.navigationHorizontalCdkService.handle(resolver);
+
+        const handler = resolver.accept(new NavigationHorizontalCdkResolverVisitor(item));
+
+        this.navigationHorizontalCdkService.handle(vcr, handler);
     }
 }

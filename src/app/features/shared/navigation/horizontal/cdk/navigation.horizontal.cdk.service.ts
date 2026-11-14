@@ -1,14 +1,15 @@
-import { Injectable, signal, WritableSignal } from "@angular/core";
+import { Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
-import { IMenuItem } from "../../navigation.model";
-import { NavigationMenuResolver } from "../../navigation.menu.resolver.visitor";
-import { NavigationHorizontalCdkResolverVisitor } from "./navigation.horizontal.cdk.resolver.visitor";
+import { IMenuItem, INavigationHandlerService } from "../../navigation.model";
+import { NavigationHorizontalCdkDisplayHandlerVisitor, NavigationHorizontalCdkDropdownDisplayHandler } from "./navigation.horizontal.cdk.display.handler";
 
 @Injectable()
-export abstract class NavigationHorizontalCdkService {
+export abstract class NavigationHorizontalCdkService implements INavigationHandlerService {
     public readonly menus: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
 
-    public handle(resolver: NavigationMenuResolver): void {
-        resolver.accept(new NavigationHorizontalCdkResolverVisitor());
+    public handle(vcr: ViewContainerRef, handler: NavigationHorizontalCdkDropdownDisplayHandler): void {
+        const visitor = new NavigationHorizontalCdkDisplayHandlerVisitor(vcr);
+
+        handler.accept(visitor);
     }
 }

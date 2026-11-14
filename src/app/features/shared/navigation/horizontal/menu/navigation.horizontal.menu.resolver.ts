@@ -3,6 +3,7 @@ import { Component, effect, inject, input, ViewContainerRef } from "@angular/cor
 import { IMenuItem } from "../../navigation.model";
 import { NavigationHorizontalMenuService } from "./navigation.horizontal.menu.service";
 import { NavigationMenuResolver, NavigationMenuNested, NavigationMenuSingle } from "../../navigation.menu.resolver.visitor";
+import { NavigationHorizontalResolverVisitor } from "./navigation.horizontal.menu.resolver.visitor";
 
 @Component({
     selector: "app-navigation-horizontal-menu-resolver",
@@ -21,12 +22,14 @@ export class NavigationHorizontalMenuResolver {
             let resolver: NavigationMenuResolver;
 
             if (menu.children?.length) {
-                resolver = new NavigationMenuNested(this.vcr, menu);
+                resolver = new NavigationMenuNested();
             } else {
-                resolver = new NavigationMenuSingle(this.vcr, menu);
+                resolver = new NavigationMenuSingle();
             }
 
-            this.navigationHorizontalMenuService.handle(resolver);
+            const handler = resolver.accept(new NavigationHorizontalResolverVisitor(menu));
+
+            this.navigationHorizontalMenuService.handle(this.vcr, handler);
         });
     }
 }

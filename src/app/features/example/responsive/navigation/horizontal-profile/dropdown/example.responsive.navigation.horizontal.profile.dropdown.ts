@@ -1,6 +1,6 @@
 import { CdkMenuTrigger } from "@angular/cdk/menu";
 import { NgClass } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,5 +21,5 @@ import { NavigationHorizontalCdkDropdownItem } from "../../../../../shared/navig
 export class ExampleResponsiveNavigationHorizontalProfileDropdown extends NavigationDisplay {
     public expandIcon = faUser;
 
-    public menuClass: string = "";
+    @Input() public menuClass: string = "";
 }

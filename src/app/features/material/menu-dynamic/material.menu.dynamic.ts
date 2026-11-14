@@ -31,6 +31,6 @@ export class MaterialMenuDynamic implements OnInit {
     private readonly navigationHorizontalMenuService: MaterialMenuDynamicNavigationHorizontalService = inject<MaterialMenuDynamicNavigationHorizontalService>(MaterialMenuDynamicNavigationHorizontalService);
 
     public ngOnInit(): void {
-        this.navigationHorizontalMenuService.data.set(navigationData);
+        this.navigationHorizontalMenuService.menus.set(navigationData);
     }
 }

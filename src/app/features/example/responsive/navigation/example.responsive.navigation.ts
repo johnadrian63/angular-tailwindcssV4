@@ -19,6 +19,8 @@ import { ExampleResponsiveNavigationHorizontalMenuCdkService } from "./horizonta
 import { ExampleResponsiveNavigationHorizontalProfileCdkService } from "./horizontal-profile/example.responsive.navigation.horizontal.profile.service";
 import { ExampleResponsiveNavigationVerticalMenuService } from "./vertical-menu/example.responsive.navigation.vertical.menu.service";
 import { ExampleResponsiveNavigationVerticalProfileMenuService } from "./vertical-profile/example.responsive.navigation.vertical.profile.menu.service";
+import { ExampleResponsiveNavigationHorizontalProfileDropdown } from "./horizontal-profile/dropdown/example.responsive.navigation.horizontal.profile.dropdown";
+import { ExampleResponsiveNavigationHorizontalProfileDisplayHandler } from "./horizontal-profile/example.responsive.navigation.horizontal.profile.display.handler";
 
 @Component({
     selector: "app-example-responsive-navigation",
@@ -77,6 +79,7 @@ export class ExampleResponsiveNavigation implements OnInit {
             {
                 label: "john",
                 text: "John",
+                handler: ExampleResponsiveNavigationHorizontalProfileDisplayHandler,
                 children: [
                     {
                         label: "profile",

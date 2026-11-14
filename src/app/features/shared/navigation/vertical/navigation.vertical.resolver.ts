@@ -3,6 +3,7 @@ import { Component, effect, inject, input, ViewContainerRef } from "@angular/cor
 import { IMenuItem } from "../navigation.model";
 import { NavigationVerticalService } from "./navigation.vertical.service";
 import { NavigationMenuResolver, NavigationMenuNested, NavigationMenuSingle } from "../navigation.menu.resolver.visitor";
+import { NavigationVerticalResolverVisitor } from "./navigation.vertical.resolver.visitor";
 
 @Component({
     selector: "app-navigation-vertical-menu-resolver",
@@ -10,6 +11,7 @@ import { NavigationMenuResolver, NavigationMenuNested, NavigationMenuSingle } fr
 })
 export class NavigationVerticalResolver {
     public readonly menu = input.required<IMenuItem>();
+
     private readonly vcr = inject<ViewContainerRef>(ViewContainerRef);
     private readonly verticalMenuService = inject<NavigationVerticalService>(NavigationVerticalService);
 
@@ -20,12 +22,16 @@ export class NavigationVerticalResolver {
             let resolver: NavigationMenuResolver;
 
             if (menu.children?.length) {
-                resolver = new NavigationMenuNested(this.vcr, menu);
+                resolver = new NavigationMenuNested();
             } else {
-                resolver = new NavigationMenuSingle(this.vcr, menu);
+                resolver = new NavigationMenuSingle();
             }
 
-            this.verticalMenuService.handle(resolver);
+            const visitor = new NavigationVerticalResolverVisitor(menu);
+
+            const handler = resolver.accept(visitor);
+
+            this.verticalMenuService.handle(this.vcr, handler);
         });
     }
 }
