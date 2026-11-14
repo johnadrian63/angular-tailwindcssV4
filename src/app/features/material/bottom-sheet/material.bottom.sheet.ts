@@ -6,7 +6,7 @@ import { MatBottomSheetModule, MatBottomSheet } from "@angular/material/bottom-s
 
 import { MaterialBottomSheetPanel } from "./panel/material.bottom.sheet.panel";
 import { MaterialBottomSheetNavigationVerticalService } from "./material.bottom.sheet.vertical.menu.service";
-import { navigationDataMock } from "../../shared/navigation/navigation.data.mock";
+import { navigationData } from "../../shared/navigation/navigation.data";
 import { NavigationVertical } from "../../shared/navigation/vertical/navigation.vertical";
 import { NavigationVerticalService } from "../../shared/navigation/vertical/navigation.vertical.service";
 
@@ -33,7 +33,7 @@ export class MaterialBottomSheet implements OnInit {
     private readonly verticalMenuService = inject<MaterialBottomSheetNavigationVerticalService>(MaterialBottomSheetNavigationVerticalService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.data.set(navigationDataMock);
+        this.verticalMenuService.data.set(navigationData);
     }
 
     public open(): void {

@@ -1,25 +1,26 @@
 import { Injectable, signal, WritableSignal } from "@angular/core";
 
-import { IMenu, IMenuItem, NavigationMenuResolver } from "../navigation.model";
+import { IMenu, IMenuItem } from "../navigation.model";
+import { NavigationMenuResolver } from "../navigation.menu.resolver.visitor";
 import { NavigationVerticalResolverVisitor } from "./navigation.vertical.resolver.visitor";
 
 @Injectable()
 export abstract class NavigationVerticalService {
 
     public get menu(): IMenu {
-        const selectedMenus = this.selectedMenus();
+        const selectedMenus = this._selectedMenus();
 
         return selectedMenus[selectedMenus.length - 1];
     }
 
-    public get menus(): IMenu[] {
-        return this.selectedMenus();
+    public get selectedMenus(): IMenu[] {
+        return this._selectedMenus();
     }
 
     public readonly data: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
     public readonly isVisible: WritableSignal<boolean> = signal<boolean>(true);
 
-    private readonly selectedMenus = signal<IMenu[]>([]);
+    private readonly _selectedMenus = signal<IMenu[]>([]);
 
     public handle(resolver: NavigationMenuResolver): void {
         resolver.accept(new NavigationVerticalResolverVisitor(this));
@@ -28,7 +29,7 @@ export abstract class NavigationVerticalService {
     public setMenu(menu: IMenuItem | undefined): void {
         this.animate();
 
-        this.selectedMenus.update((menus) => {
+        this._selectedMenus.update((menus) => {
             menus.push({
                 parent: menu,
                 children: menu?.children!
@@ -41,7 +42,7 @@ export abstract class NavigationVerticalService {
     public back(): void {
         this.animate();
 
-        this.selectedMenus.update((menus: IMenu[]) => {
+        this._selectedMenus.update((menus: IMenu[]) => {
             menus.pop();
 
             return menus;
@@ -57,6 +58,6 @@ export abstract class NavigationVerticalService {
     }
 
     public reset(): void {
-        this.selectedMenus.set([]);
+        this._selectedMenus.set([]);
     }
 }

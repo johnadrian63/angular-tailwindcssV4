@@ -1,10 +1,11 @@
 import { ComponentRef } from "@angular/core";
 
+import { IMenuItem } from "../../navigation.model";
 import { NavigationDisplay } from "../../display/navigation.display";
 import { NavigationDisplayLink } from "../../display/link/navigation.display.link";
 import { NavigationDisplayExpand } from "../../display/expand/navigation.display.expand"
 import { NavigationHorizontalCdkDropdown } from "./dropdown/navigation.horizontal.cdk.dropdown";
-import { IMenuItem, INavigationMenuResolverVisitor, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle } from "../../navigation.model";
+import { INavigationMenuResolverVisitor, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle } from "../../navigation.menu.resolver.visitor";
 
 
 export class NavigationHorizontalCdkResolverVisitor implements INavigationMenuResolverVisitor<void> {

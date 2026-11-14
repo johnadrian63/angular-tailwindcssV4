@@ -3,7 +3,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 
 import { IMenuItem } from "../../shared/navigation/navigation.model";
-import { navigationDataMock } from "../../shared/navigation/navigation.data.mock";
+import { navigationData } from "../../shared/navigation/navigation.data";
 import { NavigationHorizontalMenu } from "../../shared/navigation/horizontal/menu/navigation.horizontal.menu";
 import { NavigationHorizontalMenuService } from "../../shared/navigation/horizontal/menu/navigation.horizontal.menu.service";
 import { MaterialMenuDynamicNavigationHorizontalService } from "./material.menu.dynamic.navigation.horizontal.service";
@@ -26,11 +26,11 @@ import { MaterialMenuDynamicNavigationHorizontalService } from "./material.menu.
     ],
 })
 export class MaterialMenuDynamic implements OnInit {
-    public readonly menuList: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>(navigationDataMock);
+    public readonly menuList: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>(navigationData);
 
     private readonly navigationHorizontalMenuService: MaterialMenuDynamicNavigationHorizontalService = inject<MaterialMenuDynamicNavigationHorizontalService>(MaterialMenuDynamicNavigationHorizontalService);
 
     public ngOnInit(): void {
-        this.navigationHorizontalMenuService.data.set(navigationDataMock);
+        this.navigationHorizontalMenuService.data.set(navigationData);
     }
 }

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from "@angular/core";
 
-import { navigationDataMock } from "../../shared/navigation/navigation.data.mock";
+import { navigationData } from "../../shared/navigation/navigation.data";
 import { MaterialCdkMenuDynamicHorizontalService } from "./material.cdk.menu.dynamic.horizontal.service";
 import { NavigationHorizontalCdk } from "../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk";
 import { NavigationHorizontalCdkService } from "../../shared/navigation/horizontal/cdk/navigation.horizontal.cdk.service";
@@ -22,6 +22,6 @@ export class MaterialCdkMenuDynamic implements OnInit {
     private readonly cdkMenuDynamicHorizontalService: MaterialCdkMenuDynamicHorizontalService = inject<MaterialCdkMenuDynamicHorizontalService>(MaterialCdkMenuDynamicHorizontalService);
 
     public ngOnInit(): void {
-        this.cdkMenuDynamicHorizontalService.data.set(navigationDataMock);
+        this.cdkMenuDynamicHorizontalService.data.set(navigationData);
     }
 }

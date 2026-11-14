@@ -1,7 +1,8 @@
 import { Component, effect, inject, input, ViewContainerRef } from "@angular/core";
 
+import { IMenuItem } from "../../navigation.model";
 import { NavigationHorizontalMenuService } from "./navigation.horizontal.menu.service";
-import { IMenuItem, NavigationMenuNested, NavigationMenuResolver, NavigationMenuSingle } from "../../navigation.model";
+import { NavigationMenuResolver, NavigationMenuNested, NavigationMenuSingle } from "../../navigation.menu.resolver.visitor";
 
 @Component({
     selector: "app-navigation-horizontal-menu-resolver",

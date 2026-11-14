@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from "@angular/core";
 
-import { navigationDataMock } from "../../../shared/navigation/navigation.data.mock";
+import { navigationData } from "../../../shared/navigation/navigation.data";
 import { NavigationVertical } from "../../../shared/navigation/vertical/navigation.vertical";
 import { MaterialBottomSheetNavigationVerticalService } from "../material.bottom.sheet.vertical.menu.service";
 import { NavigationVerticalService } from "../../../shared/navigation/vertical/navigation.vertical.service";
@@ -22,6 +22,6 @@ export class MaterialBottomSheetPanel implements OnInit {
     private readonly verticalMenuService = inject<MaterialBottomSheetNavigationVerticalService>(MaterialBottomSheetNavigationVerticalService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.data.set(navigationDataMock);
+        this.verticalMenuService.data.set(navigationData);
     }
 }

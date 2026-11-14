@@ -19,8 +19,8 @@ export class NavigationVertical {
         return this.navigationVerticalService.menu;
     }
 
-    public get menus(): IMenu[] {
-        return this.navigationVerticalService.menus;
+    public get selectedMenus(): IMenu[] {
+        return this.navigationVerticalService.selectedMenus;
     }
 
     public readonly faAngleLeftIcon = faAngleLeft;

@@ -1,6 +1,7 @@
 import { Injectable, signal, WritableSignal } from "@angular/core";
 
-import { IMenuItem, NavigationMenuResolver } from "../../navigation.model";
+import { IMenuItem } from "../../navigation.model";
+import { NavigationMenuResolver } from "../../navigation.menu.resolver.visitor";
 import { NavigationHorizontalResolverVisitor } from "./navigation.horizontal.menu.resolver.visitor";
 
 @Injectable()

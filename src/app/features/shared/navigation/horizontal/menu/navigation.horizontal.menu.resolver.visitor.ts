@@ -1,6 +1,6 @@
 import { NavigationDisplayLink } from "../../display/link/navigation.display.link";
 import { NavigationMenuDropdown } from "../../display/menu-dropdown/navigation.menu.dropdown";
-import { INavigationMenuResolverVisitor, NavigationMenuCustom, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle } from "../../navigation.model";
+import { INavigationMenuResolverVisitor, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle, NavigationMenuCustom } from "../../navigation.menu.resolver.visitor";
 
 export class NavigationHorizontalResolverVisitor implements INavigationMenuResolverVisitor<void> {
     public visitNested(renderer: NavigationMenuNested): void {

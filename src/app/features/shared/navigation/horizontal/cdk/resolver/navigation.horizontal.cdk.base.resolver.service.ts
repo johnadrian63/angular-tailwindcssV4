@@ -1,7 +1,8 @@
 import { inject, Injectable, signal, ViewContainerRef, WritableSignal } from "@angular/core";
 
+import { IMenuItem } from "../../../navigation.model";
 import { NavigationHorizontalCdkService } from "../navigation.horizontal.cdk.service";
-import { IMenuItem, NavigationMenuCustom, NavigationMenuNested, NavigationMenuResolver, NavigationMenuSingle } from "../../../navigation.model";
+import { NavigationMenuResolver, NavigationMenuCustom, NavigationMenuNested, NavigationMenuSingle } from "../../../navigation.menu.resolver.visitor";
 
 @Injectable()
 export abstract class NavigationHorizontalCdkBaseResolverService {

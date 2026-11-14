@@ -1,6 +1,6 @@
 import { IMenuItem } from "./navigation.model";
 
-export const navigationDataMock: IMenuItem[] = [
+export const navigationData: IMenuItem[] = [
     {
         label: "animals",
         text: "Animals",

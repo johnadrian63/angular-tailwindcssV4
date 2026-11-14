@@ -1,8 +1,8 @@
+import { IMenuItem } from "../navigation.model";
 import { NavigationDisplayExpand } from "../display/expand/navigation.display.expand";
 import { NavigationDisplayLink } from "../display/link/navigation.display.link";
-
 import { NavigationVerticalService } from "./navigation.vertical.service";
-import { IMenuItem, INavigationMenuResolverVisitor, NavigationMenuCustom, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle } from "../navigation.model";
+import { INavigationMenuResolverVisitor, NavigationMenuNested, NavigationMenuSingle, NavigationMenuSubNested, NavigationMenuSubSingle, NavigationMenuCustom } from "../navigation.menu.resolver.visitor";
 
 export class NavigationVerticalResolverVisitor implements INavigationMenuResolverVisitor<void> {
     constructor(

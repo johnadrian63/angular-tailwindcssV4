@@ -10,7 +10,7 @@ import { MatBottomSheet, MatBottomSheetModule } from "@angular/material/bottom-s
 
 import { getRange } from "../../../shared/util/range.generator";
 import { IMenuItem } from "../../../shared/navigation/navigation.model";
-import { navigationDataMock } from "../../../shared/navigation/navigation.data.mock";
+import { navigationData } from "../../../shared/navigation/navigation.data";
 import { ExampleResponsiveNavigationVerticalMenu } from "./vertical-menu/example.responsive.navigation.vertical.menu";
 import { ExampleResponsiveNavigationHorizontalMenu } from "./horizontal-menu/example.responsive.navigation.horizontal.menu";
 import { ExampleResponsiveNavigationHorizontalProfile } from "./horizontal-profile/example.responsive.navigation.horizontal.profile";
@@ -70,10 +70,10 @@ export class ExampleResponsiveNavigation implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.navigationHorizontalMenuCdkService.data.set(navigationDataMock);
-        this.navigationVerticalMenuService.data.set(navigationDataMock);
+        this.navigationHorizontalMenuCdkService.data.set(navigationData);
+        this.navigationVerticalMenuService.data.set(navigationData);
 
-        const navigationData: IMenuItem[] = [
+        const profileNavigationData: IMenuItem[] = [
             {
                 label: "john",
                 text: "John",
@@ -90,8 +90,8 @@ export class ExampleResponsiveNavigation implements OnInit {
             },
         ];
 
-        this.navigationHorizontalProfileCdkService.data.set(navigationData);
-        this.navigationVerticalProfileMenuService.data.set(navigationData[0].children!);
+        this.navigationHorizontalProfileCdkService.data.set(profileNavigationData);
+        this.navigationVerticalProfileMenuService.initializeData(profileNavigationData);
     }
 
     public getRange(range: number): number[] {

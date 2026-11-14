@@ -1,7 +1,8 @@
 import { Injectable, ViewContainerRef } from "@angular/core";
 
+import { IMenuItem } from "../../../../navigation.model";
 import { NavigationHorizontalCdkBaseResolverService } from "../../resolver/navigation.horizontal.cdk.base.resolver.service";
-import { IMenuItem, NavigationMenuCustom, NavigationMenuResolver, NavigationMenuSubNested, NavigationMenuSubSingle } from "../../../../navigation.model";
+import { NavigationMenuResolver, NavigationMenuCustom, NavigationMenuSubNested, NavigationMenuSubSingle } from "../../../../navigation.menu.resolver.visitor";
 
 @Injectable()
 export class NavigationHorizontalCdkDropdownItemResolverService extends NavigationHorizontalCdkBaseResolverService {
