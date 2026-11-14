@@ -22,6 +22,6 @@ export class MaterialCdkMenuDynamic implements OnInit {
     private readonly cdkMenuDynamicHorizontalService: MaterialCdkMenuDynamicHorizontalService = inject<MaterialCdkMenuDynamicHorizontalService>(MaterialCdkMenuDynamicHorizontalService);
 
     public ngOnInit(): void {
-        this.cdkMenuDynamicHorizontalService.data.set(navigationData);
+        this.cdkMenuDynamicHorizontalService.menus.set(navigationData);
     }
 }

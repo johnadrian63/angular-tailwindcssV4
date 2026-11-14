@@ -29,6 +29,6 @@ export class NavigationHorizontalCdk {
     public readonly navigationMenuService: NavigationHorizontalCdkService = inject<NavigationHorizontalCdkService>(NavigationHorizontalCdkService);
 
     public get menus(): IMenuItem[] {
-        return this.navigationMenuService.data();
+        return this.navigationMenuService.menus();
     }
 }

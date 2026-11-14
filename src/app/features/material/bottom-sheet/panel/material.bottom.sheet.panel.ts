@@ -22,6 +22,6 @@ export class MaterialBottomSheetPanel implements OnInit {
     private readonly verticalMenuService = inject<MaterialBottomSheetNavigationVerticalService>(MaterialBottomSheetNavigationVerticalService);
 
     public ngOnInit(): void {
-        this.verticalMenuService.data.set(navigationData);
+        this.verticalMenuService.menus.set(navigationData);
     }
 }

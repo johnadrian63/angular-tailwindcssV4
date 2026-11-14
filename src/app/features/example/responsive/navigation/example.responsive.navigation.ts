@@ -70,8 +70,8 @@ export class ExampleResponsiveNavigation implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.navigationHorizontalMenuCdkService.data.set(navigationData);
-        this.navigationVerticalMenuService.data.set(navigationData);
+        this.navigationHorizontalMenuCdkService.menus.set(navigationData);
+        this.navigationVerticalMenuService.menus.set(navigationData);
 
         const profileNavigationData: IMenuItem[] = [
             {
@@ -90,7 +90,7 @@ export class ExampleResponsiveNavigation implements OnInit {
             },
         ];
 
-        this.navigationHorizontalProfileCdkService.data.set(profileNavigationData);
+        this.navigationHorizontalProfileCdkService.menus.set(profileNavigationData);
         this.navigationVerticalProfileMenuService.initializeData(profileNavigationData);
     }
 

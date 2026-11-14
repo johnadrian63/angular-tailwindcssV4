@@ -6,16 +6,16 @@ import { NavigationMenuResolver, NavigationMenuCustom, NavigationMenuSubNested, 
 
 @Injectable()
 export class NavigationHorizontalCdkDropdownItemResolverService extends NavigationHorizontalCdkBaseResolverService {
-    public override handle(vcr: ViewContainerRef, item: IMenuItem): void {
+    public override handle(vcr: ViewContainerRef, menu: IMenuItem): void {
         let resolver: NavigationMenuResolver;
 
-        if (item.renderer) {
-            resolver = new NavigationMenuCustom(vcr, item);
+        if (menu.renderer) {
+            resolver = new NavigationMenuCustom(vcr, menu);
         } else {
-            if (item.children?.length) {
-                resolver = new NavigationMenuSubNested(vcr, item);
+            if (menu.children?.length) {
+                resolver = new NavigationMenuSubNested(vcr, menu);
             } else {
-                resolver = new NavigationMenuSubSingle(vcr, item);
+                resolver = new NavigationMenuSubSingle(vcr, menu);
             }
         }
 

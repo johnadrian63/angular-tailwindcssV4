@@ -5,6 +5,7 @@ import { NgClass } from "@angular/common";
 
 import { IMenuItem } from "../../navigation.model";
 import { NavigationDisplay } from "../navigation.display";
+
 @Component({
     selector: "app-navigation-display-expand",
     templateUrl: "./navigation.display.expand.html",

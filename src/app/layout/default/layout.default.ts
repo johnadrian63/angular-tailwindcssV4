@@ -1,14 +1,14 @@
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
 import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
 import { NavigationEnd, NavigationStart, Router, RouterModule, RouterOutlet } from "@angular/router";
-import { FormControl, ReactiveFormsModule } from "@angular/forms";
 
 import { Layout } from "../layout";
 
 @Component({
-    imports: [RouterModule, RouterOutlet, ReactiveFormsModule],
     selector: "app-layout-default",
     styleUrl: "./layout.default.css",
     templateUrl: "./layout.default.html",
+    imports: [RouterModule, RouterOutlet, ReactiveFormsModule],
 })
 export class LayoutDefault extends Layout implements OnInit {
     public readonly themeControl = new FormControl("light");

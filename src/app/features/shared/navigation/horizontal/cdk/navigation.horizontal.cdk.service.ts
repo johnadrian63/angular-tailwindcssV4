@@ -6,7 +6,7 @@ import { NavigationHorizontalCdkResolverVisitor } from "./navigation.horizontal.
 
 @Injectable()
 export abstract class NavigationHorizontalCdkService {
-    public readonly data: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
+    public readonly menus: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
 
     public handle(resolver: NavigationMenuResolver): void {
         resolver.accept(new NavigationHorizontalCdkResolverVisitor());

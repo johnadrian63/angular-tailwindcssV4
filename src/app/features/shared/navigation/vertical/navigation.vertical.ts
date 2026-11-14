@@ -30,7 +30,7 @@ export class NavigationVertical {
 
     constructor() {
         effect((onCleanup) => {
-            const menuList = this.navigationVerticalService.data();
+            const menuList = this.navigationVerticalService.menus();
 
             this.navigationVerticalService.setMenu({
                 label: "",

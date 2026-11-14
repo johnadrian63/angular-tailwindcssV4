@@ -17,7 +17,7 @@ export abstract class NavigationVerticalService {
         return this._selectedMenus();
     }
 
-    public readonly data: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
+    public readonly menus: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
     public readonly isVisible: WritableSignal<boolean> = signal<boolean>(true);
 
     private readonly _selectedMenus = signal<IMenu[]>([]);

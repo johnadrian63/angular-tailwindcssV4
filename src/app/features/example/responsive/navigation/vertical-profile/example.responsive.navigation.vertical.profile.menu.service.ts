@@ -6,6 +6,6 @@ import { NavigationVerticalService } from "../../../../shared/navigation/vertica
 @Injectable()
 export class ExampleResponsiveNavigationVerticalProfileMenuService extends NavigationVerticalService {
     public initializeData(menus: IMenuItem[]): void {
-        this.data.set(menus[0].children!);
+        this.menus.set(menus[0].children!);
     }
 }

@@ -6,7 +6,7 @@ import { NavigationMenuResolver, NavigationMenuCustom, NavigationMenuNested, Nav
 
 @Injectable()
 export abstract class NavigationHorizontalCdkBaseResolverService {
-    public readonly data: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
+    public readonly menus: WritableSignal<IMenuItem[]> = signal<IMenuItem[]>([]);
 
     protected readonly navigationHorizontalCdkService: NavigationHorizontalCdkService = inject<NavigationHorizontalCdkService>(NavigationHorizontalCdkService);
 
@@ -19,8 +19,6 @@ export abstract class NavigationHorizontalCdkBaseResolverService {
 
             if (item.children?.length) {
                 resolver = new NavigationMenuNested(vcr, item);
-
-
             } else {
                 resolver = new NavigationMenuSingle(vcr, item);
             }
