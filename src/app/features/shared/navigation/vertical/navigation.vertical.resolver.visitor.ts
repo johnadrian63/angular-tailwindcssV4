@@ -42,6 +42,6 @@ export class NavigationVerticalResolverVisitor implements INavigationMenuResolve
     }
 
     public visitCustom(): NavigationDisplayHandler {
-        throw new Error("visitCustom method not implemented.");
+        return new this.menu.handler!(this.menu);
     }
 }

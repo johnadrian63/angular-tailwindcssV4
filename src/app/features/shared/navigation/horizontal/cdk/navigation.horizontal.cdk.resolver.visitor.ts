@@ -1,34 +1,29 @@
 
 import { IMenuItem } from "../../navigation.model";
 import { INavigationMenuResolverVisitor } from "../../navigation.menu.resolver.visitor";
-import { NavigationDisplayExpandHandler, NavigationDisplayLinkHandler } from "../../navigation.display.handler";
 import { NavigationHorizontalCdkDropdownDisplayHandler } from "./navigation.horizontal.cdk.display.handler";
+import { NavigationDisplayExpandHandler, NavigationDisplayHandler, NavigationDisplayLinkHandler } from "../../navigation.display.handler";
 
-export class NavigationHorizontalCdkResolverVisitor implements INavigationMenuResolverVisitor<NavigationHorizontalCdkDropdownDisplayHandler> {
+export class NavigationHorizontalCdkResolverVisitor implements INavigationMenuResolverVisitor<NavigationDisplayHandler> {
     constructor(private readonly menu: IMenuItem) { }
 
-    public visitNested(): NavigationHorizontalCdkDropdownDisplayHandler {
+    public visitNested(): NavigationDisplayHandler {
         return new NavigationHorizontalCdkDropdownDisplayHandler(this.menu);
     }
 
-    public visitSingle(): NavigationHorizontalCdkDropdownDisplayHandler {
+    public visitSingle(): NavigationDisplayHandler {
         return new NavigationDisplayLinkHandler(this.menu);
     }
 
-    public visitSubNested(): NavigationHorizontalCdkDropdownDisplayHandler {
+    public visitSubNested(): NavigationDisplayHandler {
         return new NavigationDisplayExpandHandler(this.menu);
     }
 
-    public visitSubSingle(): NavigationHorizontalCdkDropdownDisplayHandler {
+    public visitSubSingle(): NavigationDisplayHandler {
         return new NavigationDisplayLinkHandler(this.menu);
     }
 
-    public visitCustom(): NavigationHorizontalCdkDropdownDisplayHandler {
-
-        if (this.menu.handler) {
-            return new this.menu.handler(this.menu);
-        }
-
-        throw new Error("handler is not defined.");
+    public visitCustom(): NavigationDisplayHandler {
+        return new this.menu.handler!(this.menu);
     }
 }

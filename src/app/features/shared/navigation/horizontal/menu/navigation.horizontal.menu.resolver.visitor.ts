@@ -10,11 +10,6 @@ export class NavigationHorizontalResolverVisitor implements INavigationMenuResol
     }
 
     public visitSingle(): NavigationDisplayHandler {
-        // const componentRef = renderer.vcr.createComponent(NavigationDisplayLink);
-
-        // componentRef.instance.menu.set(renderer.item);
-
-        // componentRef.changeDetectorRef.detectChanges();
         return new NavigationDisplayLinkHandler(this.menu);
     }
 
@@ -27,6 +22,6 @@ export class NavigationHorizontalResolverVisitor implements INavigationMenuResol
     }
 
     public visitCustom(): NavigationDisplayHandler {
-        throw new Error("visitCustom not implemented.");
+        return new this.menu.handler!(this.menu);
     }
 }

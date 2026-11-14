@@ -1,6 +1,5 @@
 import { Type, ViewContainerRef } from "@angular/core";
 
-import { NavigationDisplay } from "../../display/navigation.display";
 import { NavigationHorizontalCdkDropdown } from "./dropdown/navigation.horizontal.cdk.dropdown";
 import { NavigationDisplayHandler, INavigationDisplayHandlerVisitor, NavigationDisplayButtonHandler, NavigationDisplayExpandHandler, NavigationDisplayLinkHandler, NavigationDisplayMenuDropdownHandler, NavigationDisplayTextHandler } from "../../navigation.display.handler";
 
@@ -9,7 +8,7 @@ export interface INavigationHorizontalCdkDisplayHandlerVisitor<T> extends INavig
 }
 
 export class NavigationHorizontalCdkDropdownDisplayHandler extends NavigationDisplayHandler {
-    public readonly renderer: Type<NavigationDisplay> = NavigationHorizontalCdkDropdown;
+    public readonly renderer: Type<NavigationHorizontalCdkDropdown> = NavigationHorizontalCdkDropdown;
 
     public accept<T>(visitor: INavigationHorizontalCdkDisplayHandlerVisitor<T>): T {
         return visitor.visitCdkDropdown(this);
