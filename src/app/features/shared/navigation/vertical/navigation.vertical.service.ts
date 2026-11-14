@@ -23,7 +23,7 @@ export abstract class NavigationVerticalService implements INavigationHandlerSer
     private readonly _selectedMenus = signal<IMenu[]>([]);
 
     public handle(vcr: ViewContainerRef, handler: NavigationDisplayHandler): void {
-        handler.accept(new NavigationVerticalDisplayHandler(vcr));
+        handler.accept(new NavigationVerticalDisplayHandler(vcr, this));
     }
 
     public setMenu(menu: IMenuItem | undefined): void {
